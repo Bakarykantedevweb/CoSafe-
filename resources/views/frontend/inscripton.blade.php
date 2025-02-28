@@ -21,7 +21,7 @@
                                         <a href="#" class="primary-link"><h6 class="fs-17">Campus Angels</h6></a>
                                         <p class="text-muted">Intrinsically incubate intuitive opportunities and real-time potentialities Appropriately communicate one-to-one technology.</p>
                                         <div>
-                                            <a href=""><button class="btn btn-primary">Inscris-Toi</button></a>
+                                            <a href="{{ url('campus/register') }}"><button class="btn btn-primary">Inscris-Toi</button></a>
                                         </div>
                                     </div>
                                 </div><!--end blog-grid-box-->
@@ -37,7 +37,7 @@
                                         <a href="#" class="primary-link"><h6 class="fs-17">City Angels</h6></a>
                                         <p class="text-muted">Intrinsically incubate intuitive opportunities and real-time potentialities Appropriately communicate one-to-one technology.</p>
                                         <div>
-                                            <a href=""><button class="btn btn-primary">Inscris-Toi</button></a>
+                                            <a href="{{ url('city/register') }}"><button class="btn btn-primary">Inscris-Toi</button></a>
                                         </div>
                                     </div>
                                 </div><!--end blog-grid-box-->
@@ -53,7 +53,7 @@
                                         <a href="#" class="primary-link"><h6 class="fs-17">Territory Guardians</h6></a>
                                         <p class="text-muted">Intrinsically incubate intuitive opportunities and real-time potentialities Appropriately communicate one-to-one technology.</p>
                                         <div>
-                                            <a href=""><button class="btn btn-primary">Inscris-Toi</button></a>
+                                            <a href="{{ url('territory/register') }}"><button class="btn btn-primary">Inscris-Toi</button></a>
                                         </div>
                                     </div>
                                 </div><!--end blog-grid-box-->
@@ -70,7 +70,7 @@
                                         <a href="#" class="primary-link"><h6 class="fs-17">Business Guardians</h6></a>
                                         <p class="text-muted">Intrinsically incubate intuitive opportunities and real-time potentialities Appropriately communicate one-to-one technology.</p>
                                         <div>
-                                            <a href=""><button class="btn btn-primary">Inscris-Toi</button></a>
+                                            <a href="{{ url('business/register') }}"><button class="btn btn-primary">Inscris-Toi</button></a>
                                         </div>
                                     </div>
                                 </div><!--end blog-grid-box-->

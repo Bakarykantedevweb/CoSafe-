@@ -147,7 +147,7 @@
         <!--Navbar Start-->
         <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
             <div class="container-fluid custom-container">
-                <a class="navbar-brand text-dark fw-bold me-auto" href="index.html">
+                <a class="navbar-brand text-dark fw-bold me-auto" href="/">
                     <img src="{{ asset('front/assets/images/logo-full.jpg') }}" height="22" alt=""
                         class="logo-dark" />
                     <img src="{{ asset('front/assets/images/logo-full.jpg') }}" height="22" alt=""
@@ -163,9 +163,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mx-auto navbar-center">
-                        <li class="nav-item dropdown dropdown-hover">
-                            <a class="nav-link" href="javascript:void(0)" id="homedrop" role="button"
-                                data-bs-toggle="dropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
                                 Acceuil
                             </a>
                         </li>

@@ -52,6 +52,10 @@ return [
             'driver' => 'session',
             'provider' => 'territorys',
         ],
+        'business' => [
+            'driver' => 'session',
+            'provider' => 'bussiness',
+        ],
     ],
 
     /*
@@ -89,6 +93,10 @@ return [
         'territorys' => [
             'driver' => 'eloquent',
             'model' => App\Models\Territory::class,
+        ],
+        'bussiness' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Business::class,
         ],
     ],
 

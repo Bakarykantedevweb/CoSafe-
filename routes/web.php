@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Business\Auth\LoginBusinessController;
+use App\Http\Controllers\Business\Auth\RegisterBusinessController;
+use App\Http\Controllers\Business\DashboardBusinessController;
 use App\Http\Controllers\CampusAngel\Auth\LoginCampusAngelController;
 use App\Http\Controllers\CampusAngel\Auth\RegisterCampusAngelController;
 use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
@@ -86,4 +89,18 @@ Route::prefix('territory')->middleware(['territory.guest'])->group(function () {
 Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
     Route::get('dashboard', [DashboardTerritoryController::class, 'index']);
     Route::post('logout', [LoginTerritoryController::class, 'logout']);
+});
+
+// Les Routes de l'authentification pour Business Guardians 
+Route::prefix('business')->middleware(['business.guest'])->group(function () {
+    Route::get('register', [RegisterBusinessController::class, 'showFormRegister']);
+    Route::post('register', [RegisterBusinessController::class, 'register']);
+
+    Route::get('login', [LoginBusinessController::class, 'showFormLogin']);
+    Route::post('login', [LoginBusinessController::class, 'login']);
+});
+
+Route::prefix('business')->middleware(['business.auth'])->group(function () {
+    Route::get('dashboard', [DashboardBusinessController::class, 'index']);
+    Route::post('logout', [LoginBusinessController::class, 'logout']);
 });
