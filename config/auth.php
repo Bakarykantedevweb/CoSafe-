@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'city_angels',
         ],
+        'territory' => [
+            'driver' => 'session',
+            'provider' => 'territorys',
+        ],
     ],
 
     /*
@@ -81,6 +85,10 @@ return [
         'city_angels' => [
             'driver' => 'eloquent',
             'model' => App\Models\CityAngel::class,
+        ],
+        'territorys' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Territory::class,
         ],
     ],
 

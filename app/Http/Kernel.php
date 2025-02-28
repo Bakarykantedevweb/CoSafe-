@@ -67,5 +67,7 @@ class Kernel extends HttpKernel
         'campus.guest' => \App\Http\Middleware\RedirectIfCampusAngels::class,   
         'city.auth' => \App\Http\Middleware\RedirectIfNotCityAngles::class,
         'city.guest' => \App\Http\Middleware\RedirectIfCityAngels::class,
+        'territory.auth' => \App\Http\Middleware\RedirectIfNotTerritory::class,
+        'territory.guest' => \App\Http\Middleware\RedirectIfTerritory::class,
     ];
 }

@@ -9,6 +9,9 @@ use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
 use App\Http\Controllers\City\Auth\LoginCityController;
 use App\Http\Controllers\City\Auth\RegisterCityController;
 use App\Http\Controllers\City\DashboardCityController;
+use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
+use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
+use App\Http\Controllers\Territory\DashboardTerritoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,4 +67,19 @@ Route::prefix('city')->middleware(['city.guest'])->group(function () {
 Route::prefix('city')->middleware(['city.auth'])->group(function () {
     Route::get('dashboard', [DashboardCityController::class, 'index']);
     Route::post('logout', [LoginCityController::class, 'logout']);
+});
+
+
+// Les Routes de l'authentification pour Territory Guardians 
+Route::prefix('territory')->middleware(['territory.guest'])->group(function () {
+    Route::get('register', [RegisterTerritoryController::class, 'showFormRegister']);
+    Route::post('register', [RegisterTerritoryController::class, 'register']);
+
+    Route::get('login', [LoginTerritoryController::class, 'showFormLogin']);
+    Route::post('login', [LoginTerritoryController::class, 'login']);
+});
+
+Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
+    Route::get('dashboard', [DashboardTerritoryController::class, 'index']);
+    Route::post('logout', [LoginTerritoryController::class, 'logout']);
 });
