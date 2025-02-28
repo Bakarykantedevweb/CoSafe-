@@ -71,5 +71,7 @@ class Kernel extends HttpKernel
         'territory.guest' => \App\Http\Middleware\RedirectIfTerritory::class,
         'business.auth' => \App\Http\Middleware\RedirectIfNotBusiness::class,
         'business.guest' => \App\Http\Middleware\RedirectIfBusiness::class,
+        'social.auth' => \App\Http\Middleware\RedirectIfNotSocial::class,
+        'social.guest' => \App\Http\Middleware\RedirectIfSocial::class,
     ];
 }

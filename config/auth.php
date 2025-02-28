@@ -56,6 +56,10 @@ return [
             'driver' => 'session',
             'provider' => 'bussiness',
         ],
+        'social' => [
+            'driver' => 'session',
+            'provider' => 'social_sponsors',
+        ],
     ],
 
     /*
@@ -97,6 +101,10 @@ return [
         'bussiness' => [
             'driver' => 'eloquent',
             'model' => App\Models\Business::class,
+        ],
+        'social_sponsors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Social::class,
         ],
     ],
 

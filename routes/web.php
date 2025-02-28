@@ -12,6 +12,9 @@ use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
 use App\Http\Controllers\City\Auth\LoginCityController;
 use App\Http\Controllers\City\Auth\RegisterCityController;
 use App\Http\Controllers\City\DashboardCityController;
+use App\Http\Controllers\Social\Auth\LoginSocialController;
+use App\Http\Controllers\Social\Auth\RegisterSocialController;
+use App\Http\Controllers\Social\DashboardSocialController;
 use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
@@ -103,4 +106,18 @@ Route::prefix('business')->middleware(['business.guest'])->group(function () {
 Route::prefix('business')->middleware(['business.auth'])->group(function () {
     Route::get('dashboard', [DashboardBusinessController::class, 'index']);
     Route::post('logout', [LoginBusinessController::class, 'logout']);
+});
+
+// Les Routes de l'authentification pour Social Sponsors  
+Route::prefix('social')->middleware(['social.guest'])->group(function () {
+    Route::get('register', [RegisterSocialController::class, 'showFormRegister']);
+    Route::post('register', [RegisterSocialController::class, 'register']);
+
+    Route::get('login', [LoginSocialController::class, 'showFormLogin']);
+    Route::post('login', [LoginSocialController::class, 'login']);
+});
+
+Route::prefix('social')->middleware(['social.auth'])->group(function () {
+    Route::get('dashboard', [DashboardSocialController::class, 'index']);
+    Route::post('logout', [LoginSocialController::class, 'logout']);
 });
