@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'campus' => [
+            'driver' => 'session',
+            'provider' => 'campus_angels',
+        ],
     ],
 
     /*
@@ -65,10 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'campus_angels' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\CampusAngel::class,
+        ],
     ],
 
     /*
