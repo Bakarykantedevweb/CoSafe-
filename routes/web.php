@@ -28,6 +28,10 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+Route::get('/inscriptions', function () {
+    return view('frontend.inscripton');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

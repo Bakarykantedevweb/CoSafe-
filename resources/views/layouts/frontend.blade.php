@@ -170,24 +170,27 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Offres</a>
+                            <a href="#" class="nav-link">Campus Angels</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Blog</a>
+                            <a href="#" class="nav-link">City Angels</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
+                            <a href="#" class="nav-link">Territory Guardians</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Business Guardians</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Social Sponsors</a>
                         </li>
                         <li class="nav-item dropdown dropdown-hover">
                             <a class="nav-link" href="javascript:void(0)" id="jobsdropdown" role="button" data-bs-toggle="dropdown">
                                 Creer un compte <div class="arrow-down"></div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="jobsdropdown">
-                                <li><a class="dropdown-item" href="{{ url('campus/register') }}">Campus Angels</a></li>
-                                <li><a class="dropdown-item" href="{{ url('city/register') }}">City Angels</a></li>
-                                <li><a class="dropdown-item" href="{{ url('territory/register') }}">Territory Guardians </a></li>
-                                <li><a class="dropdown-item" href="">Business Guardians  </a></li>
-                                <li><a class="dropdown-item" href="">Social Sponsors  </a></li>
+                                <li><a class="dropdown-item" href="{{ url('inscriptions') }}">Inscriptions</a></li>
+                                <li><a class="dropdown-item" href="#">Connexion</a></li>
                             </ul>
                         </li>
                     </ul><!--end navbar-nav-->
