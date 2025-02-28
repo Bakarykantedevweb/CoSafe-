@@ -170,10 +170,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Campus Angels</a>
+                            <a href="#" class="nav-link">Campus</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">City Angels</a>
+                            <a href="#" class="nav-link">City</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Territory Guardians</a>
