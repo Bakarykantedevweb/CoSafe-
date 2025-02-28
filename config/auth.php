@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'campus_angels',
         ],
+        'city' => [
+            'driver' => 'session',
+            'provider' => 'city_angels',
+        ],
     ],
 
     /*
@@ -72,6 +76,11 @@ return [
         'campus_angels' => [
             'driver' => 'eloquent',
             'model' => App\Models\CampusAngel::class,
+        ],
+
+        'city_angels' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\CityAngel::class,
         ],
     ],
 

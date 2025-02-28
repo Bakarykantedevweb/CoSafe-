@@ -64,6 +64,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'campus.auth' => \App\Http\Middleware\RedirectIfNotCampusAngles::class,
-        'campus.guest' => \App\Http\Middleware\RedirectIfCampusAngels::class,
+        'campus.guest' => \App\Http\Middleware\RedirectIfCampusAngels::class,   
+        'city.auth' => \App\Http\Middleware\RedirectIfNotCityAngles::class,
+        'city.guest' => \App\Http\Middleware\RedirectIfCityAngels::class,
     ];
 }

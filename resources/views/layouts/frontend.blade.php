@@ -184,7 +184,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="jobsdropdown">
                                 <li><a class="dropdown-item" href="{{ url('campus/register') }}">Campus Angels</a></li>
-                                <li><a class="dropdown-item" href="">City Angels</a></li>
+                                <li><a class="dropdown-item" href="{{ url('city/register') }}">City Angels</a></li>
                                 <li><a class="dropdown-item" href="">Territory Guardians </a></li>
                                 <li><a class="dropdown-item" href="">Business Guardians  </a></li>
                                 <li><a class="dropdown-item" href="">Social Sponsors  </a></li>

@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\CampusAngel\Auth;
+namespace App\Http\Controllers\City\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class LoginCampusAngelController extends Controller
+class LoginCityController extends Controller
 {
     public function showFormLogin()
     {
-        return view('campus.auth.login');
+        return view('city.auth.login');
     }
 
     public function login(Request $request)
@@ -20,18 +20,18 @@ class LoginCampusAngelController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::guard('campus')->attempt($credentials)) {
+        if (Auth::guard('city')->attempt($credentials)) {
             toastr()->success("Bienvenue sur la Plateforme COSAFE");
-            return redirect('/campus/dashboard');
+            return redirect('/city/dashboard');
         }
         toastr()->error("Email ou mot de passe incorrect");
-        return redirect('/campus/login');
+        return redirect('/city/login');
     }
 
     public function logout()
     {
-        Auth::guard('campus')->logout();
+        Auth::guard('city')->logout();
         toastr()->success("Merci pour votre Visite");
-        return redirect('/campus/login');
+        return redirect('/city/login');
     }
 }
