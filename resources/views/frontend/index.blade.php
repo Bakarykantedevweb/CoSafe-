@@ -7,9 +7,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center text-white mb-5">
-                        <h1 class="display-5 fw-semibold mb-3">Bourse d'échanges 100% gratuit <span
-                                class="text-warning fw-bold">Financez vos</span>
-                                besoins avec vos surplus.</h1>
+                        <h1 class="display-5 fw-semibold mb-3">Plateforme Collaborative de Sécurité & d’Inclusivité Territoriale <span
+                                class="text-warning fw-bold">& d’Inclusivité Territoriale</span>
+                                </h1>
                         <p class="fs-17">Valorisez, ça vaut de l'or !.
                         </p>
                     </div>
@@ -342,7 +342,7 @@
                                 </div><!--end blog-grid-box-->
                             </div><!--end col-->
                         </div><!--end row-->
-                        
+
                         <div class="row">
                             <div class="col-lg-12 mt-5">
                                 <nav aria-label="Page navigation example">
