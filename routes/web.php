@@ -18,7 +18,7 @@ use App\Http\Controllers\Social\DashboardSocialController;
 use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
-
+use App\Http\Controllers\Auth\GoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,12 @@ use App\Http\Controllers\Territory\DashboardTerritoryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
+Route::get('login/google', [GoogleController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -80,7 +86,7 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
 });
 
 
-// Les Routes de l'authentification pour Territory Guardians 
+// Les Routes de l'authentification pour Territory Guardians
 Route::prefix('territory')->middleware(['territory.guest'])->group(function () {
     Route::get('register', [RegisterTerritoryController::class, 'showFormRegister']);
     Route::post('register', [RegisterTerritoryController::class, 'register']);
@@ -94,7 +100,7 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
     Route::post('logout', [LoginTerritoryController::class, 'logout']);
 });
 
-// Les Routes de l'authentification pour Business Guardians 
+// Les Routes de l'authentification pour Business Guardians
 Route::prefix('business')->middleware(['business.guest'])->group(function () {
     Route::get('register', [RegisterBusinessController::class, 'showFormRegister']);
     Route::post('register', [RegisterBusinessController::class, 'register']);
@@ -108,7 +114,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
     Route::post('logout', [LoginBusinessController::class, 'logout']);
 });
 
-// Les Routes de l'authentification pour Social Sponsors  
+// Les Routes de l'authentification pour Social Sponsors
 Route::prefix('social')->middleware(['social.guest'])->group(function () {
     Route::get('register', [RegisterSocialController::class, 'showFormRegister']);
     Route::post('register', [RegisterSocialController::class, 'register']);
