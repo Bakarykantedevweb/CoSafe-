@@ -19,6 +19,8 @@ use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\ReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -126,4 +128,12 @@ Route::prefix('social')->middleware(['social.guest'])->group(function () {
 Route::prefix('social')->middleware(['social.auth'])->group(function () {
     Route::get('dashboard', [DashboardSocialController::class, 'index']);
     Route::post('logout', [LoginSocialController::class, 'logout']);
+});
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');
+    Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 });
