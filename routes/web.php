@@ -142,3 +142,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/challenges', [ChallengeController::class, 'index']);
 Route::get('/challenges/{id}', [ChallengeController::class, 'show']);
 Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->middleware('auth');
+
+
+Route::middleware(['auth', '2fa'])->group(function () {
+    Route::get('/challenges', [ChallengeController::class, 'index']);
+});

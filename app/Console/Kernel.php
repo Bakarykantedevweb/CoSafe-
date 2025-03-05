@@ -7,6 +7,10 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+
+    protected $routeMiddleware = [
+        '2fa' => \App\Http\Middleware\Ensure2FA::class,
+    ];
     /**
      * Define the application's command schedule.
      */
