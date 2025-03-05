@@ -20,6 +20,7 @@ use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ChallengeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -137,3 +138,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');
     Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 });
+
+Route::get('/challenges', [ChallengeController::class, 'index']);
+Route::get('/challenges/{id}', [ChallengeController::class, 'show']);
+Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->middleware('auth');
