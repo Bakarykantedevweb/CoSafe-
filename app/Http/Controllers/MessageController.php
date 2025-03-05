@@ -26,7 +26,7 @@ class MessageController extends Controller
             'message' => $request->message,
         ]);
         $receiver = User::find($request->receiver_id);
-        $receiver->notify(new NewMessageNotification($message));
+       $receiver->notify(new NewMessageNotification($request->message));
 
         return back()->with('success', 'Message envoyé avec succès !');
     }
