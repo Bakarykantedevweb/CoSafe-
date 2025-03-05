@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+
+@section('content')
+
 <!-- campaigns/index.blade.php -->
 @foreach ($campaigns as $campaign)
     <div>
