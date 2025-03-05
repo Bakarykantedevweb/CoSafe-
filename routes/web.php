@@ -21,6 +21,8 @@ use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,4 +148,23 @@ Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->
 
 Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/challenges', [ChallengeController::class, 'index']);
+});
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.index');
+    Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
+    Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
+    Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
+    Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
+});
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 });

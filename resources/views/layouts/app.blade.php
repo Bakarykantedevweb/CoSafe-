@@ -18,6 +18,19 @@
 </head>
 <body>
     <div id="app">
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+        🔔 Notifications ({{ auth()->user()->unreadNotifications->count() }})
+    </a>
+    <ul class="dropdown-menu">
+        @foreach(auth()->user()->unreadNotifications as $notification)
+            <li><a class="dropdown-item" href="{{ $notification->data['link'] }}">
+                {{ $notification->data['sender'] }} vous a envoyé un message
+            </a></li>
+        @endforeach
+    </ul>
+</li>
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
