@@ -23,11 +23,14 @@ use App\Http\Controllers\Business\Auth\LoginBusinessController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Business\Auth\RegisterBusinessController;
+use App\Http\Controllers\Business\BusinessCampusController;
 use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\CampusAngel\Auth\LoginCampusAngelController;
 use App\Http\Controllers\CampusAngel\Auth\RegisterCampusAngelController;
+use App\Http\Controllers\Social\SocialCampusController;
 use App\Http\Controllers\Territory\TerritoryCampusController;
+use Illuminate\Support\Facades\Bus;
 
 /*
 |--------------------------------------------------------------------------
@@ -141,6 +144,12 @@ Route::prefix('business')->middleware(['business.guest'])->group(function () {
 Route::prefix('business')->middleware(['business.auth'])->group(function () {
     Route::get('dashboard', [DashboardBusinessController::class, 'index']);
     Route::post('logout', [LoginBusinessController::class, 'logout']);
+
+    Route::controller(BusinessCampusController::class)->group(function () {
+        Route::get('reports', 'index');
+        Route::get('reports/create', 'create');
+        Route::post('reports/create', 'store');
+    });
 });
 
 // Les Routes de l'authentification pour Social Sponsors
@@ -155,6 +164,12 @@ Route::prefix('social')->middleware(['social.guest'])->group(function () {
 Route::prefix('social')->middleware(['social.auth'])->group(function () {
     Route::get('dashboard', [DashboardSocialController::class, 'index']);
     Route::post('logout', [LoginSocialController::class, 'logout']);
+
+    Route::controller(SocialCampusController::class)->group(function () {
+        Route::get('reports', 'index');
+        Route::get('reports/create', 'create');
+        Route::post('reports/create', 'store');
+    });
 });
 
 // Route::middleware(['auth'])->group(function () {
