@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use PragmaRX\Google2FA\Google2FA;
+use Illuminate\Http\Request;
+
 
 class LoginController extends Controller
 {
@@ -37,4 +40,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
     }
+
+
+
+public function verify2FA(Request $request)
+{
+    $request->validate(['one_time_password' => 'required']);
+    $google2fa = new Google2FA();
+
+    $user = auth()->user();
+    $valid = $google2fa->verifyKey($user->google2fa_secret, $request->one_time_password);
+
+    if ($valid) {
+        session(['2fa_verified' => true]);
+        return redirect()->intended('/dashboard');
+    }
+
+    return back()->withErrors(['one_time_password' => 'Code incorrect.']);
+}
+
 }

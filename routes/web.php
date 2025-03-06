@@ -21,6 +21,11 @@ use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Campus\ReportCampusController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\SocialShareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -136,3 +141,47 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
     Route::get('dashboard', [DashboardSocialController::class, 'index']);
     Route::post('logout', [LoginSocialController::class, 'logout']);
 });
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+//     Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');
+//     Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
+// });
+
+Route::get('/challenges', [ChallengeController::class, 'index']);
+Route::get('/challenges/{id}', [ChallengeController::class, 'show']);
+Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->middleware('auth');
+
+Route::middleware(['auth'])->group(function () {
+Route::get('/campaign', [CampaignController::class, 'index']);
+Route::get('/campaign/{id}', [CampaignController::class, 'show']);
+Route::post('/campaign/create', [CampaignController::class, 'create']);
+Route::get('/dashboard/analytics', [CampaignController::class, 'analytics'])->name('dashboard.analytics');
+
+}
+);
+Route::middleware(['auth', '2fa'])->group(function () {
+    Route::get('/challenges', [ChallengeController::class, 'index']);
+});
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.index');
+    Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
+    Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
+    Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
+    Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+});
+
+
+Route::get('/auth/{provider}', [SocialShareController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialShareController::class, 'handleProviderCallback']);
+Route::post('/share/{provider}', [SocialShareController::class, 'sharePost']);

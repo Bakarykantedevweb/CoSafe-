@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\SubmissionEvaluated;
+use App\Models\Submission;
 
 class incidentController extends Controller
 {
@@ -45,4 +47,16 @@ class incidentController extends Controller
     {
         //
     }
+
+    public function evaluateSubmission(Submission $submission)
+{
+    // Logique d'évaluation de la soumission
+    $submission->status = 'approved'; // ou 'rejected'
+    $submission->save();
+
+    // Diffuser l'événement en temps réel
+    event(new SubmissionEvaluated($submission));
+
+    return response()->json(['status' => 'Soumission évaluée avec succès.']);
+}
 }

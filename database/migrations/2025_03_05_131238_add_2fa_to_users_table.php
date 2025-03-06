@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('challenges', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('google2fa_secret')->nullable();
+            $table->boolean('google2fa_enabled')->default(false);
         });
     }
 
@@ -26,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('challenges');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
