@@ -23,6 +23,8 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\SocialShareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,7 +147,13 @@ Route::get('/challenges', [ChallengeController::class, 'index']);
 Route::get('/challenges/{id}', [ChallengeController::class, 'show']);
 Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->middleware('auth');
 
+Route::middleware(['auth'])->group(function () {
+Route::get('/campaign', [CampaignController::class, 'index']);
+Route::get('/campaign/{id}', [CampaignController::class, 'show']);
+Route::post('/campaign/create', [CampaignController::class, 'create']);
 
+}
+);
 Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/challenges', [ChallengeController::class, 'index']);
 });
@@ -168,3 +176,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
     Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 });
+
+
+
+
+Route::get('/auth/{provider}', [SocialShareController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialShareController::class, 'handleProviderCallback']);
+Route::post('/share/{provider}', [SocialShareController::class, 'sharePost']);

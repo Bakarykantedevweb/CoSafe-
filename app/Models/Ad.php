@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Campaign;
 use App\Models\Impression;
 use App\Models\Click;
+use Illuminate\Database\Eloquent\Model;
+
 class Ad extends Model
 {
     public function campaign()

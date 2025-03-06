@@ -14,7 +14,7 @@
 @endforeach
 
 <!-- ads/stats.blade.php -->
-<h3>Statistiques pour : {{ $ad->title }}</h3>
-<p>Impressions: {{ $impressions }}</p>
-<p>Clics: {{ $clicks }}</p>
-<p>Taux de clics (CTR): {{ $clickThroughRate }}%</p>
+<h3>Statistiques pour :</h3>
+<p>Impressions: </p>
+<p>Clics: </p>
+<p>Taux de clics (CTR): </p>
