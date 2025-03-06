@@ -151,6 +151,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/campaign', [CampaignController::class, 'index']);
 Route::get('/campaign/{id}', [CampaignController::class, 'show']);
 Route::post('/campaign/create', [CampaignController::class, 'create']);
+Route::get('/dashboard/analytics', [CampaignController::class, 'analytics'])->name('dashboard.analytics');
 
 }
 );
