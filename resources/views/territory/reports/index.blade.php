@@ -1,4 +1,4 @@
-@extends('layouts.campus')
+@extends('layouts.territory')
 @section('content')
 <section class="container-fluid p-4">
     <div class="row">
@@ -9,7 +9,7 @@
                     <h1 class="mb-0 h2 fw-bold">Listes des Signalements</h1>
                 </div>
                 <div class="d-flex gap-3">
-                    <a href="{{ url('campus/reports/create') }}" class="btn btn-primary">Ajouter</a>
+                    <a href="{{ url('territory/reports/create') }}" class="btn btn-primary">Ajouter</a>
                 </div>
             </div>
         </div>

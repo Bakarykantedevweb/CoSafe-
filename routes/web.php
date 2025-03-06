@@ -2,30 +2,32 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Business\Auth\LoginBusinessController;
-use App\Http\Controllers\Business\Auth\RegisterBusinessController;
-use App\Http\Controllers\Business\DashboardBusinessController;
-use App\Http\Controllers\CampusAngel\Auth\LoginCampusAngelController;
-use App\Http\Controllers\CampusAngel\Auth\RegisterCampusAngelController;
-use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
-use App\Http\Controllers\City\Auth\LoginCityController;
-use App\Http\Controllers\City\Auth\RegisterCityController;
-use App\Http\Controllers\City\DashboardCityController;
-use App\Http\Controllers\Social\Auth\LoginSocialController;
-use App\Http\Controllers\Social\Auth\RegisterSocialController;
-use App\Http\Controllers\Social\DashboardSocialController;
-use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
-use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
-use App\Http\Controllers\Territory\DashboardTerritoryController;
-use App\Http\Controllers\Auth\GoogleController;
-use App\Http\Controllers\Campus\ReportCampusController;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\SocialShareController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\City\CityCampusController;
+use App\Http\Controllers\City\DashboardCityController;
+use App\Http\Controllers\Campus\ReportCampusController;
+use App\Http\Controllers\City\Auth\LoginCityController;
+use App\Http\Controllers\City\Auth\RegisterCityController;
+use App\Http\Controllers\Social\DashboardSocialController;
+use App\Http\Controllers\Social\Auth\LoginSocialController;
+use App\Http\Controllers\Business\DashboardBusinessController;
+use App\Http\Controllers\Social\Auth\RegisterSocialController;
+use App\Http\Controllers\Business\Auth\LoginBusinessController;
+use App\Http\Controllers\Territory\DashboardTerritoryController;
+use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
+use App\Http\Controllers\Business\Auth\RegisterBusinessController;
+use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
+use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
+use App\Http\Controllers\CampusAngel\Auth\LoginCampusAngelController;
+use App\Http\Controllers\CampusAngel\Auth\RegisterCampusAngelController;
+use App\Http\Controllers\Territory\TerritoryCampusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,11 +94,18 @@ Route::prefix('city')->middleware(['city.guest'])->group(function () {
 
     Route::get('login', [LoginCityController::class, 'showFormLogin']);
     Route::post('login', [LoginCityController::class, 'login']);
+
 });
 
 Route::prefix('city')->middleware(['city.auth'])->group(function () {
     Route::get('dashboard', [DashboardCityController::class, 'index']);
     Route::post('logout', [LoginCityController::class, 'logout']);
+
+    Route::controller(CityCampusController::class)->group(function () {
+        Route::get('reports', 'index');
+        Route::get('reports/create', 'create');
+        Route::post('reports/create', 'store');
+    });
 });
 
 
@@ -112,6 +121,12 @@ Route::prefix('territory')->middleware(['territory.guest'])->group(function () {
 Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
     Route::get('dashboard', [DashboardTerritoryController::class, 'index']);
     Route::post('logout', [LoginTerritoryController::class, 'logout']);
+
+    Route::controller(TerritoryCampusController::class)->group(function () {
+        Route::get('reports', 'index');
+        Route::get('reports/create', 'create');
+        Route::post('reports/create', 'store');
+    });
 });
 
 // Les Routes de l'authentification pour Business Guardians

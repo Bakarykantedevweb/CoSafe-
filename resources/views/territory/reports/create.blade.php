@@ -1,4 +1,4 @@
-@extends('layouts.campus')
+@extends('layouts.territory')
 @section('content')
     <section class="container-fluid p-4">
         <div class="row">
@@ -9,7 +9,7 @@
                         <h1 class="mb-0 h2 fw-bold">Ajouter un Signalement</h1>
                     </div>
                     <div class="d-flex gap-3">
-                        <a href="{{ url('campus/reports') }}" class="btn btn-primary">Retour</a>
+                        <a href="{{ url('territory/reports') }}" class="btn btn-primary">Retour</a>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         <!-- card body -->
                         <div class="card-body p-lg-6">
                             <!-- form -->
-                            <form method="POST" action="{{ url('campus/reports/create') }}" enctype="multipart/form-data" class="row gx-3 needs-validation">
+                            <form method="POST" action="{{ url('territory/reports/create') }}" enctype="multipart/form-data" class="row gx-3 needs-validation">
                                 @csrf
                                 @method('POST')
                                 <!-- form group -->

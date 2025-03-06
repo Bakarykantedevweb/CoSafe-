@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Campus;
+namespace App\Http\Controllers\Territory;
 
 use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class ReportCampusController extends Controller
+class TerritoryCampusController extends Controller
 {
     public function index()
     {
-        $reports = Report::where('campus_angel_id', Auth::guard('campus')->user()->id)->get();
-        return view('campus.reports.index', compact('reports'));
+        $reports = Report::where('territory_id', Auth::guard('territory')->user()->id)->get();
+        return view('territory.reports.index', compact('reports'));
     }
 
     public function create()
     {
-        return view('campus.reports.create');
+        return view('territory.reports.create');
     }
 
     public function store(Request $request)
@@ -40,8 +40,7 @@ class ReportCampusController extends Controller
         $report->description = $request->input('description');
         $report->longitude = $request->input('longitude');
         $report->latitude = $request->input('latitude');
-
-        $report->campus_angel_id = Auth::guard('campus')->user()->id;
+        $report->territory_id = Auth::guard('territory')->user()->id;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $ext = $file->getClientOriginalExtension();
@@ -60,6 +59,6 @@ class ReportCampusController extends Controller
 
         $report->save();
 
-        return redirect('/campus/reports')->with('success', 'Le rapport a été créé avec succès.');
+        return redirect('/territory/reports')->with('success', 'Le rapport a été créé avec succès.');
     }
 }
