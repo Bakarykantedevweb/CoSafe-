@@ -19,6 +19,7 @@ use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Campus\ReportCampusController;
 use App\Http\Controllers\ReportController;
 
 /*
@@ -71,6 +72,12 @@ Route::prefix('campus')->middleware(['campus.guest'])->group(function () {
 Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
     Route::get('dashboard', [DashboardCampusAngelController::class, 'index']);
     Route::post('logout', [LoginCampusAngelController::class, 'logout']);
+
+    Route::controller(ReportCampusController::class)->group(function () {
+        Route::get('reports', 'index');
+        Route::get('reports/create', 'create');
+        Route::post('reports/create', 'store');
+    });
 });
 
 // Les Routes de l'authentification pour City Angels
@@ -128,12 +135,4 @@ Route::prefix('social')->middleware(['social.guest'])->group(function () {
 Route::prefix('social')->middleware(['social.auth'])->group(function () {
     Route::get('dashboard', [DashboardSocialController::class, 'index']);
     Route::post('logout', [LoginSocialController::class, 'logout']);
-});
-
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
-    Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');
-    Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 });

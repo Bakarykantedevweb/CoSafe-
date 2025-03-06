@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    {{-- <div class="row gy-4 mb-4">
+    <div class="row gy-4 mb-4">
         <div class="col-xl-4 col-lg-6 col-md-12 col-12">
             <!-- Card -->
             <div class="card">
@@ -28,7 +28,7 @@
                 <div class="card-body d-flex flex-column gap-3">
                     <div class="d-flex align-items-center justify-content-between lh-1">
                         <div>
-                            <span class="fs-6 text-uppercase fw-semibold ls-md">Gestion des offres</span>
+                            <span class="fs-6 text-uppercase fw-semibold ls-md">Signalements Effectués</span>
                         </div>
                         <div>
                             <span class="fe fe-shopping-bag fs-3 text-primary"></span>
@@ -53,7 +53,7 @@
                 <div class="card-body d-flex flex-column gap-3">
                     <div class="d-flex align-items-center justify-content-between lh-1">
                         <div>
-                            <span class="fs-6 text-uppercase fw-semibold ls-md">Gestion des utilisateurs</span>
+                            <span class="fs-6 text-uppercase fw-semibold ls-md">Challenges en Cours</span>
                         </div>
                         <div>
                             <span class="fe fe-book-open fs-3 text-primary"></span>
@@ -75,7 +75,7 @@
                 <div class="card-body d-flex flex-column gap-3">
                     <div class="d-flex align-items-center justify-content-between lh-1">
                         <div>
-                            <span class="fs-6 text-uppercase fw-semibold ls-md">Statistiques</span>
+                            <span class="fs-6 text-uppercase fw-semibold ls-md">Badges Gagnés</span>
                         </div>
                         <div>
                             <span class="fe fe-users fs-3 text-primary"></span>
@@ -93,6 +93,6 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 </section>
 @endsection
