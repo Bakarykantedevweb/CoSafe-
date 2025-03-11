@@ -26,8 +26,7 @@ class RegisterTerritoryController extends Controller
         $territory->email = $request->input('email');
         $territory->password = Hash::make($request->input('password'));
         $territory->save();
-        toastr()->success('Inscription réussie');
-        return redirect('territory/login');
+        return redirect('territory/login')->with('success', 'Le rapport a été créé avec succès.');
 
     }
 }

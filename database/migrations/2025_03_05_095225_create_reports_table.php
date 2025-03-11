@@ -21,17 +21,20 @@ return new class extends Migration
         $table->string('categorie');
         $table->string('title');
         $table->text('description');
-        $table->string('photo')->nullable(); // Stockera le chemin des fichiers (images)
-        $table->string('video')->nullable(); // Stockera le chemin des fichiers (vidéos)
+        $table->string('photo')->nullable();
+        $table->string('video')->nullable();
         $table->double('latitude');
         $table->double('longitude');
-        $table->foreignIdFor(CampusAngel::class)->constrained()->nullable();
-        $table->foreignIdFor(CityAngel::class)->constrained()->nullable();
-        $table->foreignIdFor(Business::class)->constrained()->nullable();
-        $table->foreignIdFor(Social::class)->constrained()->nullable();
-        $table->foreignIdFor(Territory::class)->constrained()->nullable();
+        
+        $table->foreignId('campus_angel_id')->nullable()->constrained();
+        $table->foreignId('city_angel_id')->nullable()->constrained();
+        $table->foreignId('business_id')->nullable()->constrained();
+        $table->foreignId('social_id')->nullable()->constrained();
+        $table->foreignId('territory_id')->nullable()->constrained();
+    
         $table->timestamps();
     });
+    
 }
 
     /**

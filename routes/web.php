@@ -24,6 +24,7 @@ use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Business\Auth\RegisterBusinessController;
 use App\Http\Controllers\Business\BusinessCampusController;
+use App\Http\Controllers\Business\BusinessChallengeController;
 use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\CampusAngel\Auth\LoginCampusAngelController;
@@ -97,7 +98,6 @@ Route::prefix('city')->middleware(['city.guest'])->group(function () {
 
     Route::get('login', [LoginCityController::class, 'showFormLogin']);
     Route::post('login', [LoginCityController::class, 'login']);
-
 });
 
 Route::prefix('city')->middleware(['city.auth'])->group(function () {
@@ -150,6 +150,12 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
+
+    Route::controller(BusinessChallengeController::class)->group(function () {
+       Route::get('challenges', 'index'); 
+       Route::get('challenges/create', 'create');
+       Route::post('challenges/create', 'save');
+    });
 });
 
 // Les Routes de l'authentification pour Social Sponsors
@@ -178,40 +184,37 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
 //     Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
 // });
 
-Route::get('/challenges', [ChallengeController::class, 'index']);
-Route::get('/challenges/{id}', [ChallengeController::class, 'show']);
-Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->middleware('auth');
+// Route::get('/challenges', [ChallengeController::class, 'index']);
+// Route::get('/challenges/{id}', [ChallengeController::class, 'show']);
+// Route::post('/challenges/{id}/submit', [ChallengeController::class, 'submit'])->middleware('auth');
 
-Route::middleware(['auth'])->group(function () {
-Route::get('/campaign', [CampaignController::class, 'index']);
-Route::get('/campaign/{id}', [CampaignController::class, 'show']);
-Route::post('/campaign/create', [CampaignController::class, 'create']);
-Route::get('/dashboard/analytics', [CampaignController::class, 'analytics'])->name('dashboard.analytics');
+// Route::middleware(['auth'])->group(
+//     function () {
+//         Route::get('/campaign', [CampaignController::class, 'index']);
+//         Route::get('/campaign/{id}', [CampaignController::class, 'show']);
+//         Route::post('/campaign/create', [CampaignController::class, 'create']);
+//         Route::get('/dashboard/analytics', [CampaignController::class, 'analytics'])->name('dashboard.analytics');
+//     }
+// );
+// Route::middleware(['auth', '2fa'])->group(function () {
+//     Route::get('/challenges', [ChallengeController::class, 'index']);
+// });
 
-}
-);
-Route::middleware(['auth', '2fa'])->group(function () {
-    Route::get('/challenges', [ChallengeController::class, 'index']);
-});
-
-
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.index');
-    Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
-    Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
-    Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
-    Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
-});
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces.index');
+//     Route::get('/annonces/create', [AnnonceController::class, 'create'])->name('annonces.create');
+//     Route::post('/annonces', [AnnonceController::class, 'store'])->name('annonces.store');
+//     Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
+//     Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.destroy');
+// });
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
-    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
-});
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+//     Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+// });
 
 
-Route::get('/auth/{provider}', [SocialShareController::class, 'redirectToProvider']);
-Route::get('/auth/{provider}/callback', [SocialShareController::class, 'handleProviderCallback']);
-Route::post('/share/{provider}', [SocialShareController::class, 'sharePost']);
+// Route::get('/auth/{provider}', [SocialShareController::class, 'redirectToProvider']);
+// Route::get('/auth/{provider}/callback', [SocialShareController::class, 'handleProviderCallback']);
+// Route::post('/share/{provider}', [SocialShareController::class, 'sharePost']);
