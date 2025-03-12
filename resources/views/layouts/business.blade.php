@@ -23,6 +23,17 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+
     <title>Tabaleau de Bord Business</title>
     @livewireStyles
 </head>
@@ -46,6 +57,7 @@
     <!-- Script -->
 
     <!-- Libs JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="{{ asset('assets/libs/%40popperjs/core/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
@@ -57,6 +69,9 @@
     <script src="{{ asset('assets/js/vendors/chart.js') }}"></script>
     <script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
+    <!-- Ajouter Leaflet.js -->
+
+
     @livewireScripts
 </body>
 

@@ -89,4 +89,25 @@
             </div>
         </div>
     </section>
+    <script>
+    // Initialisation de la carte Leaflet
+    var map = L.map('map').setView([48.8566, 2.3522], 13); // Paris par défaut
+
+    // Ajouter un fond de carte OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Ajouter un marqueur draggable
+    var marker = L.marker([48.8566, 2.3522], { draggable: true }).addTo(map);
+
+    // Mise à jour des coordonnées lors du déplacement du marqueur
+    marker.on('dragend', function (e) {
+        var latlng = marker.getLatLng();
+        document.getElementById('latitude').value = latlng.lat;
+        document.getElementById('longitude').value = latlng.lng;
+    });
+
+    // Mettre à jour le marqueur quand une adresse est saisie (nécessite une API de géocodage)
+</script>
 @endsection

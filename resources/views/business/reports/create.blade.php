@@ -51,15 +51,16 @@
                                         Latitude
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" name="latitude" class="form-control" required />
+                                    <input type="text" name="latitude"  id="latitude" class="form-control" required />
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
                                         Longitude
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" name="longitude" class="form-control" required />
+                                    <input type="text" name="longitude" id="longitude" class="form-control" required />
                                 </div>
+                                <div id="map"></div>
                                 <div class="mb-3 col-12">
                                     <label class="form-label">
                                         Photo
@@ -89,4 +90,44 @@
             </div>
         </div>
     </section>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script>
+    // Initialisation de la carte Leaflet
+    var map = L.map('map').setView([48.8566, 2.3522], 13); // Paris par défaut
+
+    // Ajouter un fond de carte OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+
+    // Ajouter un marqueur draggable
+    var marker = L.marker([48.8566, 2.3522], { draggable: true }).addTo(map);
+
+  var popup = L.popup();
+
+function onMapClick(e) {
+
+    document.getElementById('latitude').value = e.latlng.lat;
+    document.getElementById('longitude').value = e.latlng.lng;
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.lat)
+        .openOn(map);
+}
+
+    map.on('click', onMapClick);
+    // Mise à jour des coordonnées lors du déplacement du marqueur
+    marker.on('dragend', function (e) {
+        alert("hghhjhj");
+        var latlng = marker.getLatLng();
+
+        document.getElementById('latitude').value = latlng.lat;
+        document.getElementById('longitude').value = latlng.lng;
+    });
+
+    // Mettre à jour le marqueur quand une adresse est saisie (nécessite une API de géocodage)
+</script>
 @endsection
