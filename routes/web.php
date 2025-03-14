@@ -152,7 +152,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
     });
 
     Route::controller(BusinessChallengeController::class)->group(function () {
-       Route::get('challenges', 'index'); 
+       Route::get('challenges', 'index');
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'save');
     });
@@ -215,6 +215,6 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
 // });
 
 
-// Route::get('/auth/{provider}', [SocialShareController::class, 'redirectToProvider']);
-// Route::get('/auth/{provider}/callback', [SocialShareController::class, 'handleProviderCallback']);
-// Route::post('/share/{provider}', [SocialShareController::class, 'sharePost']);
+ Route::get('/auth/{provider}', [SocialShareController::class, 'redirectToProvider']);
+ Route::get('/auth/{provider}/callback', [SocialShareController::class, 'handleProviderCallback']);
+ Route::post('/share/{provider}', [SocialShareController::class, 'sharePost']);

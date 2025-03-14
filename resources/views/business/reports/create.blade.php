@@ -26,6 +26,7 @@
                             <form method="POST" action="{{ url('business/reports/create') }}" enctype="multipart/form-data" class="row gx-3 needs-validation">
                                 @csrf
                                 @method('POST')
+                                
                                 <!-- form group -->
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
