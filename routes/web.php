@@ -68,6 +68,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     Route::controller(DashboardController::class)->group(function () {
         Route::get('dashboard', 'index');
+        Route::get('test','test');
     });
 });
 
@@ -154,7 +155,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
     Route::controller(BusinessChallengeController::class)->group(function () {
        Route::get('challenges', 'index');
        Route::get('challenges/create', 'create');
-       Route::post('challenges/create', 'save');
+       Route::post('challenges/create', 'store');
     });
 });
 

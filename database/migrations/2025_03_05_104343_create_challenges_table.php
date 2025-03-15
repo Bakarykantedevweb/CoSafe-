@@ -11,21 +11,49 @@ return new class extends Migration
      * Run the migrations.
      */
 
-public function up()
-{
-    Schema::create('challenges', function (Blueprint $table) {
-        $table->id();
-        $table->string('titre');
-        $table->string('categorie');
-        $table->text('description');
-        $table->dateTime('start_date');
-        $table->dateTime('end_date');
-        $table->foreignId('business_id')->nullable()->constrained();
-        $table->foreignId('social_id')->nullable()->constrained();
-        $table->foreignId('territory_id')->nullable()->constrained();
-        $table->timestamps();
-    });
-}
+    public function up()
+    {
+        Schema::create('challenges', function (Blueprint $table) {
+            $table->id();
+            // Informations personnelles contact
+            $table->string('nom');
+            $table->string('email');
+            $table->string('numero');
+
+            // Localisation
+            $table->string('pays');
+            $table->string('region');
+            $table->string('ville');
+            $table->string('codepostal');
+            $table->string('adresse');
+
+            // Informations sur le challenge
+            $table->string('nomchallenge');
+            $table->string('image')->nullable();
+            $table->string('type');
+            $table->string('secteurs');
+            $table->text('description')->nullable();
+            $table->string('fichier')->nullable();
+            $table->string('critere');
+            $table->string('conditions')->nullable();
+            $table->text('dotation');
+
+            // Géolocalisation du challenge
+            $table->string('payschallenge');
+            $table->string('villechallenge');
+            $table->string('campus');
+            $table->date('datelancement');
+            $table->date('datecloture');
+
+            // Acceptation des conditions
+            $table->boolean('accepte_conditions')->default(false);
+
+            // Statut du challenge (pour la gestion)
+            $table->enum('statut', ['en_attente', 'publie', 'termine', 'annule'])->default('en_attente');
+            $table->foreignId('business_id')->nullable()->constrained();
+            $table->timestamps();
+        });
+    }
 
 
     /**
