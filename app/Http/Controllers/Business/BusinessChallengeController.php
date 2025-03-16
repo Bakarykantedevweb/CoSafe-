@@ -12,7 +12,7 @@ class BusinessChallengeController extends Controller
     public function index()
     {
         $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('business.challenges.index',compact('challenges'));
+        return view('business.challenges.index', compact('challenges'));
     }
 
     public function create()
@@ -22,6 +22,78 @@ class BusinessChallengeController extends Controller
 
     public function store(Request $request)
     {
-        
+        // Validation des champs avec messages d'erreur personnalisés
+        $validatedData = $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'numero' => 'required|string|max:20',
+            'pays' => 'required|string|max:100',
+            'region' => 'required|string|max:100',
+            'ville' => 'required|string|max:100',
+            'codepostal' => 'required|string|max:20',
+            'adresse' => 'required|string|max:255',
+            'nomchallenge' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'type' => 'required|string',
+            'secteurs' => 'required|string',
+            'description' => 'nullable|string',
+            'fichier' => 'required|file|mimes:doc,docx,pdf|max:5120',
+            'critere' => 'required|string|max:255',
+            'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
+            'dotation' => 'required|string',
+            'payschallenge' => 'required|string|max:100',
+            'villechallenge' => 'required|string|max:100',
+            'campus' => 'required|string|max:100',
+            'datelancement' => 'required|date',
+            'datecloture' => 'required|date|after:datelancement',
+            'conditions_generales' => 'accepted',
+        ], [
+            'datecloture.after' => 'La date de clôture doit être postérieure à la date de lancement.',
+            'conditions_generales.accepted' => 'Vous devez accepter les conditions générales.',
+        ]);
+
+        try {
+            // Création d'une nouvelle instance de Challenge
+            $challenge = new Challenge();
+
+            // Assignation des données validées au modèle
+            $challenge->fill($validatedData);
+
+            // Gestion des fichiers
+            $challenge->image = $this->uploadFile($request->file('image'), 'uploads/challenges/image', 'image');
+            $challenge->fichier = $this->uploadFile($request->file('fichier'), 'uploads/challenges/fichier', 'fichier');
+            $challenge->conditions = $this->uploadFile($request->file('conditions'), 'uploads/challenges/conditions', 'conditions');
+
+            // Assignation de l'ID du business connecté
+            $challenge->business_id = Auth::guard('business')->user()->id;
+
+            // Sauvegarde du challenge
+            $challenge->save();
+
+            // Redirection avec message de succès
+            return redirect('business.challenges')->with('success', 'Le challenge a été créé avec succès.');
+        } catch (\Exception $e) {
+            // En cas d'erreur, redirection avec message d'erreur
+            return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Méthode pour gérer l'upload des fichiers
+     *
+     * @param \Illuminate\Http\UploadedFile|null $file
+     * @param string $destinationPath
+     * @param string $prefix
+     * @return string|null
+     */
+    private function uploadFile($file, $destinationPath, $prefix)
+    {
+        if ($file && $file->isValid()) {
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '_' . $prefix . '.' . $ext;
+            $file->move(public_path($destinationPath), $filename);
+            return $filename;
+        }
+        return null;
     }
 }

@@ -30,73 +30,109 @@
                         <form method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row g-3">
-
+                        
                                 <div class="alert alert-secondary">
-                                    <h3 class="text-center"><i class="bi bi-card-checklist"></i> Identification du promoteur
-                                        du
-                                        challenge</h3>
-                                    <p style="text-align: center;">Veuillez décrire les différentes informations du
-                                        promoteur du
-                                        challenge.</p>
+                                    <h3 class="text-center"><i class="bi bi-card-checklist"></i> Identification du promoteur du challenge</h3>
+                                    <p style="text-align: center;">Veuillez décrire les différentes informations du promoteur du challenge.</p>
                                 </div>
+                        
                                 <div class="alert alert-secondary">
-                                    <h4 class="text-secondary"><i class="bi bi-person-badge"></i> Informations personnelles
-                                        contact
-                                    </h4>
+                                    <h4 class="text-secondary"><i class="bi bi-person-badge"></i> Informations personnelles contact</h4>
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Nom & prénom</label>
-                                    <input class="form-control" type="text" name="nom" required>
+                                    <input class="form-control" type="text" name="nom">
+                                    @error('nom')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Adresse email</label>
-                                    <input class="form-control" type="email" name="email" required>
+                                    <input class="form-control" type="email" name="email">
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Numéro de téléphone</label>
-                                    <input class="form-control" type="text" name="numero" required>
+                                    <input class="form-control" type="text" name="numero">
+                                    @error('numero')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-geo"></i> Localisation</h4>
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Pays</label>
-                                    <input class="form-control" type="text" name="pays" required>
+                                    <input class="form-control" type="text" name="pays">
+                                    @error('pays')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Région</label>
-                                    <input class="form-control" type="text" name="region" required>
+                                    <input class="form-control" type="text" name="region">
+                                    @error('region')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Ville</label>
-                                    <input class="form-control" type="text" name="ville" required>
+                                    <input class="form-control" type="text" name="ville">
+                                    @error('ville')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Code postal</label>
-                                    <input class="form-control" type="text" name="codepostal" required>
+                                    <input class="form-control" type="text" name="codepostal">
+                                    @error('codepostal')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Adresse</label>
-                                    <input class="form-control" type="text" name="adresse" required>
+                                    <input class="form-control" type="text" name="adresse">
+                                    @error('adresse')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="alert alert-secondary">
-                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations sur le
-                                        challenge</h4>
+                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations sur le challenge</h4>
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Nom du challenge</label>
-                                    <input class="form-control" type="text" name="nomchallenge" required>
+                                    <input class="form-control" type="text" name="nomchallenge">
+                                    @error('nomchallenge')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <div>
                                         <label for="">Image représentant le challenge</label>
-                                        <input class="form-control" type="file" name="image" aria-label="file example"
-                                            required>
+                                        <input class="form-control" type="file" name="image" aria-label="file example">
+                                        @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
+                        
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label" for="">Types de challenges proposés </label>
-                                    <select class="form-select" name="type" required>
+                                    <select class="form-select" name="type">
                                         <option>Soutenir la jeunesse</option>
                                         <option>Agir contre la précarité des étudiants.es</option>
                                         <option>Soutenir les seniors</option>
@@ -107,15 +143,18 @@
                                         <option>Agir contre l'isolement</option>
                                         <option>Agir pour l'économie locale</option>
                                     </select>
+                                    @error('type')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label" for="">Secteurs d’activités concernés </label>
-                                    <select class="form-select" name="secteurs" required>
+                                    <select class="form-select" name="secteurs">
                                         <option>Agriculture- sylviculture et pêche</option>
                                         <option>Industrie extractive</option>
                                         <option>Industrie manufacturière</option>
-                                        <option>Production et distribution d’électricité, gaz, vapeur et d’air conditionné,
-                                            production eau, assainissement & gestion déchets</option>
+                                        <option>Production et distribution d’électricité, gaz, vapeur et d’air conditionné, production eau, assainissement & gestion déchets</option>
                                         <option>Commerce réparation véhicules automobiles et motocycles</option>
                                         <option>Transport et entreposage</option>
                                         <option>Hébergements & restauration</option>
@@ -128,76 +167,115 @@
                                         <option>Enseignement</option>
                                         <option>Santé humaine et action sociale</option>
                                         <option>Arts, spectacles et activités récréatives</option>
-
                                     </select>
+                                    @error('secteurs')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-12 col-md-12 mb-3">
                                     <label>Description du challenge:</label>
                                     <textarea class="form-control" rows="5" name="description"></textarea>
+                                    @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <div>
                                         <label for="">Fichier explicatif</label>
-                                        <input class="form-control" type="file" accept=".docx" name="fichier"
-                                            aria-label="file example" required>
+                                        <input class="form-control" type="file" accept=".docx" name="fichier" aria-label="file example">
+                                        @error('fichier')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Critères de sélection</label>
-                                    <input class="form-control" type="text" name="critere" required>
+                                    <input class="form-control" type="text" name="critere">
+                                    @error('critere')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
                                     <div>
                                         <label for="">Conditions particulières du challenge</label>
-                                        <input class="form-control" type="file" accept=".docx" name="conditions"
-                                            aria-label="file example" required>
+                                        <input class="form-control" type="file" accept=".docx" name="conditions" aria-label="file example">
+                                        @error('conditions')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
+                        
                                 <div class="col-12 col-md-12 mb-3">
                                     <label>Dotation & Objet du challenge (A gagner):</label>
-                                    <textarea class="form-control" rows="5" name="dotation"
-                                        placeholder="Description de la contrepartie proposée :  Badge à gagner – Bons d’achat – Services ou marchandises …  "
-                                        required></textarea>
+                                    <textarea class="form-control" rows="5" name="dotation" placeholder="Description de la contrepartie proposée :  Badge à gagner – Bons d’achat – Services ou marchandises …"></textarea>
+                                    @error('dotation')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="alert alert-secondary">
-                                    <h4 class="text-secondary"><i class="bi bi-geo-alt"></i> Géolocalisation du challenge
-                                    </h4>
+                                    <h4 class="text-secondary"><i class="bi bi-geo-alt"></i> Géolocalisation du challenge</h4>
                                 </div>
+                        
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label" for="">Pays</label>
-                                    <input class="form-control" type="text" name="payschallenge" required>
+                                    <input class="form-control" type="text" name="payschallenge">
+                                    @error('payschallenge')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label" for="">Ville</label>
-                                    <input class="form-control" type="text" name="villechallenge" required>
+                                    <input class="form-control" type="text" name="villechallenge">
+                                    @error('villechallenge')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label" for="">Campus</label>
-                                    <input class="form-control" type="text" name="campus" required>
+                                    <input class="form-control" type="text" name="campus">
+                                    @error('campus')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Date de lancement</label>
-                                    <input class="form-control" type="date" name="datelancement" required>
+                                    <input class="form-control" type="date" name="datelancement">
+                                    @error('datelancement')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Dates de clotûre</label>
-                                    <input class="form-control" type="date" name="datecloture" required>
+                                    <input class="form-control" type="date" name="datecloture">
+                                    @error('datecloture')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-12 mb-3">
-                                    <input type="checkbox" name="conditions">
-                                    <label for="conditions">J'accepte les conditions générales et termes de la
-                                        plateforme.</label>
-
+                                    <input type="checkbox" name="accept_conditions">
+                                    <label for="accept_conditions">J'accepte les conditions générales et termes de la plateforme.</label>
+                                    @error('accept_conditions')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+                        
                                 <div class="col-md-4 mb-3">
                                 </div>
-                                <div class="col-md-4 mb-3text-center">
-                                    <button class="btn btn-primary btn-block" type="submit"
-                                    >PUBLIER LE
-                                        CHALLENGE</button>
+                        
+                                <div class="col-md-4 mb-3 text-center">
+                                    <button class="btn btn-primary btn-block" type="submit">PUBLIER LE CHALLENGE</button>
                                 </div>
-
-
+                        
                             </div>
                         </form>
                     </div>
