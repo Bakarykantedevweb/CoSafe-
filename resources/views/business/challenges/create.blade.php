@@ -29,17 +29,18 @@
                     <div class="card-body">
                         <form method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
                             @csrf
+                            @method('POST')
                             <div class="row g-3">
-                        
+
                                 <div class="alert alert-secondary">
                                     <h3 class="text-center"><i class="bi bi-card-checklist"></i> Identification du promoteur du challenge</h3>
                                     <p style="text-align: center;">Veuillez décrire les différentes informations du promoteur du challenge.</p>
                                 </div>
-                        
+
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-person-badge"></i> Informations personnelles contact</h4>
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Nom & prénom</label>
                                     <input class="form-control" type="text" name="nom">
@@ -47,7 +48,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Adresse email</label>
                                     <input class="form-control" type="email" name="email">
@@ -55,7 +56,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Numéro de téléphone</label>
                                     <input class="form-control" type="text" name="numero">
@@ -63,11 +64,11 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-geo"></i> Localisation</h4>
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Pays</label>
                                     <input class="form-control" type="text" name="pays">
@@ -75,7 +76,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Région</label>
                                     <input class="form-control" type="text" name="region">
@@ -83,7 +84,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Ville</label>
                                     <input class="form-control" type="text" name="ville">
@@ -91,7 +92,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Code postal</label>
                                     <input class="form-control" type="text" name="codepostal">
@@ -99,7 +100,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Adresse</label>
                                     <input class="form-control" type="text" name="adresse">
@@ -107,11 +108,11 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations sur le challenge</h4>
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Nom du challenge</label>
                                     <input class="form-control" type="text" name="nomchallenge">
@@ -119,7 +120,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <div>
                                         <label for="">Image représentant le challenge</label>
@@ -129,50 +130,51 @@
                                         @enderror
                                     </div>
                                 </div>
-                        
+
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label" for="">Types de challenges proposés </label>
                                     <select class="form-select" name="type">
-                                        <option>Soutenir la jeunesse</option>
-                                        <option>Agir contre la précarité des étudiants.es</option>
-                                        <option>Soutenir les seniors</option>
-                                        <option>Agir pour l'environnement & la planète</option>
-                                        <option>Agir contre la pauvreté </option>
-                                        <option>Agir pour l'égalité sociale et des genres</option>
-                                        <option>Agir pour la prévention sociale</option>
-                                        <option>Agir contre l'isolement</option>
-                                        <option>Agir pour l'économie locale</option>
+                                        <option value="1">Soutenir la jeunesse</option>
+                                        <option value="1">Agir contre la précarité des étudiants.es</option>
+                                        <option value="1">Soutenir les seniors</option>
+                                        <option value="1">Agir pour l'environnement & la planète</option>
+                                        <option value="1">Agir contre la pauvreté </option>
+                                        <option value="1">Agir contre la pauvreté </option>
+                                        <option value="1">Agir pour l'égalité sociale et des genres</option>
+                                        <option value="1">Agir pour la prévention sociale</option>
+                                        <option value="1">Agir contre l'isolement</option>
+                                        <option value="1">Agir pour l'économie locale</option>
                                     </select>
                                     @error('type')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label" for="">Secteurs d’activités concernés </label>
                                     <select class="form-select" name="secteurs">
-                                        <option>Agriculture- sylviculture et pêche</option>
-                                        <option>Industrie extractive</option>
-                                        <option>Industrie manufacturière</option>
-                                        <option>Production et distribution d’électricité, gaz, vapeur et d’air conditionné, production eau, assainissement & gestion déchets</option>
-                                        <option>Commerce réparation véhicules automobiles et motocycles</option>
-                                        <option>Transport et entreposage</option>
-                                        <option>Hébergements & restauration</option>
-                                        <option>Information & communication</option>
-                                        <option>Activités financières et d’assurance</option>
-                                        <option>Activités immobilières</option>
-                                        <option>Activités spécialisées, techniques et scientifiques</option>
-                                        <option>Activités de services administratives et de soutiens</option>
-                                        <option>Administration publique</option>
-                                        <option>Enseignement</option>
-                                        <option>Santé humaine et action sociale</option>
-                                        <option>Arts, spectacles et activités récréatives</option>
+                                        <optionn value="1">Agriculture- sylviculture et pêche</optionn>
+                                        <option value="1">Industrie extractive</option>
+                                        <option value="1">Industrie manufacturière</option>
+                                        <option value="1">Production et distribution d’électricité, gaz, vapeur et d’air conditionné, production eau, assainissement & gestion déchets</option>
+                                        <option value="1">Commerce réparation véhicules automobiles et motocycles</option>
+                                        <option value="1">Transport et entreposage</option>
+                                        <option value="1">Hébergements & restauration</option>
+                                        <option value="1">Information & communication</option>
+                                        <option value="1">Activités financières et d’assurance</option>
+                                        <option value="1">Activités immobilières</option>
+                                        <option value="1">Activités spécialisées, techniques et scientifiques</option>
+                                        <option value="1">Activités de services administratives et de soutiens</option>
+                                        <option value="1">Administration publique</option>
+                                        <option value="1">Enseignement</option>
+                                        <option value="1">Santé humaine et action sociale</option>
+                                        <option value="1">Arts, spectacles et activités récréatives</option>
                                     </select>
                                     @error('secteurs')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-12 col-md-12 mb-3">
                                     <label>Description du challenge:</label>
                                     <textarea class="form-control" rows="5" name="description"></textarea>
@@ -180,7 +182,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <div>
                                         <label for="">Fichier explicatif</label>
@@ -190,7 +192,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label" for="">Critères de sélection</label>
                                     <input class="form-control" type="text" name="critere">
@@ -198,7 +200,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
                                     <div>
                                         <label for="">Conditions particulières du challenge</label>
@@ -208,7 +210,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                        
+
                                 <div class="col-12 col-md-12 mb-3">
                                     <label>Dotation & Objet du challenge (A gagner):</label>
                                     <textarea class="form-control" rows="5" name="dotation" placeholder="Description de la contrepartie proposée :  Badge à gagner – Bons d’achat – Services ou marchandises …"></textarea>
@@ -216,11 +218,11 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-geo-alt"></i> Géolocalisation du challenge</h4>
                                 </div>
-                        
+
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label" for="">Pays</label>
                                     <input class="form-control" type="text" name="payschallenge">
@@ -228,7 +230,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label" for="">Ville</label>
                                     <input class="form-control" type="text" name="villechallenge">
@@ -236,7 +238,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-4 mb-3">
                                     <label class="form-label" for="">Campus</label>
                                     <input class="form-control" type="text" name="campus">
@@ -244,7 +246,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Date de lancement</label>
                                     <input class="form-control" type="date" name="datelancement">
@@ -252,7 +254,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Dates de clotûre</label>
                                     <input class="form-control" type="date" name="datecloture">
@@ -260,22 +262,22 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-12 mb-3">
-                                    <input type="checkbox" name="accept_conditions">
-                                    <label for="accept_conditions">J'accepte les conditions générales et termes de la plateforme.</label>
+                                    <input type="checkbox" name="accepte_conditions" value="1">
+                                    <label for="accepte_conditions">J'accepte les conditions générales et termes de la plateforme.</label>
                                     @error('accept_conditions')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                                 <div class="col-md-4 mb-3">
                                 </div>
-                        
+
                                 <div class="col-md-4 mb-3 text-center">
                                     <button class="btn btn-primary btn-block" type="submit">PUBLIER LE CHALLENGE</button>
                                 </div>
-                        
+
                             </div>
                         </form>
                     </div>
@@ -286,7 +288,7 @@
     <script>
         // Sélectionnez les champs du formulaire
         var champs = document.querySelectorAll('#monFormulaire input');
-        var conditions = document.getElementById('conditions');
+        var conditions = document.getElementById('accepte_conditions');
         var bouton = document.getElementById('monBouton');
 
         // Fonction pour vérifier l'état de remplissage des champs
