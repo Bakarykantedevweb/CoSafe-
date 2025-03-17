@@ -22,6 +22,7 @@ class BusinessChallengeController extends Controller
 
     public function store(Request $request)
     {
+
         // Validation des champs avec messages d'erreur personnalisés
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
@@ -52,7 +53,9 @@ class BusinessChallengeController extends Controller
             'conditions_generales.accepted' => 'Vous devez accepter les conditions générales.',
         ]);
 
+        var_dump($validatedData);
         try {
+
             // Création d'une nouvelle instance de Challenge
             $challenge = new Challenge();
 
@@ -74,6 +77,7 @@ class BusinessChallengeController extends Controller
             return redirect('business.challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
+
             return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
     }
