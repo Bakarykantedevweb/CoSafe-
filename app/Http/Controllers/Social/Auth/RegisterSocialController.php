@@ -17,7 +17,7 @@ class RegisterSocialController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:city_angels',
+            'email' => 'required|string|email|max:255|unique:socials',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
