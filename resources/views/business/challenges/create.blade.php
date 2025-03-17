@@ -264,8 +264,8 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <input type="checkbox" name="accept_conditions">
-                                    <label for="accept_conditions">J'accepte les conditions générales et termes de la plateforme.</label>
+                                    <input type="checkbox" name="accepte_conditions" value="1">
+                                    <label for="accepte_conditions">J'accepte les conditions générales et termes de la plateforme.</label>
                                     @error('accept_conditions')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -288,7 +288,7 @@
     <script>
         // Sélectionnez les champs du formulaire
         var champs = document.querySelectorAll('#monFormulaire input');
-        var conditions = document.getElementById('conditions');
+        var conditions = document.getElementById('accepte_conditions');
         var bouton = document.getElementById('monBouton');
 
         // Fonction pour vérifier l'état de remplissage des champs

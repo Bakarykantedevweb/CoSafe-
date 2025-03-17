@@ -57,7 +57,7 @@
                                     <tr>
                                         <td>
                                             <h5 class="mb-0">
-                                                {{ $challenge->titre }}
+                                                {{ $challenge->nomchallenge }}
                                             </h5>
                                         </td>
                                         <td>
@@ -66,9 +66,9 @@
                                             </h5>
                                         </td>
                                         <td>
-                                            <a href="#" class="text-inherit">{{ $challenge->start_date }}</a>
+                                            <a href="#" class="text-inherit">{{ $challenge->datelancement }}</a>
                                         </td>
-                                        <td>{{ $challenge->end_date }}</td>
+                                        <td>{{ $challenge->datecloture }}</td>
                                         <td>
                                             <span class="dropdown dropstart">
                                                 <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
