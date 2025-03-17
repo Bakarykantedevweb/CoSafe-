@@ -25,8 +25,6 @@ class BusinessChallengeController extends Controller
 
         // Validation des champs avec messages d'erreur personnalisés
 
-
-       // var_dump($validatedData);
         try {
             $validatedData = $request->validate([
                 'nom' => 'required|string|max:255',
@@ -77,8 +75,7 @@ class BusinessChallengeController extends Controller
             return redirect('business.challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
-            print_r($e->getMessage());
-            exit;
+
             return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
     }
