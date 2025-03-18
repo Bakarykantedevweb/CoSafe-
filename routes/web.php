@@ -90,6 +90,13 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
+    Route::controller(BusinessChallengeController::class)->group(function () {
+        Route::get('challenges', 'index');
+        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+
+        Route::get('challenges/create', 'create');
+        Route::post('challenges/create', 'store');
+     });
 });
 
 // Les Routes de l'authentification pour City Angels
@@ -154,6 +161,8 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
 
     Route::controller(BusinessChallengeController::class)->group(function () {
        Route::get('challenges', 'index');
+       Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'store');
     });
