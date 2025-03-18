@@ -41,7 +41,7 @@
                         </span>
                     </div>
                     <!-- Table -->
-                    <div class="row mb-5">
+                    <div class="mb-5">
 
             <div class="fs-4 fw-normal w-100 border border-primary rounded-1 py-2 px-4 mb-4">
                 <h3 class="fs-4 h-4 text-secondary font-bold mb-3 text-center">
@@ -69,7 +69,7 @@
 
         </div>
 
-        <div class="row mb-4">
+        <div class="mb-4">
             <div class="mb-4">
                 <h3 class="h3 mb-2 text-primary">Mes Safe-Challenges lancés</h3>
                 <p class="h6">Il s'agit ici de tous les challenges que vous avez créés.</p>

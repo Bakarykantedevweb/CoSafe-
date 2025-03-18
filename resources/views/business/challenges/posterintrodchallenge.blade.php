@@ -1,6 +1,6 @@
 @extends('layouts.business')
 @section('content')
-<div class="row mb-5">
+<div class="card mb-4 mb-5">
                 <div class="card rounded-1 p-3 mb-4">
                     <div class="d-flex align-items-center justify-content-center">
                         <i class="bi bi-building-add h2 mb-0 text-primary"></i>

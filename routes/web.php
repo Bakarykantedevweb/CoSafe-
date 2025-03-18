@@ -93,6 +93,7 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
     Route::controller(BusinessChallengeController::class)->group(function () {
         Route::get('challenges', 'index');
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+        Route::get('challenges/helps', 'helps');
 
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
@@ -162,6 +163,8 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
     Route::controller(BusinessChallengeController::class)->group(function () {
        Route::get('challenges', 'index');
        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+       Route::get('challenges/helps', 'helps');
+       Route::get('challenges/trouverchallenge', 'trouverchallenge');
 
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'store');
