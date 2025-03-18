@@ -15,9 +15,50 @@ class BusinessChallengeController extends Controller
         return view('business.challenges.index', compact('challenges'));
     }
 
+    public function helps()
+    {
+        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('business.challenges.help', compact('challenges'));
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('business.challenges.trouverchallenge', compact('challenges'));
+    }
+
+
+
+
+    public function posterintrodchallenge()
+    {
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('business.challenges.posterintrodchallenge',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
     public function create()
     {
-        return view('business.challenges.create');
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('business.challenges.create',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
     }
 
     public function store(Request $request)
@@ -96,5 +137,32 @@ class BusinessChallengeController extends Controller
             return $filename;
         }
         return null;
+    }
+
+
+    public function show(Challenge $challenge) {
+        return view('challenges.show', compact('challenge'));
+    }
+
+    public function edit(Challenge $challenge) {
+        return view('challenges.edit', compact('challenge'));
+    }
+
+    public function update(Request $request, Challenge $challenge) {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+
+        $challenge->update($request->all());
+
+        return redirect()->route('challenges.index')->with('success', 'Challenge mis à jour.');
+    }
+
+    public function destroy(Challenge $challenge) {
+        $challenge->delete();
+        return redirect()->route('challenges.index')->with('success', 'Challenge supprimé.');
     }
 }
