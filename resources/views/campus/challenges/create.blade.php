@@ -1,4 +1,4 @@
-@extends('layouts.business')
+@extends('layouts.campus')
 @section('content')
     <section class="container-fluid p-4">
         <div class="row">
@@ -27,7 +27,7 @@
                         <a href="" class="btn btn-primary">Mes Campus Challenges</a>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('campus/challenges/create') }}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="row g-3">

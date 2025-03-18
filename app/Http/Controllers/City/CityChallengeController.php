@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Business;
+namespace App\Http\Controllers\City;
 
+use App\Models\Challenge;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Challenge;
 use Illuminate\Support\Facades\Auth;
 
-class BusinessChallengeController extends Controller
+class CityChallengeController extends Controller
 {
     public function index()
     {
-        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('business.challenges.index', compact('challenges'));
+        $challenges = Challenge::where('city_angel_id', Auth::guard('city')->user()->id)->get();
+        return view('city.challenges.index', compact('challenges'));
     }
 
     public function create()
     {
-        return view('business.challenges.create');
+        return view('city.challenges.create');
     }
 
     public function store(Request $request)
@@ -65,13 +65,13 @@ class BusinessChallengeController extends Controller
             $challenge->conditions = $this->uploadFile($request->file('conditions'), 'uploads/challenges/conditions', 'conditions');
 
             // Assignation de l'ID du business connecté
-            $challenge->business_id = Auth::guard('business')->user()->id;
+            $challenge->city_angel_id = Auth::guard('city')->user()->id;
 
             // Sauvegarde du challenge
             $challenge->save();
 
             // Redirection avec message de succès
-            return redirect('business/challenges')->with('success', 'Le challenge a été créé avec succès.');
+            return redirect('city/challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
 
@@ -79,14 +79,6 @@ class BusinessChallengeController extends Controller
         }
     }
 
-    /**
-     * Méthode pour gérer l'upload des fichiers
-     *
-     * @param \Illuminate\Http\UploadedFile|null $file
-     * @param string $destinationPath
-     * @param string $prefix
-     * @return string|null
-     */
     private function uploadFile($file, $destinationPath, $prefix)
     {
         if ($file && $file->isValid()) {

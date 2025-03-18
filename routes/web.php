@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
@@ -11,27 +12,30 @@ use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\SocialShareController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\City\CityCampusController;
+use App\Http\Controllers\City\CityChallengeController;
 use App\Http\Controllers\City\DashboardCityController;
 use App\Http\Controllers\Campus\ReportCampusController;
 use App\Http\Controllers\City\Auth\LoginCityController;
+use App\Http\Controllers\Social\SocialCampusController;
 use App\Http\Controllers\City\Auth\RegisterCityController;
 use App\Http\Controllers\Social\DashboardSocialController;
+use App\Http\Controllers\Social\SocialChallengeController;
+use App\Http\Controllers\Business\BusinessCampusController;
 use App\Http\Controllers\Social\Auth\LoginSocialController;
+use App\Http\Controllers\Territory\TerritoryCampusController;
+use App\Http\Controllers\Business\BusinessChallengeController;
 use App\Http\Controllers\Business\DashboardBusinessController;
 use App\Http\Controllers\Social\Auth\RegisterSocialController;
 use App\Http\Controllers\Business\Auth\LoginBusinessController;
+use App\Http\Controllers\CampusAngel\CampusChallengeController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
+use App\Http\Controllers\Territory\TerritoryChallengeController;
 use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
 use App\Http\Controllers\Business\Auth\RegisterBusinessController;
-use App\Http\Controllers\Business\BusinessCampusController;
-use App\Http\Controllers\Business\BusinessChallengeController;
 use App\Http\Controllers\CampusAngel\DashboardCampusAngelController;
 use App\Http\Controllers\Territory\Auth\RegisterTerritoryController;
 use App\Http\Controllers\CampusAngel\Auth\LoginCampusAngelController;
 use App\Http\Controllers\CampusAngel\Auth\RegisterCampusAngelController;
-use App\Http\Controllers\Social\SocialCampusController;
-use App\Http\Controllers\Territory\TerritoryCampusController;
-use Illuminate\Support\Facades\Bus;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +94,12 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
+
+    Route::controller(CampusChallengeController::class)->group(function () {
+        Route::get('challenges', 'index');
+        Route::get('challenges/create', 'create');
+        Route::post('challenges/create', 'store');
+     });
 });
 
 // Les Routes de l'authentification pour City Angels
@@ -110,6 +120,12 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
+
+    Route::controller(CityChallengeController::class)->group(function () {
+        Route::get('challenges', 'index');
+        Route::get('challenges/create', 'create');
+        Route::post('challenges/create', 'store');
+     });
 });
 
 
@@ -131,6 +147,12 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
+
+    Route::controller(TerritoryChallengeController::class)->group(function () {
+        Route::get('challenges', 'index');
+        Route::get('challenges/create', 'create');
+        Route::post('challenges/create', 'store');
+     });
 });
 
 // Les Routes de l'authentification pour Business Guardians
@@ -177,6 +199,12 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
+
+    Route::controller(SocialChallengeController::class)->group(function () {
+        Route::get('challenges', 'index');
+        Route::get('challenges/create', 'create');
+        Route::post('challenges/create', 'store');
+     });
 });
 
 // Route::middleware(['auth'])->group(function () {

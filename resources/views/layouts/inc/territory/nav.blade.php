@@ -7,7 +7,7 @@
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <li class="nav-item">
-                <a class="nav-link " href="{{ url('/entreprise/dashboard') }}">
+                <a class="nav-link " href="{{ url('/territory/dashboard') }}">
                     <i class="nav-icon fe fe-home me-2"></i>
                     Tableau de Bord
                 </a>
@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="{{ url('territory/challenges') }}">
                     <i class="nav-icon fe fe-award me-2"></i>
                     Challenges
                 </a>

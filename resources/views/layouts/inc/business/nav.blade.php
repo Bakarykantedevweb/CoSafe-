@@ -7,7 +7,7 @@
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <li class="nav-item">
-                <a class="nav-link " href="{{ url('/entreprise/dashboard') }}">
+                <a class="nav-link " href="{{ url('/business/dashboard') }}">
                     <i class="nav-icon fe fe-home me-2"></i>
                     Tableau de Bord
                 </a>

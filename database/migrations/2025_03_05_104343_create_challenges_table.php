@@ -45,12 +45,13 @@ return new class extends Migration
             $table->date('datelancement');
             $table->date('datecloture');
 
-            // Acceptation des conditions
-            $table->boolean('accepte_conditions')->default(false);
-
             // Statut du challenge (pour la gestion)
             $table->enum('statut', ['en_attente', 'publie', 'termine', 'annule'])->default('en_attente');
+            $table->foreignId('campus_angel_id')->nullable()->constrained();
+            $table->foreignId('city_angel_id')->nullable()->constrained();
             $table->foreignId('business_id')->nullable()->constrained();
+            $table->foreignId('social_id')->nullable()->constrained();
+            $table->foreignId('territory_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-@extends('layouts.business')
+@extends('layouts.social')
 @section('content')
     <section class="container-fluid p-4">
         <div class="row">
@@ -9,7 +9,7 @@
                         <h1 class="mb-0 h2 fw-bold">Ajouter un Challenge</h1>
                     </div>
                     <div class="d-flex gap-3">
-                        <a href="{{ url('challenges/reports') }}" class="btn btn-primary">Retour</a>
+                        <a href="{{ url('social/challenges') }}" class="btn btn-primary">Retour</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <a href="" class="btn btn-primary">Mes Campus Challenges</a>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('social/challenges/create') }}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="row g-3">

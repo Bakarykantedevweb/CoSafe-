@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Business;
+namespace App\Http\Controllers\CampusAngel;
 
+use App\Models\Challenge;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Challenge;
 use Illuminate\Support\Facades\Auth;
 
-class BusinessChallengeController extends Controller
+class CampusChallengeController extends Controller
 {
     public function index()
     {
-        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('business.challenges.index', compact('challenges'));
+        $challenges = Challenge::where('campus_angel_id', Auth::guard('campus')->user()->id)->get();
+        return view('campus.challenges.index', compact('challenges'));
     }
 
     public function create()
     {
-        return view('business.challenges.create');
+        return view('campus.challenges.create');
     }
 
     public function store(Request $request)
@@ -65,13 +65,13 @@ class BusinessChallengeController extends Controller
             $challenge->conditions = $this->uploadFile($request->file('conditions'), 'uploads/challenges/conditions', 'conditions');
 
             // Assignation de l'ID du business connecté
-            $challenge->business_id = Auth::guard('business')->user()->id;
+            $challenge->campus_angel_id = Auth::guard('campus')->user()->id;
 
             // Sauvegarde du challenge
             $challenge->save();
 
             // Redirection avec message de succès
-            return redirect('business/challenges')->with('success', 'Le challenge a été créé avec succès.');
+            return redirect('campus/challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
 
