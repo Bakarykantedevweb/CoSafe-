@@ -17,7 +17,20 @@ class BusinessCampusController extends Controller
 
     public function create()
     {
-        return view('business.reports.create');
+
+        include '../../Controllers/villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('business.reports.create',[
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
     }
 
     public function store(Request $request)
