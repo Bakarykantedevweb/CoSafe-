@@ -39,7 +39,7 @@
     <section class="cta">
         <h2>Prêt à faire entendre votre voix pour un monde plus sûr ?</h2>
         <p>Lancez votre Safe-Challenge maintenant !</p>
-        <a id="create-challenge-btn" class="btn btn-primary btn-lg" href="/posterchallenge">
+        <a id="create-challenge-btn" class="btn btn-primary btn-lg" href="/business/challenges/create">
                         Créer mon Challenge &#9997;
                     </a> <!-- Ajoutez ici le lien vers la page de création du challenge -->
     </section>

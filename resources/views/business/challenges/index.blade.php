@@ -21,7 +21,7 @@
                     <!-- Card header -->
                     <div
                         class="card-header d-flex justify-content-between align-items-center border-bottom-0 card-header-height">
-                        <h4 class="mb-0">Recent Posts</h4>
+                        <h4 class="mb-0">Mes challenges</h4>
                         <span class="dropdown dropstart">
                             <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#" role="button"
                                 id="courseDropdown1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,6 +41,42 @@
                         </span>
                     </div>
                     <!-- Table -->
+                    <div class="row mb-5">
+
+            <div class="fs-4 fw-normal w-100 border border-primary rounded-1 py-2 px-4 mb-4">
+                <h3 class="fs-4 h-4 text-secondary font-bold mb-3 text-center">
+                Cette rubrique regroupe l’ensemble de vos Safe-Challenges.
+                </h3>
+
+                <div>
+                                            <p class="mb-2">
+                                            1- Valorisez votre employabilité et affinez votre social branding en publiant un post percutant sur les réseaux sociaux, en direction de votre communauté ou de recruteurs de notre communauté
+                        </p>
+                        <p class="mb-2">
+                        2- Publiez votre propre Safe-Challenge pour impacter positivement la sécurité de notre environnement social et économique.
+                        </p>
+                                    </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-around">
+
+
+                <a class="btn btn-primary btn-lg" href="/business/challenges/posterintrodchallenge">
+                    Créer un nouveau Challenge &#128108;
+                </a>
+
+                            </div>
+
+        </div>
+
+        <div class="row mb-4">
+            <div class="mb-4">
+                <h3 class="h3 mb-2 text-primary">Mes Safe-Challenges lancés</h3>
+                <p class="h6">Il s'agit ici de tous les challenges que vous avez créés.</p>
+            </div>
+
+</div>
+</div>
                     <div class="table-responsive border-0 overflow-y-hidden">
                         <table class="table mb-0 text-nowrap table-hover table-centered">
                             <thead class="table-light">
@@ -109,6 +145,33 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="row mb-4">
+            <div class="mb-4">
+                <h3 class="h3 mb-2 text-primary">Mes Challenges relevés</h3>
+                <p class="h6">Il s'agit ici de tous les challenges que vous avez relevés.</p>
+            </div>
+
+                            <div class="bg-white pt-4">
+                    <div class="table-responsive">
+                        <table class="display text-center table" id="example1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Image Challenge</th>
+                                    <th scope="col">Nom du Challenge</th>
+                                    <th scope="col">Lieu du challenge</th>
+                                    <th scope="col">Email de candidature</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Secteur</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                    </div>
                     </div>
                 </div>
             </div>
