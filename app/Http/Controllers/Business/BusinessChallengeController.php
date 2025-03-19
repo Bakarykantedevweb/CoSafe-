@@ -148,6 +148,13 @@ class BusinessChallengeController extends Controller
         return view('challenges.edit', compact('challenge'));
     }
 
+
+    public function descriptionchallenge(Challenge $challenge) {
+        $user = Auth::user()->id;
+
+        return view('business.challenges.description', ['challenge' => $challenge, 'etudiant' => '']);
+    }
+
     public function update(Request $request, Challenge $challenge) {
         $request->validate([
             'title' => 'required|max:255',

@@ -41,7 +41,7 @@ class SocialChallengeController extends Controller
     public function trouverchallenge()
     {
         $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
-        return view('social.challenges.trouverchallenge', compact('challenges'));
+         return view('social.challenges.trouverchallenge', compact('challenges'));
     }
 
 
