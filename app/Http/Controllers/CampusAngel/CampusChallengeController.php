@@ -18,13 +18,13 @@ class CampusChallengeController extends Controller
 
     public function helps()
     {
-        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('campus.challenges.help', compact('challenges'));
+        $challenges = Challenge::where('campus_angel_id', Auth::guard('campus')->user()->id)->get();
+       return view('campus.challenges.help', compact('challenges'));
     }
 
     public function trouverchallenge()
     {
-        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
+        $challenges = Challenge::where('campus_angel_id', Auth::guard('campus')->user()->id)->get();
         return view('campus.challenges.trouverchallenge', compact('challenges'));
     }
 

@@ -35,13 +35,15 @@ class TerritoryChallengeController extends Controller
 
     public function helps()
     {
-        $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
-        return view('territory.challenges.help', compact('challenges'));
+
+        $challenges = Challenge::where('territory_id', Auth::guard('territory')->user()->id)->get();
+       return view('territory.challenges.help', compact('challenges'));
     }
 
     public function trouverchallenge()
     {
-        $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
+
+        $challenges = Challenge::where('territory_id', Auth::guard('territory')->user()->id)->get();
         return view('territory.challenges.trouverchallenge', compact('challenges'));
     }
 
