@@ -17,9 +17,52 @@ class TerritoryChallengeController extends Controller
 
     public function create()
     {
-        return view('territory.challenges.create');
+        require  __DIR__.'/villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('territory.challenges.create',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
     }
 
+
+
+    public function helps()
+    {
+        $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
+        return view('territory.challenges.help', compact('challenges'));
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
+        return view('territory.challenges.trouverchallenge', compact('challenges'));
+    }
+
+
+
+
+    public function posterintrodchallenge()
+    {
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('territory.challenges.posterintrodchallenge',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
     public function store(Request $request)
     {
 

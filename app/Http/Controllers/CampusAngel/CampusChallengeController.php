@@ -15,9 +15,52 @@ class CampusChallengeController extends Controller
         return view('campus.challenges.index', compact('challenges'));
     }
 
+
+    public function helps()
+    {
+        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('campus.challenges.help', compact('challenges'));
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('campus.challenges.trouverchallenge', compact('challenges'));
+    }
+
+
+
+
+    public function posterintrodchallenge()
+    {
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('campus.challenges.posterintrodchallenge',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
+
     public function create()
     {
-        return view('campus.challenges.create');
+        require  __DIR__.'/villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('campus.challenges.create',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
     }
 
     public function store(Request $request)

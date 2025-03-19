@@ -15,9 +15,51 @@ class CityChallengeController extends Controller
         return view('city.challenges.index', compact('challenges'));
     }
 
+    public function helps()
+    {
+        $challenges = Challenge::where('city_angel_id', Auth::guard('city')->user()->id)->get();
+         return view('city.challenges.help', compact('challenges'));
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Challenge::where('city_angel_id', Auth::guard('city')->user()->id)->get();
+        return view('city.challenges.trouverchallenge', compact('challenges'));
+    }
+
+
+
+
+    public function posterintrodchallenge()
+    {
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('city.challenges.posterintrodchallenge',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
+
     public function create()
     {
-        return view('city.challenges.create');
+        require  __DIR__.'/villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('city.challenges.create',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
     }
 
     public function store(Request $request)

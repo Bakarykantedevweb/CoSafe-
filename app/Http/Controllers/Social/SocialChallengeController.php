@@ -17,7 +17,50 @@ class SocialChallengeController extends Controller
 
     public function create()
     {
-        return view('social.challenges.create');
+        require  __DIR__.'/villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('social.challenges.create',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
+
+
+    public function helps()
+    {
+        $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
+        return view('social.challenges.help', compact('challenges'));
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Challenge::where('social_id', Auth::guard('social')->user()->id)->get();
+        return view('social.challenges.trouverchallenge', compact('challenges'));
+    }
+
+
+
+
+    public function posterintrodchallenge()
+    {
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+        return view('social.challenges.posterintrodchallenge',[
+            "villes_belgique" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
     }
 
     public function store(Request $request)

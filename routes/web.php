@@ -94,10 +94,11 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
-    Route::controller(BusinessChallengeController::class)->group(function () {
+    Route::controller(CampusChallengeController::class)->group(function () {
         Route::get('challenges', 'index');
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
         Route::get('challenges/helps', 'helps');
+        Route::get('challenges/trouverchallenge', 'trouverchallenge');
 
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
@@ -121,12 +122,17 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
         Route::get('reports', 'index');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
+
     });
 
     Route::controller(CityChallengeController::class)->group(function () {
         Route::get('challenges', 'index');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
+        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+       Route::get('challenges/helps', 'helps');
+       Route::get('challenges/trouverchallenge', 'trouverchallenge');
+
      });
 });
 
@@ -152,6 +158,9 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
 
     Route::controller(TerritoryChallengeController::class)->group(function () {
         Route::get('challenges', 'index');
+        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+       Route::get('challenges/helps', 'helps');
+       Route::get('challenges/trouverchallenge', 'trouverchallenge');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });
@@ -208,6 +217,8 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
 
     Route::controller(SocialChallengeController::class)->group(function () {
         Route::get('challenges', 'index');
+        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+        Route::get('challenges/helps', 'helps');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });

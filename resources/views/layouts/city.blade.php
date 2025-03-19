@@ -23,7 +23,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
-    <title>Tabaleau de Bord City</title>
+    <title>Tabaleau de Bord  bbb</title>
     @livewireStyles
 </head>
 

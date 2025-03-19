@@ -287,12 +287,8 @@
                                 </div>
                         </div>
                                 <div class="alert alert-secondary">
-<<<<<<< HEAD
-                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations sur le
-                                        challenge</h4>
-=======
                                     <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations du Safe-Challenge</h4>
->>>>>>> 9910d3088a9210cf0a584aaada7ac76367b5a3da
+
                                 </div>
 
                                 <div class="col-md-12 mb-3">

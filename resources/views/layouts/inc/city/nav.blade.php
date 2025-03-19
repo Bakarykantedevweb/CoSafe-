@@ -25,6 +25,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link  collapsed " href="{{ url('city/challenges/helps') }}">
+                    <i class="nav-icon fe fe-flag me-2"></i>
+                    Un Safe-Challenge, c'est quoi ?
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  collapsed " href="{{ url(path: 'city/challenges/trouverchallenge') }}">
+                    <i class="nav-icon fe fe-flag me-2"></i>
+                    Trouver un challenge
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('city/challenges') }}">
                     <i class="nav-icon fe fe-award me-2"></i>
                     Challenges
