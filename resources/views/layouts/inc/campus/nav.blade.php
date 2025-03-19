@@ -167,7 +167,7 @@
                 </a>
             </li>
             <li class="nav-item club-challenge">
-                <a class="nav-link" href="{{ url('campus/challenges/helps') }}">
+                <a class="nav-link" href="#">
                     <i class="nav-icon fe fe-help-circle me-2"></i>
                     3-Support Challengers
                 </a>

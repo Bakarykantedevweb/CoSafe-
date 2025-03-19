@@ -25,16 +25,68 @@
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <style>
-    #map {
-        height: 400px;
-        width: 100%;
-    }
-</style>
-
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
     <title>Tabaleau de Bord Business</title>
+    <style>
+        .nav-section-title {
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            font-size: 15px;
+        }
+
+        .nav-section-subtitle {
+            font-size: 13px;
+            color: #6c757d;
+            padding: 0 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-indent {
+            padding-left: 2rem !important;
+            font-size: 13px;
+        }
+
+        .nav-indent-small {
+            padding-left: 3rem !important;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .club-challenge {
+            background-color: rgba(255, 235, 59, 0.2);
+        }
+
+        .search-table th,
+        .search-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+        }
+
+        .search-table th {
+            background-color: #f8f9fa;
+        }
+
+        .type-cell div {
+            padding: 4px;
+        }
+
+        .type-cell .active {
+            background-color: #ffeb3b;
+        }
+
+        .logo-white {
+            filter: brightness(0) invert(1);
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
     @livewireStyles
 </head>
 
@@ -50,7 +102,7 @@
             @include('layouts.inc.business.header')
             <!-- Page Header -->
             <!-- Container fluid -->
-            @yield("content")
+            @yield('content')
         </main>
     </div>
 
@@ -58,7 +110,8 @@
 
     <!-- Libs JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNxSaeFrFQx6ToCIphxlQhDIrAwjdMnBU&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNxSaeFrFQx6ToCIphxlQhDIrAwjdMnBU&libraries=places">
+    </script>
 
     <script src="{{ asset('assets/libs/%40popperjs/core/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
