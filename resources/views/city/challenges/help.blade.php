@@ -1,4 +1,4 @@
-@extends('layouts.social')
+@extends('layouts.city')
 @section('content')
 <style>
 

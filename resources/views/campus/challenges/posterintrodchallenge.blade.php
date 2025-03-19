@@ -1,4 +1,4 @@
-@extends('layouts.social')
+@extends('layouts.campus')
 @section('content')
 <div class="card mb-4 mb-5">
                 <div class="card rounded-1 p-3 mb-4">
