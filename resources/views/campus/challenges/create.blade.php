@@ -82,7 +82,7 @@ li {
                 <h1 class="mb-0 h2 fw-bold">Ajouter un Challenge</h1>
             </div>
             <div class="d-flex gap-3">
-                <a href="{{ url('challenges/reports') }}" class="btn btn-primary">Retour</a>
+                <a href="{{ url('campus/challenges') }}" class="btn btn-primary">Retour</a>
             </div>
         </div>
     </div>
