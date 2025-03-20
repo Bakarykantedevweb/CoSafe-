@@ -100,6 +100,7 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
         Route::get('challenges/helps', 'helps');
         Route::get('challenges/trouverchallenge', 'trouverchallenge');
+        Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
         Route::get('challenges/supports', 'supports');
         
         Route::get('challenges/create', 'create');
@@ -132,6 +133,7 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+        Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
 
@@ -163,6 +165,7 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
+       Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });
@@ -222,6 +225,7 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
         Route::get('challenges/helps', 'helps');
         Route::get('challenges/trouverchallenge', 'trouverchallenge');
+        Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });

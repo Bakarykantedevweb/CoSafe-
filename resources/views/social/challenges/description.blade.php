@@ -1,4 +1,4 @@
-@extends('layouts.business')
+@extends('layouts.social')
 
 @section('content')
 <style>

@@ -1,4 +1,4 @@
-@extends('layouts.business')
+@extends('layouts.territory')
 
 @section('content')
 <style>

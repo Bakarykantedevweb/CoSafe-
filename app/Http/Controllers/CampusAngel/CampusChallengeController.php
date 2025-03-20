@@ -28,6 +28,14 @@ class CampusChallengeController extends Controller
        return view('campus.challenges.supports', compact('challenges'));
     }
     
+
+    public function descriptionchallenge(Challenge $challenge) {
+        $user = Auth::guard('campus')->user()->id;
+        
+        $challenge = Challenge::where('id', $challenge->id)->first();
+        return view('campus.challenges.description', ['challenge' => $challenge]);
+    }
+    
     public function trouverchallenge()
     {
         $challenges = Challenge::where('campus_angel_id', Auth::guard('campus')->user()->id)->get();

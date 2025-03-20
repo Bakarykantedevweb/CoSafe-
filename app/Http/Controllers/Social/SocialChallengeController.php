@@ -46,6 +46,12 @@ class SocialChallengeController extends Controller
 
 
 
+    public function descriptionchallenge(Challenge $challenge) {
+        $user = Auth::guard('social')->user()->id;
+        
+        $challenge = Challenge::where('id', $challenge->id)->first();
+        return view('social.challenges.description', ['challenge' => $challenge]);
+    }
 
     public function posterintrodchallenge()
     {

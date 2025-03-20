@@ -48,7 +48,12 @@ class TerritoryChallengeController extends Controller
     }
 
 
-
+    public function descriptionchallenge(Challenge $challenge) {
+        $user = Auth::guard('territory')->user()->id;
+        
+        $challenge = Challenge::where('id', $challenge->id)->first();
+        return view('territory.challenges.description', ['challenge' => $challenge]);
+    }
 
     public function posterintrodchallenge()
     {
