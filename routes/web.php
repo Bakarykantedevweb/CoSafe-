@@ -189,6 +189,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
         Route::get('reports', 'index');
         Route::get('reports/helps', 'helps');
         Route::get('reports/trouverchallenge', 'trouverchallenge');
+        Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });

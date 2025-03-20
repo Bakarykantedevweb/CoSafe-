@@ -46,6 +46,12 @@ class BusinessCampusController extends Controller
         $challenges = Report::where('business_id', Auth::guard('business')->user()->id)->get();
         return view('business.reports.trouverchallenge', compact('challenges'));
     }
+    public function postincident()
+    {
+        $challenges = Report::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('business.reports.postincident', compact('challenges'));
+    }
+    
     public function store(Request $request)
     {
 

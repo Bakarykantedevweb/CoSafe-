@@ -26,6 +26,9 @@ class BusinessChallengeController extends Controller
         $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
         return view('business.challenges.trouverchallenge', compact('challenges'));
     }
+    
+
+    
 
 
 
