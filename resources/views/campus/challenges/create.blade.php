@@ -100,7 +100,7 @@ li {
                 <a href="" class="btn btn-primary">Mes Campus Challenges</a>
             </div>
             <div class="card-body">
-                <f method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
+                <form  method="POST" action="{{ url('campus/challenges/create') }}" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="row g-3">

@@ -66,6 +66,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 // Les Routes pour l'Admin
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
@@ -99,7 +100,8 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
         Route::get('challenges/helps', 'helps');
         Route::get('challenges/trouverchallenge', 'trouverchallenge');
-
+        Route::get('challenges/supports', 'supports');
+        
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });
@@ -190,7 +192,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
-
+       Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'store');
     });

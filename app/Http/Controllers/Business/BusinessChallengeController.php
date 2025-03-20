@@ -120,6 +120,13 @@ class BusinessChallengeController extends Controller
         }
     }
 
+    public function descriptionchallenge(Challenge $challenge) {
+        $user = Auth::guard('business')->user()->id;
+        
+        $challenge = Challenge::where('id', $challenge->id)->first();
+        return view('business.challenges.description', ['challenge' => $challenge]);
+    }
+
     /**
      * Méthode pour gérer l'upload des fichiers
      *
@@ -149,11 +156,7 @@ class BusinessChallengeController extends Controller
     }
 
 
-    public function descriptionchallenge(Challenge $challenge) {
-        $user = Auth::user()->id;
-
-        return view('business.challenges.description', ['challenge' => $challenge, 'etudiant' => '']);
-    }
+ 
 
     public function update(Request $request, Challenge $challenge) {
         $request->validate([
