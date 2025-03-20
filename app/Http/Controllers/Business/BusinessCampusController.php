@@ -33,6 +33,19 @@ class BusinessCampusController extends Controller
             ]);
     }
 
+    
+
+    public function helps()
+    {
+       
+        return view('business.reports.help');
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Report::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('business.reports.trouverchallenge', compact('challenges'));
+    }
     public function store(Request $request)
     {
 

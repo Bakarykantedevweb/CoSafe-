@@ -1,5 +1,52 @@
 @extends('layouts.business')
 @section('content')
+
+<style>
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .form-container div {
+            flex: 1 1 48%;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     <section class="container-fluid p-4">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -74,6 +121,169 @@
                                     <textarea class="form-control" name="description" placeholder="" rows="3" required></textarea>
                                 </div>
                                 <div class="col-md-8"></div>
+                                <div class="form-container">
+            <div class="mb-3 col-4">
+                <label>1. Violences faites aux femmes</label><br>
+                <input type="checkbox" id="harcelement" name="violences_femmes" value="Harcèlement de rue">
+                <label for="harcelement">Harcèlement de rue</label><br>
+
+                <input type="checkbox" id="agressions" name="violences_femmes" value="Agressions physiques et sexuelles">
+                <label for="agressions">Agressions physiques et sexuelles</label><br>
+
+                <input type="checkbox" id="violences_conjugales" name="violences_femmes" value="Violences conjugales">
+                <label for="violences_conjugales">Violences conjugales</label><br>
+
+                <input type="checkbox" id="racisme_ethnique" name="violences_femmes" value="Racisme et discriminations ethniques">
+                <label for="racisme_ethnique">Racisme et discriminations ethniques</label><br>
+
+                <input type="checkbox" id="mariage_forcé" name="violences_femmes" value="Mariage forcé et mutilations sexuelles">
+                <label for="mariage_forcé">Mariage forcé et mutilations sexuelles</label><br>
+            </div>
+
+            <!-- Violences minorités & discriminations -->
+            <div class="mb-3 col-4">
+                <label>2. Violences minorités & discriminations</label><br>
+                <input type="checkbox" id="homophobie" name="violences_minorites" value="Homophobie et transphobie">
+                <label for="homophobie">Homophobie et transphobie</label><br>
+
+                <input type="checkbox" id="racisme_ethnique_minorites" name="violences_minorites" value="Racisme et discriminations ethniques">
+                <label for="racisme_ethnique_minorites">Racisme et discriminations ethniques</label><br>
+
+                <input type="checkbox" id="discriminations_religieuses" name="violences_minorites" value="Discriminations religieuses">
+                <label for="discriminations_religieuses">Discriminations religieuses</label><br>
+
+                <input type="checkbox" id="discriminations_handicapes" name="violences_minorites" value="Discriminations contre les personnes handicapées">
+                <label for="discriminations_handicapes">Discriminations contre les personnes handicapées</label><br>
+            </div>
+        </div>
+
+        <!-- Violences physiques & agressions -->
+        <div class="form-container">
+            <div class="mb-3 col-4">
+                <label>3. Violences physiques & agressions</label><br>
+                <input type="checkbox" id="rixes" name="violences_agressions" value="Rixes et bagarres">
+                <label for="rixes">Rixes et bagarres</label><br>
+
+                <input type="checkbox" id="agressions_gratuites" name="violences_agressions" value="Agressions gratuites ou ciblées">
+                <label for="agressions_gratuites">Agressions gratuites ou ciblées</label><br>
+
+                <input type="checkbox" id="armes_blanches" name="violences_agressions" value="Usage d’armes blanches ou à feu">
+                <label for="armes_blanches">Usage d’armes blanches ou à feu</label><br>
+
+                <input type="checkbox" id="kidnapping" name="violences_agressions" value="Tentatives de kidnapping et enlèvements">
+                <label for="kidnapping">Tentatives de kidnapping et enlèvements</label><br>
+
+                <input type="checkbox" id="vehicules_suspects" name="violences_agressions" value="Signalement de véhicules suspects aux abords des écoles">
+                <label for="vehicules_suspects">Signalement de véhicules suspects aux abords des écoles</label><br>
+            </div>
+        </div>
+
+        <!-- Autres catégories -->
+        <div class="form-container">
+            <!-- Sécurité des Biens et Vols -->
+            <div class="mb-3 col-4">
+                <label>4. Sécurité des Biens et Vols</label><br>
+                <input type="checkbox" id="intrusions" name="securite_biens" value="Intrusions illégales">
+                <label for="intrusions">Intrusions illégales</label><br>
+
+                <input type="checkbox" id="cambriolages" name="securite_biens" value="Cambriolages avec et effractions">
+                <label for="cambriolages">Cambriolages avec et effractions</label><br>
+
+                <input type="checkbox" id="vols_commerces" name="securite_biens" value="Vols dans les commerces">
+                <label for="vols_commerces">Vols dans les commerces</label><br>
+
+                <input type="checkbox" id="vols_arraché" name="securite_biens" value="Vols à l’arraché et pickpockets">
+                <label for="vols_arraché">Vols à l’arraché et pickpockets</label><br>
+
+                <input type="checkbox" id="degats_volontaires" name="securite_biens" value="Dégradations volontaires ciblées">
+                <label for="degats_volontaires">Dégradations volontaires ciblées</label><br>
+            </div>
+
+            <!-- Criminalité et Menaces -->
+            <div>
+                <label>5. Criminalité et Menaces</label><br>
+                <input type="checkbox" id="trafic_drogues" name="criminalite_menaces" value="Trafic de drogues & stupéfiants">
+                <label for="trafic_drogues">Trafic de drogues & stupéfiants</label><br>
+
+                <input type="checkbox" id="actes_terrorisme" name="criminalite_menaces" value="Actes de terrorisme">
+                <label for="actes_terrorisme">Actes de terrorisme</label><br>
+
+                <input type="checkbox" id="recrutement_radicalisation" name="criminalite_menaces" value="Recrutement & radicalisation">
+                <label for="recrutement_radicalisation">Recrutement & radicalisation</label><br>
+
+                <input type="checkbox" id="violences_abus_policier" name="criminalite_menaces" value="Violences & abus policiers">
+                <label for="violences_abus_policier">Violences & abus policiers</label><br>
+
+                <input type="checkbox" id="incivilites_scolaire" name="criminalite_menaces" value="Incivilités en milieu scolaire">
+                <label for="incivilites_scolaire">Incivilités en milieu scolaire</label><br>
+            </div>
+        </div>
+
+        <!-- Incivilités et Troubles -->
+        <div class="form-container">
+            <div>
+                <label>6. Incivilités et Troubles</label><br>
+                <input type="checkbox" id="degats_urbains" name="incivilites_troubles" value="Dégradations & insalubrité urbaine">
+                <label for="degats_urbains">Dégradations & insalubrité urbaine</label><br>
+
+                <input type="checkbox" id="nuisances_voisinage" name="incivilites_troubles" value="Nuisances et troubles voisinage">
+                <label for="nuisances_voisinage">Nuisances et troubles voisinage</label><br>
+
+                <input type="checkbox" id="stationnement" name="incivilites_troubles" value="Stationnement et infractions">
+                <label for="stationnement">Stationnement et infractions</label><br>
+
+                <input type="checkbox" id="incivilites_commerces" name="incivilites_troubles" value="Incivilités dans les commerces">
+                <label for="incivilites_commerces">Incivilités dans les commerces</label><br>
+
+                <input type="checkbox" id="comportements_antisociaux" name="incivilites_troubles" value="Comportements antisociaux transports">
+                <label for="comportements_antisociaux">Comportements antisociaux transports</label><br>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+                        <span data-feather="list" class="mr-3 text-theme"></span>
+                        <h4 class=" align-middle" style="text-align: center;">Destinataires du signalement </h4>
+                    </div>
+
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">Campus Angel             
+                    </div>
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox">Promoteur de territoires               
+                    </div>
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Commerces & Entreprises
+                    </div>
+                    <div class="col-12 mb-3">
+                        <span data-feather="list" class="mr-3 text-theme"></span>
+                        <h4 class=" align-middle" style="text-align: center;">Souhaitez-vous que ce signalement soit partagé via vos réseaux sociaux ? </h4>
+                    </div>
+
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">TikTok            
+                    </div>
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox"> Instagram                        
+                    </div>
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Facebook          
+                    </div>    
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  YouTube                   
+                    </div>    
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat                             
+                    </div>     
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat                             
+                    </div>  
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  WatsApp                             
+                    </div>  
+                    <div class="col-3 mb-3">
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Linkedin                             
+                    </div>  
+                               
+                    
                                 <!-- button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">
@@ -84,6 +294,22 @@
                                         Close
                                     </button>
                                 </div>
+                            
+    
+
+
+
+
+<section class="container">
+    
+        <!-- Violences faites aux femmes -->
+        
+
+        <div class="button-container">
+            <button type="submit">Envoyer votre sélection</button>
+        </div>
+   
+
                             </form>
                         </div>
                     </div>
