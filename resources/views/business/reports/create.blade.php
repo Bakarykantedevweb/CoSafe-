@@ -82,66 +82,66 @@
                                     <label class="form-label">
                                     Ajout de preuves (photos, vidéos, témoignages)
                                     </label>
-                                    <input type="file" name="photo" class="form-control" />
+                                    <input type="file" name="photo" class="form-control" multiple/>
                                 </div>
                                 <!-- form group -->
 
                                 <div class="col-md-8"></div>
                                 <div class="row">
             <div class="card mb-3 col-4">
-                <label>1. Violences faites aux femmes</label>
+            <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
                 <div class="card-body">
-                <input type="checkbox" id="harcelement" name="violences_femmes" value="Harcèlement de rue">
+                <input type="checkbox" id="harcelement" name="categories[]" value="Harcèlement de rue">
                 <label for="harcelement">Harcèlement de rue</label><br>
 
-                <input type="checkbox" id="agressions" name="violences_femmes" value="Agressions physiques et sexuelles">
+                <input type="checkbox" id="agressions" name="categories[]" value="Agressions physiques et sexuelles">
                 <label for="agressions">Agressions physiques et sexuelles</label><br>
 
-                <input type="checkbox" id="violences_conjugales" name="violences_femmes" value="Violences conjugales">
+                <input type="checkbox" id="violences_conjugales" name="categories[]" value="Violences conjugales">
                 <label for="violences_conjugales">Violences conjugales</label><br>
 
-                <input type="checkbox" id="racisme_ethnique" name="violences_femmes" value="Racisme et discriminations ethniques">
+                <input type="checkbox" id="racisme_ethnique" name="categories[]" value="Racisme et discriminations ethniques">
                 <label for="racisme_ethnique">Racisme et discriminations ethniques</label><br>
 
-                <input type="checkbox" id="mariage_forcé" name="violences_femmes" value="Mariage forcé et mutilations sexuelles">
+                <input type="checkbox" id="mariage_forcé" name="categories[]" value="Mariage forcé et mutilations sexuelles">
                 <label for="mariage_forcé">Mariage forcé et mutilations sexuelles</label><br>
                 </div>
             </div>
 
             <!-- Violences minorités & discriminations -->
             <div class=" card mb-3 col-4">
-                <label>2. Violences minorités & discriminations</label><br>
+            <div class="card-header bg-primary text-white">2. Violences minorités & discriminations</div><br>
                 <div class="card-body">
-                <input type="checkbox" id="homophobie" name="violences_minorites" value="Homophobie et transphobie">
+                <input type="checkbox" id="homophobie" name="categories[]" value="Homophobie et transphobie">
                 <label for="homophobie">Homophobie et transphobie</label><br>
 
-                <input type="checkbox" id="racisme_ethnique_minorites" name="violences_minorites" value="Racisme et discriminations ethniques">
+                <input type="checkbox" id="racisme_ethnique_minorites" name="categories[]" value="Racisme et discriminations ethniques">
                 <label for="racisme_ethnique_minorites">Racisme et discriminations ethniques</label><br>
 
-                <input type="checkbox" id="discriminations_religieuses" name="violences_minorites" value="Discriminations religieuses">
+                <input type="checkbox" id="discriminations_religieuses" name="categories[]" value="Discriminations religieuses">
                 <label for="discriminations_religieuses">Discriminations religieuses</label><br>
 
-                <input type="checkbox" id="discriminations_handicapes" name="violences_minorites" value="Discriminations contre les personnes handicapées">
+                <input type="checkbox" id="discriminations_handicapes" name="categories[]" value="Discriminations contre les personnes handicapées">
                 <label for="discriminations_handicapes">Discriminations contre les personnes handicapées</label><br>
             </div>
             </div>
 
             <div class="card mb-3 col-4">
-                <label>3. Violences physiques & agressions</label><br>
+            <div class="card-header bg-primary text-white">3. Violences physiques & agressions</div><br>
                 <div class="card-body">
-                <input type="checkbox" id="rixes" name="violences_agressions" value="Rixes et bagarres">
+                <input type="checkbox" id="rixes" name="categories[]" value="Rixes et bagarres">
                 <label for="rixes">Rixes et bagarres</label><br>
 
-                <input type="checkbox" id="agressions_gratuites" name="violences_agressions" value="Agressions gratuites ou ciblées">
+                <input type="checkbox" id="agressions_gratuites" name="categories[]" value="Agressions gratuites ou ciblées">
                 <label for="agressions_gratuites">Agressions gratuites ou ciblées</label><br>
 
-                <input type="checkbox" id="armes_blanches" name="violences_agressions" value="Usage d’armes blanches ou à feu">
+                <input type="checkbox" id="armes_blanches" name="categories[]" value="Usage d’armes blanches ou à feu">
                 <label for="armes_blanches">Usage d’armes blanches ou à feu</label><br>
 
-                <input type="checkbox" id="kidnapping" name="violences_agressions" value="Tentatives de kidnapping et enlèvements">
+                <input type="checkbox" id="kidnapping" name="categories[]" value="Tentatives de kidnapping et enlèvements">
                 <label for="kidnapping">Tentatives de kidnapping et enlèvements</label><br>
 
-                <input type="checkbox" id="vehicules_suspects" name="violences_agressions" value="Signalement de véhicules suspects aux abords des écoles">
+                <input type="checkbox" id="vehicules_suspects" name="categories[]" value="Signalement de véhicules suspects aux abords des écoles">
                 <label for="vehicules_suspects">Signalement de véhicules suspects aux abords des écoles</label><br>
             </div>
             </div>
@@ -156,110 +156,98 @@
             <!-- Sécurité des Biens et Vols -->
             <div class="row">
             <div class="card mb-3 col-4">
-                <label>4. Sécurité des Biens et Vols</label><br>
+            <div class="card-header bg-primary text-white">4. Sécurité des Biens et Vols</div><br>
                 <class="card-body">
-                <input type="checkbox" id="intrusions" name="securite_biens" value="Intrusions illégales">
+                <input type="checkbox" id="intrusions" name="categories[]" value="Intrusions illégales">
                 <label for="intrusions">Intrusions illégales</label><br>
 
-                <input type="checkbox" id="cambriolages" name="securite_biens" value="Cambriolages avec et effractions">
+                <input type="checkbox" id="cambriolages" name="categories[]" value="Cambriolages avec et effractions">
                 <label for="cambriolages">Cambriolages avec et effractions</label><br>
 
-                <input type="checkbox" id="vols_commerces" name="securite_biens" value="Vols dans les commerces">
+                <input type="checkbox" id="vols_commerces" name="categories[]" value="Vols dans les commerces">
                 <label for="vols_commerces">Vols dans les commerces</label><br>
 
-                <input type="checkbox" id="vols_arraché" name="securite_biens" value="Vols à l’arraché et pickpockets">
+                <input type="checkbox" id="vols_arraché" name="categories[]" value="Vols à l’arraché et pickpockets">
                 <label for="vols_arraché">Vols à l’arraché et pickpockets</label><br>
 
-                <input type="checkbox" id="degats_volontaires" name="securite_biens" value="Dégradations volontaires ciblées">
+                <input type="checkbox" id="degats_volontaires" name="categories[]" value="Dégradations volontaires ciblées">
                 <label for="degats_volontaires">Dégradations volontaires ciblées</label><br>
             </div>
 
             <!-- Criminalité et Menaces -->
             <div class="card mb-3 col-4">
-                <label>5. Criminalité et Menaces</label><br>
+            <div class="card-header bg-primary text-white">5. Criminalité et Menaces</div><br>
                 <div class="card-body">
-                <input type="checkbox" id="trafic_drogues" name="criminalite_menaces" value="Trafic de drogues & stupéfiants">
+                <input type="checkbox" id="trafic_drogues" name="categories[]" value="Trafic de drogues & stupéfiants">
                 <label for="trafic_drogues">Trafic de drogues & stupéfiants</label><br>
 
-                <input type="checkbox" id="actes_terrorisme" name="criminalite_menaces" value="Actes de terrorisme">
+                <input type="checkbox" id="actes_terrorisme" name="categories[]" value="Actes de terrorisme">
                 <label for="actes_terrorisme">Actes de terrorisme</label><br>
 
-                <input type="checkbox" id="recrutement_radicalisation" name="criminalite_menaces" value="Recrutement & radicalisation">
+                <input type="checkbox" id="recrutement_radicalisation" name="categories[]" value="Recrutement & radicalisation">
                 <label for="recrutement_radicalisation">Recrutement & radicalisation</label><br>
 
-                <input type="checkbox" id="violences_abus_policier" name="criminalite_menaces" value="Violences & abus policiers">
+                <input type="checkbox" id="violences_abus_policier" name="categories[]" value="Violences & abus policiers">
                 <label for="violences_abus_policier">Violences & abus policiers</label><br>
 
-                <input type="checkbox" id="incivilites_scolaire" name="criminalite_menaces" value="Incivilités en milieu scolaire">
+                <input type="checkbox" id="incivilites_scolaire" name="categories[]" value="Incivilités en milieu scolaire">
                 <label for="incivilites_scolaire">Incivilités en milieu scolaire</label><br>
             </div>
             </div>
             <div class="card mb-3 col-4">
-                <label>6. Incivilités et Troubles</label><br>
+            <div class="card-header bg-primary text-white">6. Incivilités et Troubles</div><br>
                 <div class="card-body">
-                <input type="checkbox" id="degats_urbains" name="incivilites_troubles" value="Dégradations & insalubrité urbaine">
+                <input type="checkbox" id="degats_urbains" name="categories[]" value="Dégradations & insalubrité urbaine">
                 <label for="degats_urbains">Dégradations & insalubrité urbaine</label><br>
 
-                <input type="checkbox" id="nuisances_voisinage" name="incivilites_troubles" value="Nuisances et troubles voisinage">
+                <input type="checkbox" id="nuisances_voisinage" name="categories[]" value="Nuisances et troubles voisinage">
                 <label for="nuisances_voisinage">Nuisances et troubles voisinage</label><br>
 
-                <input type="checkbox" id="stationnement" name="incivilites_troubles" value="Stationnement et infractions">
+                <input type="checkbox" id="stationnement" name="categories[]" value="Stationnement et infractions">
                 <label for="stationnement">Stationnement et infractions</label><br>
 
-                <input type="checkbox" id="incivilites_commerces" name="incivilites_troubles" value="Incivilités dans les commerces">
+                <input type="checkbox" id="incivilites_commerces" name="categories[]" value="Incivilités dans les commerces">
                 <label for="incivilites_commerces">Incivilités dans les commerces</label><br>
 
-                <input type="checkbox" id="comportements_antisociaux" name="incivilites_troubles" value="Comportements antisociaux transports">
+                <input type="checkbox" id="comportements_antisociaux" name="categories[]" value="Comportements antisociaux transports">
                 <label for="comportements_antisociaux">Comportements antisociaux transports</label><br>
             </div>
             </div>
         </div>
 
 
-        <div class="col-12 mb-3">
-                        <span data-feather="list" class="mr-3 text-theme"></span>
-                        <h4 class=" align-middle" style="text-align: center;">Destinataires du signalement </h4>
-                    </div>
+        <div class="mb-3">
+                <label class="form-label">Destinataires du signalement</label>
+                </div>
+                <div class="row">
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="destinataires[]" value="Campus Angel"> Campus Angel
+                </div>
+                <div class=" col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="destinataires[]" value="Promoteur"> Promoteur de territoires
+                </div>
+                <div class="  col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="destinataires[]" value="Commerces"> Commerces & Entreprises
+                </div>
+</div>
 
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">Campus Angel
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox">Promoteur de territoires
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Commerces & Entreprises
-                    </div>
-                    <div class="col-12 mb-3">
-                        <span data-feather="list" class="mr-3 text-theme"></span>
-                        <h4 class=" align-middle" style="text-align: center;">Souhaitez-vous que ce signalement soit partagé via vos réseaux sociaux ? </h4>
-                    </div>
-
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">TikTok
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox"> Instagram
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Facebook
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  YouTube
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  WatsApp
-                    </div>
-                    <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Linkedin
-                    </div>
-                    <div class="mb-3 col-6">
+            <div class="mb-3">
+                <label class="form-label">Partager via vos réseaux sociaux</label>
+                </div>
+                <div class="row">
+                <div class="col-md-3 form-check">
+                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="TikTok"> TikTok
+                </div>
+                <div class="col-md-3 form-check">
+                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="Instagram"> Instagram
+                </div>
+                <div class="col-md-3 form-check">
+                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="Facebook"> Facebook
+                </div>
+                <div class=" col-md-3 form-check">
+                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="X"> X
+                </div>
+                </div>              <div class="mb-3 col-6">
                                     <label class="form-label">
                                         Latitude
                                         <span class="text-danger">*</span>

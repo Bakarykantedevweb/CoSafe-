@@ -25,16 +25,20 @@ return new class extends Migration
         $table->string('video')->nullable();
         $table->double('latitude');
         $table->double('longitude');
-        
+        $table->json('destinataires');
+        $table->json('partage_reseaux')->nullable();
+        $table->json('categories');
+        $table->dateTime('date_heure')->nullable();
+
         $table->foreignId('campus_angel_id')->nullable()->constrained();
         $table->foreignId('city_angel_id')->nullable()->constrained();
         $table->foreignId('business_id')->nullable()->constrained();
         $table->foreignId('social_id')->nullable()->constrained();
         $table->foreignId('territory_id')->nullable()->constrained();
-    
+
         $table->timestamps();
     });
-    
+
 }
 
     /**

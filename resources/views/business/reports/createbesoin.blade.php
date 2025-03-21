@@ -13,7 +13,9 @@
     </style>
 <div class="container mt-4">
         <h2 class="mb-3">Déclarer un Besoin</h2>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('business/reports/posterbesoin') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+                                @method('POST')
             <div class="mb-3">
                 <label class="form-label">Nom du besoin</label>
                 <input type="text" class="form-control" name="nom_besoin" required>
@@ -38,19 +40,19 @@
                     <div class="card-header bg-danger text-white">Aide en cas d’urgence</div>
                     <div class="card-body">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="urgence1">
+                            <input type="checkbox" name="categories[]" class="form-check-input" id="urgence1">
                             <label class="form-check-label" for="urgence1">Escorte sécurisée pour rentrer chez soi</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="urgence2">
+                            <input type="checkbox" name="categories[]" class="form-check-input" id="urgence2">
                             <label class="form-check-label" for="urgence2">Aide après une agression ou incident</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="urgence3">
+                            <input type="checkbox"  name="categories[]" class="form-check-input" id="urgence3">
                             <label class="form-check-label" for="urgence3">Recherche de témoins pour un fait</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="urgence4">
+                            <input type="checkbox" name="categories[]" class="form-check-input" id="urgence4">
                             <label class="form-check-label" for="urgence4">Alerte en cas de danger imminent</label>
                         </div>
                     </div>
@@ -63,19 +65,19 @@
                     <div class="card-header bg-primary text-white">Soutien aux victimes & Accompagnement</div>
                     <div class="card-body">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="soutien1">
+                            <input type="checkbox" name="categories[]"  class="form-check-input" id="soutien1">
                             <label class="form-check-label" for="soutien1">Assistance psychologique ou juridique</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="soutien2">
+                            <input type="checkbox" name="categories[]" class="form-check-input" id="soutien2">
                             <label class="form-check-label" for="soutien2">Partage d’expériences & témoignages</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="soutien3">
+                            <input type="checkbox" name="categories[]" class="form-check-input" id="soutien3">
                             <label class="form-check-label" for="soutien3">Aide aux démarches après un incident</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="soutien4">
+                            <input type="checkbox" name="categories[]" class="form-check-input" id="soutien4">
                             <label class="form-check-label" for="soutien4">Soutien moral et écoute pour les victimes</label>
                         </div>
                     </div>
@@ -113,19 +115,19 @@
                 <div class="card-header bg-danger text-white">Protection des biens & commerces</div>
                 <div class="card-body">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option1" name="options[]" value="Surveillance domicile ou commerce">
+                        <input class="form-check-input" type="checkbox" id="option1" name="categories[]" value="Surveillance domicile ou commerce">
                         <label class="form-check-label" for="option1">Surveillance domicile ou commerce</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option2" name="options[]" value="Conseil pour mieux sécuriser un lieu">
+                        <input class="form-check-input" type="checkbox" id="option2" name="categories[]" value="Conseil pour mieux sécuriser un lieu">
                         <label class="form-check-label" for="option2">Conseil pour mieux sécuriser un lieu</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option3" name="options[]" value="Partage d’alertes sur des cambriolages">
+                        <input class="form-check-input" type="checkbox" id="option3" name="categories[]" value="Partage d’alertes sur des cambriolages">
                         <label class="form-check-label" for="option3">Partage d’alertes sur des cambriolages</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option4" name="options[]" value="Demande d’aide après une dégradation">
+                        <input class="form-check-input" type="checkbox" id="option4" name="categories[]" value="Demande d’aide après une dégradation">
                         <label class="form-check-label" for="option4">Demande d’aide après une dégradation</label>
                     </div>
                 </div>
@@ -136,19 +138,19 @@
                 <div class="card-header bg-primary text-white">Signalement de menaces et comportements</div>
                 <div class="card-body">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option5" name="options[]" value="Alerte véhicule ou présence suspect">
+                        <input class="form-check-input" type="checkbox" id="option5" name="categories[]" value="Alerte véhicule ou présence suspect">
                         <label class="form-check-label" for="option5">Alerte véhicule ou présence suspect</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option6" name="options[]" value="Demande d’infos sur des harcèlement répétés">
+                        <input class="form-check-input" type="checkbox" id="option6" name="categories[]" value="Demande d’infos sur des harcèlement répétés">
                         <label class="form-check-label" for="option6">Demande d’infos sur des harcèlement répétés</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option7" name="options[]" value="Signalement de comportements dangereux">
+                        <input class="form-check-input" type="checkbox" id="option7" name="categories[]" value="Signalement de comportements dangereux">
                         <label class="form-check-label" for="option7">Signalement de comportements dangereux</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option8" name="options[]" value="Recherche d’identification d’auteur d’incivilité">
+                        <input class="form-check-input" type="checkbox" id="option8" name="categories[]" value="Recherche d’identification d’auteur d’incivilité">
                         <label class="form-check-label" for="option8">Recherche d’identification d’auteur d’incivilité</label>
                     </div>
                 </div>
@@ -159,19 +161,19 @@
                 <div class="card-header bg-primary text-white">Prévention et engagement citoyen</div>
                 <div class="card-body">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option9" name="options[]" value="Sensibilisation aux violences, incivilités">
+                        <input class="form-check-input" type="checkbox" id="option9" name="categories[]" value="Sensibilisation aux violences, incivilités">
                         <label class="form-check-label" for="option9">Sensibilisation aux violences, incivilités</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option10" name="options[]" value="Formation à la sécurité, self-défense">
+                        <input class="form-check-input" type="checkbox" id="option10" name="categories[]" value="Formation à la sécurité, self-défense">
                         <label class="form-check-label" for="option10">Formation à la sécurité, self-défense</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option11" name="options[]" value="Mobiliser & renforcer la vigilance collective">
+                        <input class="form-check-input" type="checkbox" id="option11" name="categories[]" value="Mobiliser & renforcer la vigilance collective">
                         <label class="form-check-label" for="option11">Mobiliser & renforcer la vigilance collective</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option12" name="options[]" value="Promotion d’un comportement civique">
+                        <input class="form-check-input" type="checkbox" id="option12" name="categories[]" value="Promotion d’un comportement civique">
                         <label class="form-check-label" for="option12">Promotion d’un comportement civique</label>
                     </div>
                 </div>
@@ -269,9 +271,9 @@
 
             <div class="mb-3">
                 <label class="form-label">Partager avec les autorités ?</label>
-                <select class="form-select" name="autorites">
-                    <option value="Oui">Oui</option>
-                    <option value="Non">Non</option>
+                <select class="form-select" name="partage_autorites">
+                    <option value="1">Oui</option>
+                    <option value="0">Non</option>
                 </select>
             </div>
 

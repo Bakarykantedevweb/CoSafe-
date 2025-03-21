@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Business;
 
 use App\Models\Report;
+use App\Models\Besoin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -114,6 +115,7 @@ class BusinessCampusController extends Controller
 
   public function  storebesoin(Request $request)
   {
+    try {
     $request->validate([
         'nom_besoin' => 'required|string|max:255',
         'description' => 'required|string',
@@ -127,7 +129,7 @@ class BusinessCampusController extends Controller
         'partage_autorites' => 'required|boolean',
     ]);
 
-    $besoin = Report::create($request->except('fichiers'));
+    $besoin = Besoin::create($request->except('fichiers'));
 
     if ($request->hasFile('fichiers')) {
         foreach ($request->file('fichiers') as $file) {
@@ -137,5 +139,11 @@ class BusinessCampusController extends Controller
     }
 
     return back()->with('success', 'Votre demande d’aide a été soumise avec succès !');
-  }
+
+} catch (\Exception $e) {
+    // En cas d'erreur, redirection avec message d'erreur
+print($e->getMessage());
+    return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+}
+}
 }
