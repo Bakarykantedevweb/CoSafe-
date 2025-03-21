@@ -1,7 +1,7 @@
 @extends('layouts.business')
 @section('content')
 <style>
-      
+
         header {
 
             padding: 20px;
@@ -23,8 +23,8 @@
         li {
             margin: 10px 0;
         }
-        
-        
+
+
     </style>
 <header>
     <h1>CoSafe - Répondre à un Appel à l'Aide</h1>
@@ -44,7 +44,7 @@
     </ul>
 
     <h3>Consultez ci-dessous les Appels à l’aide selon vos critères</h3>
-    
+
     <div class="filter-container">
         <form action="#" method="GET">
             <label for="category">Catégorie :</label>
@@ -87,6 +87,12 @@
             <button>Répondre à l'appel</button>
         </div>
     </div>
+    <section class="cta">
+
+        <a id="create-challenge-btn" class="btn btn-primary btn-lg" href="/business/reports/create">
+                        Créer un incident  &#9997;
+                    </a> <!-- Ajoutez ici le lien vers la page de création du challenge -->
+    </section>
 </section>
 
 @endsection

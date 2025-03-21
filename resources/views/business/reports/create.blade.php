@@ -2,16 +2,8 @@
 @section('content')
 
 <style>
-        
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-        }
+
+
         section {
             padding: 20px;
         }
@@ -29,23 +21,10 @@
             flex: 1 1 48%;
         }
         label {
-            font-weight: bold;
+
         }
-        input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+
+
     </style>
     <section class="container-fluid p-4">
         <div class="row">
@@ -73,7 +52,7 @@
                             <form method="POST" action="{{ url('business/reports/create') }}" enctype="multipart/form-data" class="row gx-3 needs-validation">
                                 @csrf
                                 @method('POST')
-                                
+
                                 <!-- form group -->
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
@@ -89,41 +68,29 @@
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
-                                        Titre
+                                        Date et heure
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" name="title" class="form-control" required />
+                                    <input type="datetime-local" name="title" class="form-control" required />
                                 </div>
-                                <div class="mb-3 col-6">
-                                    <label class="form-label">
-                                        Latitude
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" name="latitude"  id="latitude" class="form-control" required />
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <label class="form-label">
-                                        Longitude
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" name="longitude" id="longitude" class="form-control" required />
-                                </div>
-                                <div id="map"></div>
-                                <div class="mb-3 col-12">
-                                    <label class="form-label">
-                                        Photo
-                                    </label>
-                                    <input type="file" name="photo" class="form-control" />
-                                </div>
-                                <!-- form group -->
+
                                 <div class="mb-3 col-12">
                                     <label class="form-label">Description</label>
                                     <textarea class="form-control" name="description" placeholder="" rows="3" required></textarea>
                                 </div>
+                                <div class="mb-3 col-12">
+                                    <label class="form-label">
+                                    Ajout de preuves (photos, vidéos, témoignages)
+                                    </label>
+                                    <input type="file" name="photo" class="form-control" />
+                                </div>
+                                <!-- form group -->
+
                                 <div class="col-md-8"></div>
-                                <div class="form-container">
-            <div class="mb-3 col-4">
-                <label>1. Violences faites aux femmes</label><br>
+                                <div class="row">
+            <div class="card mb-3 col-4">
+                <label>1. Violences faites aux femmes</label>
+                <div class="card-body">
                 <input type="checkbox" id="harcelement" name="violences_femmes" value="Harcèlement de rue">
                 <label for="harcelement">Harcèlement de rue</label><br>
 
@@ -138,11 +105,13 @@
 
                 <input type="checkbox" id="mariage_forcé" name="violences_femmes" value="Mariage forcé et mutilations sexuelles">
                 <label for="mariage_forcé">Mariage forcé et mutilations sexuelles</label><br>
+                </div>
             </div>
 
             <!-- Violences minorités & discriminations -->
-            <div class="mb-3 col-4">
+            <div class=" card mb-3 col-4">
                 <label>2. Violences minorités & discriminations</label><br>
+                <div class="card-body">
                 <input type="checkbox" id="homophobie" name="violences_minorites" value="Homophobie et transphobie">
                 <label for="homophobie">Homophobie et transphobie</label><br>
 
@@ -155,12 +124,11 @@
                 <input type="checkbox" id="discriminations_handicapes" name="violences_minorites" value="Discriminations contre les personnes handicapées">
                 <label for="discriminations_handicapes">Discriminations contre les personnes handicapées</label><br>
             </div>
-        </div>
+            </div>
 
-        <!-- Violences physiques & agressions -->
-        <div class="form-container">
-            <div class="mb-3 col-4">
+            <div class="card mb-3 col-4">
                 <label>3. Violences physiques & agressions</label><br>
+                <div class="card-body">
                 <input type="checkbox" id="rixes" name="violences_agressions" value="Rixes et bagarres">
                 <label for="rixes">Rixes et bagarres</label><br>
 
@@ -176,13 +144,20 @@
                 <input type="checkbox" id="vehicules_suspects" name="violences_agressions" value="Signalement de véhicules suspects aux abords des écoles">
                 <label for="vehicules_suspects">Signalement de véhicules suspects aux abords des écoles</label><br>
             </div>
+            </div>
         </div>
 
+        <!-- Violences physiques & agressions -->
+
+
+
         <!-- Autres catégories -->
-        <div class="form-container">
+
             <!-- Sécurité des Biens et Vols -->
-            <div class="mb-3 col-4">
+            <div class="row">
+            <div class="card mb-3 col-4">
                 <label>4. Sécurité des Biens et Vols</label><br>
+                <class="card-body">
                 <input type="checkbox" id="intrusions" name="securite_biens" value="Intrusions illégales">
                 <label for="intrusions">Intrusions illégales</label><br>
 
@@ -200,8 +175,9 @@
             </div>
 
             <!-- Criminalité et Menaces -->
-            <div>
+            <div class="card mb-3 col-4">
                 <label>5. Criminalité et Menaces</label><br>
+                <div class="card-body">
                 <input type="checkbox" id="trafic_drogues" name="criminalite_menaces" value="Trafic de drogues & stupéfiants">
                 <label for="trafic_drogues">Trafic de drogues & stupéfiants</label><br>
 
@@ -217,12 +193,10 @@
                 <input type="checkbox" id="incivilites_scolaire" name="criminalite_menaces" value="Incivilités en milieu scolaire">
                 <label for="incivilites_scolaire">Incivilités en milieu scolaire</label><br>
             </div>
-        </div>
-
-        <!-- Incivilités et Troubles -->
-        <div class="form-container">
-            <div>
+            </div>
+            <div class="card mb-3 col-4">
                 <label>6. Incivilités et Troubles</label><br>
+                <div class="card-body">
                 <input type="checkbox" id="degats_urbains" name="incivilites_troubles" value="Dégradations & insalubrité urbaine">
                 <label for="degats_urbains">Dégradations & insalubrité urbaine</label><br>
 
@@ -238,17 +212,20 @@
                 <input type="checkbox" id="comportements_antisociaux" name="incivilites_troubles" value="Comportements antisociaux transports">
                 <label for="comportements_antisociaux">Comportements antisociaux transports</label><br>
             </div>
+            </div>
         </div>
+
+
         <div class="col-12 mb-3">
                         <span data-feather="list" class="mr-3 text-theme"></span>
                         <h4 class=" align-middle" style="text-align: center;">Destinataires du signalement </h4>
                     </div>
 
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">Campus Angel             
+                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">Campus Angel
                     </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox">Promoteur de territoires               
+                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox">Promoteur de territoires
                     </div>
                     <div class="col-3 mb-3">
                         <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Commerces & Entreprises
@@ -259,31 +236,45 @@
                     </div>
 
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">TikTok            
+                        <input class="me-2" name="typelangue[]" value="Français"  type="checkbox">TikTok
                     </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox"> Instagram                        
+                        <input class="me-2" name="typelangue[]" value="Néerlandais"  type="checkbox"> Instagram
                     </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Facebook          
-                    </div>    
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Facebook
+                    </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  YouTube                   
-                    </div>    
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  YouTube
+                    </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat                             
-                    </div>     
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat
+                    </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat                             
-                    </div>  
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Snapchat
+                    </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  WatsApp                             
-                    </div>  
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  WatsApp
+                    </div>
                     <div class="col-3 mb-3">
-                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Linkedin                             
-                    </div>  
-                               
-                    
+                        <input class="me-2" name="typelangue[]" value="Anglais"  type="checkbox">  Linkedin
+                    </div>
+                    <div class="mb-3 col-6">
+                                    <label class="form-label">
+                                        Latitude
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="latitude"  id="latitude" class="form-control" required />
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label class="form-label">
+                                        Longitude
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="longitude" id="longitude" class="form-control" required />
+                                </div>
+                                <div id="map"></div>
+
                                 <!-- button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">
@@ -294,29 +285,20 @@
                                         Close
                                     </button>
                                 </div>
-                            
-    
 
 
 
 
-<section class="container">
-    
-        <!-- Violences faites aux femmes -->
-        
 
-        <div class="button-container">
-            <button type="submit">Envoyer votre sélection</button>
-        </div>
-   
 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>

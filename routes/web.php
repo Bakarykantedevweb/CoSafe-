@@ -103,7 +103,7 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('challenges/trouverchallenge', 'trouverchallenge');
         Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
         Route::get('challenges/supports', 'supports');
-        
+
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });
@@ -188,6 +188,8 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
     Route::controller(BusinessCampusController::class)->group(function () {
         Route::get('reports', 'index');
         Route::get('reports/helps', 'helps');
+        Route::get('reports/posterbesoin', 'posterbesoin');
+        Route::post('reports/posterbesoin', 'storebesoin');
         Route::get('reports/trouverchallenge', 'trouverchallenge');
         Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');

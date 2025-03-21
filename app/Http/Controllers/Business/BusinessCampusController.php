@@ -33,11 +33,29 @@ class BusinessCampusController extends Controller
             ]);
     }
 
-    
+    public function posterbesoin()
+    {
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('business.reports.createbesoin',[
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
+
+
 
     public function helps()
     {
-       
+
         return view('business.reports.help');
     }
 
@@ -51,7 +69,7 @@ class BusinessCampusController extends Controller
         $challenges = Report::where('business_id', Auth::guard('business')->user()->id)->get();
         return view('business.reports.postincident', compact('challenges'));
     }
-    
+
     public function store(Request $request)
     {
 
@@ -93,4 +111,31 @@ class BusinessCampusController extends Controller
 
         return redirect('/business/reports')->with('success', 'Le rapport a été créé avec succès.');
     }
+
+  public function  storebesoin(Request $request)
+  {
+    $request->validate([
+        'nom_besoin' => 'required|string|max:255',
+        'description' => 'required|string',
+        'fichiers.*' => 'file|mimes:jpg,png,mp4|max:10240',
+        'categories' => 'required|array',
+        'geolocalisation' => 'nullable|string',
+        'date_heure' => 'nullable|date',
+        'budget' => 'required|string',
+        'destinataires' => 'required|array',
+        'partage_reseaux' => 'nullable|array',
+        'partage_autorites' => 'required|boolean',
+    ]);
+
+    $besoin = Report::create($request->except('fichiers'));
+
+    if ($request->hasFile('fichiers')) {
+        foreach ($request->file('fichiers') as $file) {
+            $path = $file->store('public/besoins');
+            $besoin->fichiers()->create(['path' => $path]);
+        }
+    }
+
+    return back()->with('success', 'Votre demande d’aide a été soumise avec succès !');
+  }
 }
