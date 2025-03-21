@@ -255,16 +255,16 @@
                 </div>
                 <div class="row">
                 <div class="col-md-3 form-check">
-                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="TikTok"> TikTok
+                    <input class="form-check-input" type="checkbox" name="partage_reseaux[]" value="TikTok"> TikTok
                 </div>
                 <div class="col-md-3 form-check">
-                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="Instagram"> Instagram
+                    <input class="form-check-input" type="checkbox" name="partage_reseaux[]" value="Instagram"> Instagram
                 </div>
                 <div class="col-md-3 form-check">
-                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="Facebook"> Facebook
+                    <input class="form-check-input" type="checkbox" name="partage_reseaux[]" value="Facebook"> Facebook
                 </div>
                 <div class=" col-md-3 form-check">
-                    <input class="form-check-input" type="checkbox" name="reseaux[]" value="X"> X
+                    <input class="form-check-input" type="checkbox" name="partage_reseaux[]" value="X"> X
                 </div>
                 </div>
 
