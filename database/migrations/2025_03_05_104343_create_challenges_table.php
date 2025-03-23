@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('challenges', function (Blueprint $table) {
             $table->id();
+
             // Informations personnelles contact
             $table->string('nom');
             $table->string('email');
@@ -27,6 +28,13 @@ return new class extends Migration
             $table->string('codepostal');
             $table->string('adresse');
 
+            // Informations complémentaires (si entreprise)
+            $table->string('nomcommercial')->nullable();
+            $table->string('numeroentreprise')->nullable();
+            $table->string('numeroagreation')->nullable();
+            $table->json('typesactivite')->nullable(); // Pour stocker plusieurs types d'activités
+            $table->date('datedebutactivite')->nullable();
+
             // Informations sur le challenge
             $table->string('nomchallenge');
             $table->string('image')->nullable();
@@ -34,9 +42,27 @@ return new class extends Migration
             $table->string('secteurs');
             $table->text('description')->nullable();
             $table->string('fichier')->nullable();
-            $table->string('critere');
+            $table->string('critere')->nullable();
             $table->string('conditions')->nullable();
             $table->text('dotation');
+
+            // Identification de la problématique à solutionner
+            $table->json('risques')->nullable(); // Pour stocker les risques sélectionnés
+
+            // Compétences attendues
+            $table->json('competences_attendues')->nullable(); // Pour stocker les compétences attendues
+
+            // Calendrier des sélections
+            $table->date('datedebutinscription');
+            $table->date('datefininscription');
+            $table->date('datedebutselection');
+            $table->date('datefinselection');
+
+            // Équipe
+            $table->string('compositionequipes')->nullable();
+            $table->integer('nombreequipesmin')->nullable();
+            $table->integer('nombreequipesmax')->nullable();
+            $table->string('criteresparticipation')->nullable();
 
             // Géolocalisation du challenge
             $table->string('payschallenge');
@@ -47,11 +73,14 @@ return new class extends Migration
 
             // Statut du challenge (pour la gestion)
             $table->enum('statut', ['en_attente', 'publie', 'termine', 'annule'])->default('en_attente');
+
+            // Relations
             $table->foreignId('campus_angel_id')->nullable()->constrained();
             $table->foreignId('city_angel_id')->nullable()->constrained();
             $table->foreignId('business_id')->nullable()->constrained();
             $table->foreignId('social_id')->nullable()->constrained();
             $table->foreignId('territory_id')->nullable()->constrained();
+
             $table->timestamps();
         });
     }
