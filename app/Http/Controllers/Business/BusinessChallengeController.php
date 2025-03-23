@@ -30,6 +30,9 @@ class BusinessChallengeController extends Controller
 
 
 
+
+
+
     public function posterintrodchallenge()
     {
         include 'villes.php';
@@ -115,9 +118,16 @@ class BusinessChallengeController extends Controller
             return redirect('business/challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
-
+print($e->getMessage());
             return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
+    }
+
+    public function descriptionchallenge(Challenge $challenge) {
+        $user = Auth::guard('business')->user()->id;
+
+        $challenge = Challenge::where('id', $challenge->id)->first();
+        return view('business.challenges.description', ['challenge' => $challenge]);
     }
 
     /**
@@ -149,11 +159,7 @@ class BusinessChallengeController extends Controller
     }
 
 
-    public function descriptionchallenge(Challenge $challenge) {
-        $user = Auth::user()->id;
 
-        return view('business.challenges.description', ['challenge' => $challenge, 'etudiant' => '']);
-    }
 
     public function update(Request $request, Challenge $challenge) {
         $request->validate([

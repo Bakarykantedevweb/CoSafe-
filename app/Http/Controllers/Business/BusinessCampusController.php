@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Business;
 
 use App\Models\Report;
+use App\Models\Besoin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -33,9 +34,46 @@ class BusinessCampusController extends Controller
             ]);
     }
 
-    public function store(Request $request)
+    public function posterbesoin()
     {
 
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('business.reports.createbesoin',[
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+            ]);
+    }
+
+
+
+    public function helps()
+    {
+
+        return view('business.reports.help');
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Report::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('business.reports.trouverchallenge', compact('challenges'));
+    }
+    public function postincident()
+    {
+        $challenges = Report::where('business_id', Auth::guard('business')->user()->id)->get();
+        return view('business.reports.postincident', compact('challenges'));
+    }
+
+    public function store(Request $request)
+    {
+        try {
         $request->validate([
             'title' => 'required|string|max:255', // Correction ici
             'categorie' => 'required|string|max:255',
@@ -43,16 +81,20 @@ class BusinessCampusController extends Controller
             'longitude' => 'required',
             'latitude' => 'required',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
+            'destinataires' => 'required|array',
+            'partage_reseaux' => 'nullable|array',
+            'categories' => 'required|array',
             // 'video' => 'nullable|mimes:mp4,mov,avi' // 20MB max
         ]);
 
 
-        $report = new Report();
-        $report->title = $request->input('title'); // Doit correspondre au champ HTML
+        $report =  Report::create($request->except('photo'));
+        /*$report->title = $request->input('title'); // Doit correspondre au champ HTML
         $report->categorie = $request->input('categorie');
         $report->description = $request->input('description');
         $report->longitude = $request->input('longitude');
         $report->latitude = $request->input('latitude');
+        */
         $report->business_id = Auth::guard('business')->user()->id;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
@@ -73,5 +115,46 @@ class BusinessCampusController extends Controller
         $report->save();
 
         return redirect('/business/reports')->with('success', 'Le rapport a été créé avec succès.');
+    } catch (\Exception $e) {
+        // En cas d'erreur, redirection avec message d'erreur
+
+        return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
     }
+    }
+
+  public function  storebesoin(Request $request)
+  {
+    try {
+
+
+    $request->validate([
+        'nom_besoin' => 'required|string|max:255',
+        'description' => 'required|string',
+        'fichiers.*' => 'file|mimes:jpg,png,mp4|max:10240',
+        'categories' => 'required|array',
+        'geolocalisation' => 'nullable|string',
+        'date_heure' => 'nullable|date',
+        'budget' => 'required|string',
+        'destinataires' => 'required|array',
+        'partage_reseaux' => 'nullable|array',
+        'partage_autorites' => 'required|boolean',
+    ]);
+
+    $besoin = Besoin::create($request->except('fichiers'));
+
+    if ($request->hasFile('fichiers')) {
+        foreach ($request->file('fichiers') as $file) {
+            $path = $file->store('public/besoins');
+            $besoin->fichiers()->create(['path' => $path]);
+        }
+    }
+
+    return back()->with('success', 'Votre demande d’aide a été soumise avec succès !');
+
+} catch (\Exception $e) {
+    // En cas d'erreur, redirection avec message d'erreur
+print($e->getMessage());
+    return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+}
+}
 }

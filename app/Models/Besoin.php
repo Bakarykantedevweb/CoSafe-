@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Report extends Model
+class Besoin extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'nom_besoin', 'description', 'fichiers', 'categories', 'destinataires', 'partage_reseaux','budget','partage_autorites','date_heure'
+    ];
 
-    protected $guarded = [];
     protected $casts = [
+        'fichiers' => 'array',
         'categories' => 'array',
         'destinataires' => 'array',
         'partage_reseaux' => 'array',

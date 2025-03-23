@@ -66,6 +66,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 // Les Routes pour l'Admin
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
@@ -92,6 +93,7 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
     Route::controller(ReportCampusController::class)->group(function () {
         Route::get('reports', 'index');
         Route::get('reports/create', 'create');
+        Route::get('reports/helps', 'helps');
         Route::post('reports/create', 'store');
     });
     Route::controller(CampusChallengeController::class)->group(function () {
@@ -99,6 +101,8 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
         Route::get('challenges/helps', 'helps');
         Route::get('challenges/trouverchallenge', 'trouverchallenge');
+        Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
+        Route::get('challenges/supports', 'supports');
 
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
@@ -130,6 +134,7 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
+        Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
 
@@ -161,6 +166,7 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
+       Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });
@@ -181,6 +187,11 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
 
     Route::controller(BusinessCampusController::class)->group(function () {
         Route::get('reports', 'index');
+        Route::get('reports/helps', 'helps');
+        Route::get('reports/posterbesoin', 'posterbesoin');
+        Route::post('reports/posterbesoin', 'storebesoin');
+        Route::get('reports/trouverchallenge', 'trouverchallenge');
+        Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
@@ -190,7 +201,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
-
+       Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'store');
     });
@@ -220,6 +231,7 @@ Route::prefix('social')->middleware(['social.auth'])->group(function () {
         Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
         Route::get('challenges/helps', 'helps');
         Route::get('challenges/trouverchallenge', 'trouverchallenge');
+        Route::get('challenges/descriptionchallenge/{challenge}', 'descriptionchallenge');
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });

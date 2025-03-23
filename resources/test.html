@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solution Numérique Sécurité & Inclusivité</title>
+  <style>
+    /* Police et base */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    /* En-tête */
+    header {
+      background: #004d99;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    /* Section principale */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    /* Titre de section */
+    .container h2 {
+      color: #004d99;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* Liste des fonctionnalités */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .feature-item {
+      flex: 1 1 45%;
+      background: #e6f2ff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+    .feature-item h3 {
+      color: #003366;
+      margin-top: 0;
+    }
+    .feature-item ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .feature-item li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .feature-item li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #007B00;
+    }
+    /* Bouton d'appel à l'action */
+    .cta {
+      display: block;
+      width: 250px;
+      margin: 30px auto 0;
+      padding: 15px;
+      background: #007BFF;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .cta:hover {
+      background: #0056b3;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+      }
+      .feature-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Renforcer la Sécurité et l'Inclusivité des Territoires</h1>
+    <p>Une solution numérique qui mobilise et connecte les acteurs locaux</p>
+  </header>
+
+  <div class="container">
+    <h2>Notre Plateforme Vous Permet de :</h2>
+    <div class="features">
+      <div class="feature-item">
+        <h3>Incidents en Temps Réel</h3>
+        <ul>
+          <li>Signaler divers incidents (incivilités, violences, discriminations, dégradations, nuisances, etc.)</li>
+          <li>Partager et analyser ces incidents en temps réel</li>
+        </ul>
+      </div>
+      <div class="feature-item">
+        <h3>Valorisation des Espaces Sécurisés</h3>
+        <ul>
+          <li>Recommander et mettre en avant les espaces et commerces sécurisés</li>
+          <li>Accéder à des données fiables pour guider vos actions</li>
+        </ul>
+      </div>
+      <div class="feature-item">
+        <h3>Challenges Sociétaux Payants</h3>
+        <ul>
+          <li>Organiser des challenges pour stimuler l’engagement citoyen</li>
+          <li>Créer des opportunités : récompenses, recrutement, etc.</li>
+        </ul>
+      </div>
+      <div class="feature-item">
+        <h3>Mise en Relation et Coopération</h3>
+        <ul>
+          <li>Faciliter la mise en relation entre talents engagés et recruteurs locaux</li>
+          <li>Favoriser une coopération active entre tous les intervenants</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#" class="cta">Découvrir la plateforme</a>
+  </div>
+
+</body>
+</html>
