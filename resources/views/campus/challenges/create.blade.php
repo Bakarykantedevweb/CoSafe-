@@ -110,7 +110,7 @@ li {
                 <a href="" class="btn btn-primary">Mes Campus Challenges</a>
             </div>
             <div class="card-body">
-                <f method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('campus/challenges/create') }}" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="row g-3">
@@ -506,6 +506,14 @@ li {
                                     @error('criteresparticipation') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                    <label>Dotation & Objet du challenge (A gagner):</label>
+                                    <textarea class="form-control" rows="5" name="dotation"
+                                        placeholder="Description de la contrepartie proposée :  Badge à gagner – Bons d’achat – Services ou marchandises …"></textarea>
+                                    @error('dotation')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                         
                             <!-- Section 8: Géolocalisation du challenge -->
                             <div class="alert alert-secondary">

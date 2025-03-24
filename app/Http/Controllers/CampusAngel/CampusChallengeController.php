@@ -98,7 +98,7 @@ class CampusChallengeController extends Controller
                 'nomcommercial' => 'nullable|string|max:255',
                 'numeroentreprise' => 'nullable|string|max:50',
                 'numeroagreation' => 'nullable|string|max:50',
-                'typesactivite' => 'nullable|json',
+                'typesactivite' => 'nullable|array',
                 'datedebutactivite' => 'nullable|date',
     
                 // Informations sur le challenge
@@ -109,14 +109,14 @@ class CampusChallengeController extends Controller
                 'description' => 'nullable|string',
                 'fichier' => 'required|file|mimes:doc,docx,pdf|max:5120',
                 'critere' => 'nullable|string|max:255',
-                'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
+               // 'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
                 'dotation' => 'nullable|string',
     
                 // Identification de la problématique à solutionner
-                'risques' => 'nullable|json',
+                'risques' => 'nullable|array',
     
                 // Compétences attendues
-                'competences_attendues' => 'nullable|json',
+                'competences_attendues' => 'nullable|array',
     
                 // Calendrier des sélections
                 'datedebutinscription' => 'required|date',
@@ -165,7 +165,8 @@ class CampusChallengeController extends Controller
             return redirect('campus/challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
-            return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+            dump($e->getMessage());
+          //  return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
     }
     

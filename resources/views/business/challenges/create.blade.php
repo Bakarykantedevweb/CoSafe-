@@ -100,7 +100,7 @@
                         <a href="" class="btn btn-primary">Mes Campus Challenges</a>
                     </div>
                     <div class="card-body">
-                        <f method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('business/challenges/create') }}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="row g-3">
@@ -392,28 +392,28 @@
             <h3>Violences faites aux femmes</h3>
             <ul>
                 <li><input type="checkbox" value="1">Harcèlement de rue</li>
-                <li><input type="checkbox" value="1">Agressions physiques et sexuelles</li>
-                <li><input type="checkbox" value="1">Violences conjugales</li>
-                <li><input type="checkbox" value="1">Mariage forcé et mutilations sexuelles</li>
+                <li><input type="checkbox" value="2">Agressions physiques et sexuelles</li>
+                <li><input type="checkbox" value="3">Violences conjugales</li>
+                <li><input type="checkbox" value="4">Mariage forcé et mutilations sexuelles</li>
             </ul>
         </div>
         <div class="column">
             <h3>Violences minorités & discriminations</h3>
             <ul>
-                <li><input type="checkbox" value="1">Homophobie et transphobie</li>
-                <li><input type="checkbox" value="1">Racisme et discriminations ethniques</li>
-                <li><input type="checkbox" value="1">Discriminations religieuses</li>
-                <li><input type="checkbox" value="1">Discriminations contre les personnes handicapées</li>
+                <li><input type="checkbox" value="5">Homophobie et transphobie</li>
+                <li><input type="checkbox" value="6">Racisme et discriminations ethniques</li>
+                <li><input type="checkbox" value="7">Discriminations religieuses</li>
+                <li><input type="checkbox" value="8">Discriminations contre les personnes handicapées</li>
             </ul>
         </div>
         <div class="column">
             <h3>Violences physiques & agressions</h3>
             <ul>
-                <li><input type="checkbox" value="1">Rixes et bagarres</li>
-                <li><input type="checkbox" value="1">Agressions gratuites ou ciblées</li>
-                <li><input type="checkbox" value="1">Usage d’armes blanches ou à feu</li>
-                <li><input type="checkbox" value="1">Tentatives de kidnapping et enlèvements</li>
-                <li><input type="checkbox" value="1">Signalement de véhicules suspects aux abords des écoles</li>
+                <li><input type="checkbox" value="9">Rixes et bagarres</li>
+                <li><input type="checkbox" value="10">Agressions gratuites ou ciblées</li>
+                <li><input type="checkbox" value="11">Usage d’armes blanches ou à feu</li>
+                <li><input type="checkbox" value="12">Tentatives de kidnapping et enlèvements</li>
+                <li><input type="checkbox" value="13">Signalement de véhicules suspects aux abords des écoles</li>
             </ul>
         </div>
     </div>
@@ -422,31 +422,31 @@
         <div class="column">
             <h3>Sécurité des Biens et Vols</h3>
             <ul>
-                <li><input type="checkbox" value="1">Intrusions illégales</li>
-                <li><input type="checkbox" value="1">Cambriolages avec effraction</li>
-                <li><input type="checkbox" value="1">Vols dans les commerces</li>
-                <li><input type="checkbox" value="1">Vols à l’arraché et pickpockets</li>
-                <li><input type="checkbox" value="1">Dégradations volontaires ciblées</li>
+                <li><input type="checkbox" value="14">Intrusions illégales</li>
+                <li><input type="checkbox" value="15">Cambriolages avec effraction</li>
+                <li><input type="checkbox" value="16">Vols dans les commerces</li>
+                <li><input type="checkbox" value="17">Vols à l’arraché et pickpockets</li>
+                <li><input type="checkbox" value="18">Dégradations volontaires ciblées</li>
             </ul>
         </div>
         <div class="column">
             <h3>Criminalité et Menaces</h3>
             <ul>
-                <li><input type="checkbox" value="1">Trafic de drogues & stupéfiants</li>
-                <li><input type="checkbox" value="1">Actes de terrorisme</li>
-                <li><input type="checkbox" value="1">Recrutement & radicalisation</li>
-                <li><input type="checkbox" value="1">Violences & abus policiers</li>
-                <li><input type="checkbox" value="1">Incivilités en milieu scolaire</li>
+                <li><input type="checkbox" value="19">Trafic de drogues & stupéfiants</li>
+                <li><input type="checkbox" value="20">Actes de terrorisme</li>
+                <li><input type="checkbox" value="21">Recrutement & radicalisation</li>
+                <li><input type="checkbox" value="22">Violences & abus policiers</li>
+                <li><input type="checkbox" value="23">Incivilités en milieu scolaire</li>
             </ul>
         </div>
         <div class="column">
             <h3>Incivilités et Troubles</h3>
             <ul>
-                <li><input type="checkbox" value="1">Dégradations & insalubrité urbaine</li>
-                <li><input type="checkbox" value="1">Nuisances et troubles voisinage</li>
-                <li><input type="checkbox" value="1">Stationnement et infractions</li>
-                <li><input type="checkbox" value="1">Incivilités dans les commerces</li>
-                <li><input type="checkbox" value="1">Comportements antisociaux dans les transports</li>
+                <li><input type="checkbox" value="24">Dégradations & insalubrité urbaine</li>
+                <li><input type="checkbox" value="25">Nuisances et troubles voisinage</li>
+                <li><input type="checkbox" value="26">Stationnement et infractions</li>
+                <li><input type="checkbox" value="27">Incivilités dans les commerces</li>
+                <li><input type="checkbox" value="28">Comportements antisociaux dans les transports</li>
             </ul>
         </div>
     </div>
@@ -606,17 +606,17 @@
                                      <b>Compétences attendues </b> (pour évaluer les propositions ?)    (Cochez tout ce qui s’applique)
                                 </div>
     <div class="container2">
-        <div class="column2"><input type="checkbox" value="1">Viabilité financière et accessibilité</div>
-        <div class="column2"><input type="checkbox" value="1">Créativité et innovation de la solution</div>
-        <div class="column2"><input type="checkbox" value="1">Impact sur la prévention et la réduction des risques</div>
-        <div class="column2"><input type="checkbox" value="1">Faisabilité technique et opérationnelle</div>
-        <div class="column2"><input type="checkbox" value="1">Durabilité et adaptabilité de la solution</div>
+        <div class="column2"><input type="checkbox" name="risques[]" value="1">Viabilité financière et accessibilité</div>
+        <div class="column2"><input type="checkbox" value="2">Créativité et innovation de la solution</div>
+        <div class="column2"><input type="checkbox" value="3">Impact sur la prévention et la réduction des risques</div>
+        <div class="column2"><input type="checkbox" value="4">Faisabilité technique et opérationnelle</div>
+        <div class="column2"><input type="checkbox" value="5">Durabilité et adaptabilité de la solution</div>
 
-        <div class="column2"><input type="checkbox" value="1">Engagement & mobilisation citoyenne</div>
-        <div class="column2"><input type="checkbox" value="1">Synergie avec les forces de l’ordre</div>
-        <div class="column2"><input type="checkbox" value="1">Facilité d’adoption et d’implémentation</div>
-        <div class="column2"><input type="checkbox" value="1">Effet dissuasif et réactif face aux menaces</div>
-        <div class="column2"><input type="checkbox" value="1">Impact social et renforcement du lien communautaire</div>
+        <div class="column2"><input type="checkbox" value="6">Engagement & mobilisation citoyenne</div>
+        <div class="column2"><input type="checkbox" value="7">Synergie avec les forces de l’ordre</div>
+        <div class="column2"><input type="checkbox" value="8">Facilité d’adoption et d’implémentation</div>
+        <div class="column2"><input type="checkbox" value="9">Effet dissuasif et réactif face aux menaces</div>
+        <div class="column2"><input type="checkbox" value="10">Impact social et renforcement du lien communautaire</div>
     </div>
     <div class="col-lg-12 mb-3">
                     <textarea class="form-control " id="productionarealiser"
