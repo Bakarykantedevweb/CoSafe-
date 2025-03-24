@@ -31,6 +31,7 @@
             height: 400px;
             width: 100%;
         }
+      
     </style>
     <title>Tabaleau de Bord Business</title>
     <style>

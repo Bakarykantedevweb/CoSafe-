@@ -75,11 +75,10 @@ class BusinessCampusController extends Controller
     {
         try {
         $request->validate([
-            'title' => 'required|string|max:255', // Correction ici
-            'categorie' => 'required|string|max:255',
             'description' => 'required|string',
             'longitude' => 'required',
             'latitude' => 'required',
+            'date_heure'=> 'required',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
             'destinataires' => 'required|array',
             'partage_reseaux' => 'nullable|array',
@@ -88,7 +87,7 @@ class BusinessCampusController extends Controller
         ]);
 
 
-        $report =  Report::create($request->except('photo'));
+        $report =  Report::create($request->except('photo','categorie'));
         /*$report->title = $request->input('title'); // Doit correspondre au champ HTML
         $report->categorie = $request->input('categorie');
         $report->description = $request->input('description');
@@ -117,8 +116,9 @@ class BusinessCampusController extends Controller
         return redirect('/business/reports')->with('success', 'Le rapport a été créé avec succès.');
     } catch (\Exception $e) {
         // En cas d'erreur, redirection avec message d'erreur
-
-        return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+    var_dump($e->getMessage());
+    
+        //return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
     }
     }
 

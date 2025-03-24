@@ -52,26 +52,21 @@
                             <form method="POST" action="{{ url('business/reports/create') }}" enctype="multipart/form-data" class="row gx-3 needs-validation">
                                 @csrf
                                 @method('POST')
-
-                                <!-- form group -->
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
-                                        Categorie
+                                    Géolocalisez le lieu de l’incident 
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <select name="categorie" class="form-select" id="">
-                                        <option value="">---</option>
-                                        <option value="Violence">Violence</option>
-                                        <option value="Dégradation">Dégradation</option>
-                                        <option value="Nuisance">Nuisance</option>
-                                    </select>
+                                    <input type="text" name="latitude"  id="latitude" class="form-control" required />
                                 </div>
+                                <!-- form group -->
+    
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
                                         Date et heure
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="datetime-local" name="title" class="form-control" required />
+                                    <input type="datetime-local" name="date_heure" class="form-control" required />
                                 </div>
 
                                 <div class="mb-3 col-12">
@@ -86,7 +81,9 @@
                                 </div>
                                 <!-- form group -->
 
-                                <div class="col-md-8"></div>
+                                <div class="col-md-8"><label class="form-label">
+                                Catégorie de l’incident
+                                    </label></div>
                                 <div class="row">
             <div class="card mb-3 col-4">
             <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
@@ -247,13 +244,7 @@
                 <div class=" col-md-3 form-check">
                     <input class="form-check-input" type="checkbox" name="partage_reseaux[]" value="X"> X
                 </div>
-                </div>              <div class="mb-3 col-6">
-                                    <label class="form-label">
-                                        Latitude
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" name="latitude"  id="latitude" class="form-control" required />
-                                </div>
+                </div>             
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
                                         Longitude

@@ -2,16 +2,32 @@
 @section('content')
 
     <style>
-
-        .container { max-width: 800px; margin: auto; }
+    
         h2 { color: #2c3e50; }
         form { display: flex; flex-direction: column; gap: 10px; }
-        label { font-weight: bold; }
-        input, select, textarea, button { padding: 8px; font-size: 16px; }
-        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
-        .file-inputs { display: flex; flex-wrap: wrap; gap: 10px; }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .form-container div {
+            flex: 1 1 48%;
+        }
+        label {
+
+        }
+    
     </style>
-<div class="container mt-4">
+    <section class="container-fluid p-4">
+<div class="container card mt-4">
         <h2 class="mb-3">Déclarer un Besoin</h2>
         <form action="{{ url('business/reports/posterbesoin') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -158,7 +174,7 @@
 
                 <!-- Prévention et engagement citoyen -->
                 <div class="card col-md-4">
-                <div class="card-header bg-primary text-white">Prévention et engagement citoyen</div>
+                <div class="card-header bg-success text-white">Prévention et engagement citoyen</div>
                 <div class="card-body">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="option9" name="categories[]" value="Sensibilisation aux violences, incivilités">
@@ -280,4 +296,5 @@
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
     </div>
+    </section>
     @endsection
