@@ -294,12 +294,29 @@ h2 {
 
             <div class="page-content">
 
-                <!-- START SIGN-UP -->
-                <section >
+            <header>
+        <div class="bg-indigo-600 header-container">
+            <h1>Communauté Sécurisée & Solidaire</h1>
+            <h2>La Force des Anges gardiens</h2>
+            <div class="alert-box">
+                <h3>SOS - ALERTE</h3>
+                <p>Vous êtes en danger ? Vous êtes témoin d'une incivilité ou d'une violence ?</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-indigo-600 header">
+        <div>1️⃣ VEILLEZ, PRÉVENEZ, PROTÉGEZ</div>
+        <div>2️⃣ ALERTEZ – PROTÉGEZ – SOLIDARISEZ</div>
+        <div>3️⃣ ASSUREZ LA SÉCURITÉ DE TOUS</div>
+        <div>4️⃣ AGISSEZ POUR UN TERRITOIRE SÉCURISÉ</div>
+    </nav>
+                     <!-- START SIGN-IN -->
+                     <section>
                 <div class="max-w-md mx-auto">
                         <div class="row justify-content-center">
                             <div class="col-xl-10 col-lg-12">
-                                <div class="card bg-indigo-600 auth-box">
+                                <div class="card bg-indigo-600">
                                     <div class="row align-items-center">
 
                                         <div class="col-lg-12">
@@ -377,45 +394,46 @@ h2 {
 
     </div>
     <!-- END layout-wrapper -->
-
-    <!-- Style switcher -->
-    <div id="style-switcher" onclick="toggleSwitcher()" style="left: -165px;">
-        <div>
-            <h6>Select your color</h6>
-            <ul class="pattern list-unstyled mb-0">
-                <li>
-                    <a class="color-list color1" href="javascript: void(0);" onclick="setColorGreen()"></a>
-                </li>
-                <li>
-                    <a class="color-list color2" href="javascript: void(0);" onclick="setColor('blue')"></a>
-                </li>
-                <li>
-                    <a class="color-list color3" href="javascript: void(0);" onclick="setColor('purple')"></a>
-                </li>
-            </ul>
-            <div class="mt-3">
-                <h6>Light/dark Layout</h6>
-                <div class="text-center mt-3">
-                    <!-- light-dark mode -->
-                    <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-3">
-                        <i class="uil uil-brightness mode-dark mx-auto"></i>
-                        <i class="uil uil-moon mode-light"></i>
-                    </a>
-                    <!-- END light-dark Mode -->
-                </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>MENTIONS LÉGALES</h3>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Objectifs & valeurs sociales</a></li>
+                    <li><a href="#">Pourquoi nous rejoindre ?</a></li>
+                    <li><a href="#">Confidentialité & CGU</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>ESPACE BUSINESS</h3>
+                <ul>
+                    <li><a href="#">Devenir Safy Commerçant</a></li>
+                    <li><a href="#">Devenir Safy Entreprise</a></li>
+                    <li><a href="#">Alertez, Protégez, Solidarisez vos collaborateurs</a></li>
+                    <li><a href="#">Initiez des partenariats Écoles-Entreprises</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>ESPACE PROMOTEURS</h3>
+                <ul>
+                    <li><a href="#">Devenez Promoteur de territoire sécurisé</a></li>
+                    <li><a href="#">Boostez votre économie avec un territoire sécurisé</a></li>
+                    <li><a href="#">Lancez des Safe-Challenges pour mobiliser</a></li>
+                    <li><a href="#">Initiez des partenariats transfrontaliers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>ESPACE CITOYENS</h3>
+                <ul>
+                    <li><a href="#">Devenez City Angel</a></li>
+                    <li><a href="#">Devenez Campus Angel</a></li>
+                    <li><a href="#">Relevez des Safe-Challenges</a></li>
+                    <li><a href="#">Lancez des Safe-Challenges</a></li>
+                </ul>
             </div>
         </div>
-        <div class="bottom">
-            <a href="javascript: void(0);" class="settings rounded-end"><i class="mdi mdi-cog mdi-spin"></i></a>
-        </div>
-    </div>
-    <!-- end switcher-->
-
-    <!--start back-to-top-->
-    <button onclick="topFunction()" id="back-to-top">
-        <i class="mdi mdi-arrow-up"></i>
-    </button>
-    <!--end back-to-top-->
+    </footer>
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('front/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
