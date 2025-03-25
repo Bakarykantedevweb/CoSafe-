@@ -310,7 +310,7 @@ h2 {
                      <!-- START SIGN-IN -->
                      <section >
                      <div class="max-w-md mx-auto">
-                     <div class="bg-white p-8 rounded-xl shadow-md">
+                     <div>
                             <div class="row justify-content-center">
                                 <div class="col-xl-10 col-lg-12">
                                     <div class="card">
