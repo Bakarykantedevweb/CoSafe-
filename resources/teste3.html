@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord PU Prime</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f4f4f4;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background: #ddd;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .stat-box {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            margin: 5px;
+        }
+        .button {
+            padding: 10px 15px;
+            border: none;
+            background: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .button:hover {
+            background: darkblue;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>PU PRIME</h2>
+        <a href="#">Tableau de Bord</a>
+        <a href="#">Rapport IB</a>
+        <a href="#">Fonds</a>
+        <a href="#">Profil IB</a>
+        <a href="#">Liens de Référence</a>
+        <a href="#">Nous Contacter</a>
+    </div>
+    <div class="content">
+        <div class="card">
+            <h3>Compte de Bonus</h3>
+            <p>Bonus total: <strong id="bonus">0.00</strong> USC</p>
+            <button class="button" onclick="ajouterBonus(100)">Demander un Bonus</button>
+        </div>
+        <div class="card">
+            <h3>Statistiques</h3>
+            <div class="stats">
+                <div class="stat-box">
+                    <p>Bonus</p>
+                    <p><strong id="stat-bonus">1,190.00</strong> USC</p>
+                </div>
+                <div class="stat-box">
+                    <p>Paiement Net</p>
+                    <p><strong id="stat-paiement">6,000.00</strong> USC</p>
+                </div>
+                <div class="stat-box">
+                    <p>Dépôts</p>
+                    <p><strong id="stat-depots">10,000.00</strong> USC</p>
+                </div>
+                <div class="stat-box">
+                    <p>Retraits</p>
+                    <p><strong id="stat-retraits">4,000.00</strong> USC</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Historique des Transactions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Montant (USC)</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function ajouterBonus(montant) {
+            let bonusElement = document.getElementById("bonus");
+            let statBonusElement = document.getElementById("stat-bonus");
+            let bonusActuel = parseFloat(bonusElement.innerText);
+            let statBonusActuel = parseFloat(statBonusElement.innerText.replace(',', ''));
+            bonusElement.innerText = (bonusActuel + montant).toFixed(2);
+            statBonusElement.innerText = (statBonusActuel + montant).toLocaleString();
+            ajouterTransaction("Bonus", montant);
+        }
+        function ajouterTransaction(type, montant) {
+            let table = document.getElementById("transaction-table");
+            let row = table.insertRow(0);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let date = new Date().toLocaleDateString();
+            cell1.innerText = date;
+            cell2.innerText = type;
+            cell3.innerText = montant.toFixed(2);
+        }
+        function miseAJourDynamique() {
+            fetch('https://api.example.com/finance') 
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("stat-bonus").innerText = data.bonus;
+                    document.getElementById("stat-paiement").innerText = data.paiement;
+                    document.getElementById("stat-depots").innerText = data.depots;
+                    document.getElementById("stat-retraits").innerText = data.retraits;
+                })
+                .catch(error => console.error('Erreur lors de la récupération des données', error));
+        }
+        setInterval(miseAJourDynamique, 5000);
+    </script>
+</body>
+</html>

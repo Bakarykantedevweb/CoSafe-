@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Trading</title>
+    <style>
+        /* Style de base */
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        /* Barre latérale */
+        .sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: background 0.3s ease-in-out;
+        }
+        .sidebar:hover {
+            background: #e9ecef;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .sidebar ul li:hover {
+            background: #ddd;
+            transform: scale(1.02);
+        }
+        /* Contenu principal */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+        /* Bouton de rafraîchissement */
+        #refresh {
+            padding: 10px 15px;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        #refresh:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+        /* Tableau avec animation de fondu pour les données mises à jour */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th, td {
+            padding: 10px;
+            transition: background 0.3s ease-in-out;
+        }
+        th {
+            background: #f1f1f1;
+        }
+        .up {
+            color: green;
+        }
+        .down {
+            color: red;
+        }
+        /* Animation fadeIn */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fonction de mise à jour des données via l'API (exemple fictif)
+            function refreshData() {
+                fetch("https://api.exemple.com/trading-data") // Remplacer par une API réelle
+                    .then(response => response.json())
+                    .then(data => {
+                        // Mise à jour des éléments avec une transition de fondu
+                        document.getElementById("total-assets").innerText = data.totalAssets + " USD";
+                        document.getElementById("account1-balance").innerText = data.accounts[0].balance + " USC";
+                        document.getElementById("account2-balance").innerText = data.accounts[1].balance + " USD";
+                        
+                        // Optionnel : ajouter une animation de mise à jour sur le tableau Forex
+                        const forexBody = document.getElementById("forex-data");
+                        forexBody.style.opacity = 0;
+                        setTimeout(() => {
+                            forexBody.innerHTML = data.forex.map(item => `
+                                <tr>
+                                    <td>${item.symbol}</td>
+                                    <td>${item.offer}</td>
+                                    <td>${item.change}</td>
+                                    <td class="${item.change[0] === '+' ? 'up' : 'down'}">${item.percentage}</td>
+                                </tr>
+                            `).join('');
+                            forexBody.style.opacity = 1;
+                        }, 300);
+                    })
+                    .catch(error => console.error("Erreur lors de la mise à jour", error));
+            }
+            // Bouton de rafraîchissement
+            document.getElementById("refresh").addEventListener("click", refreshData);
+        });
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>PUPRIME</h2>
+        <ul>
+            <li>Accueil</li>
+            <li>Gestion des Comptes</li>
+            <li>Fonds</li>
+            <li>Promotions</li>
+            <li>Outils</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Actif total estimé: <span id="total-assets">35.52 USD</span></h1>
+            <button id="refresh">🔄 Rafraîchir</button>
+        </header>
+        <section>
+            <h2>Comptes de Trading</h2>
+            <div class="account">
+                <p>MT4 605815: <span id="account1-balance">3,426.55 USC</span></p>
+                <p>MT4 1235151: <span id="account2-balance">1.25 USD</span></p>
+            </div>
+        </section>
+        <section>
+            <h2>Forex</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbole</th>
+                        <th>Offre</th>
+                        <th>Modifier</th>
+                        <th>Pourcentage</th>
+                    </tr>
+                </thead>
+                <tbody id="forex-data">
+                    <tr>
+                        <td>EUR/USD</td>
+                        <td>1.082</td>
+                        <td>+0.002</td>
+                        <td class="up">+0.18%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
