@@ -29,19 +29,7 @@
     </div>
 </section>
 <section class="container-fluid p-4">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <div
-                    class="border-bottom pb-3 mb-3 d-flex flex-column flex-lg-row gap-3 justify-content-between align-items-lg-center">
-                    <div>
-                        <h1 class="mb-0 h2 fw-bold">Listes des Signalements</h1>
-                    </div>
-                    <div class="d-flex gap-3">
-                        <a href="{{ url('business/challenges/create') }}" class="btn btn-primary">Ajouter</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <!-- Card -->
@@ -50,12 +38,12 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border-bottom-0 card-header-height">
                         <h4 class="mb-0">Mes Signalements</h4>
-                       
+
                     </div>
                     <!-- Table -->
                     <div class="mb-5">
 
-    
+
 
             <div class="d-flex align-items-center justify-content-around">
 
@@ -87,7 +75,7 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                           
+
                         </table>
                         <div class="row mb-4">
             <div class="mb-4">
@@ -100,14 +88,11 @@
                         <table class="display text-center table" id="example1">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image Challenge</th>
-                                    <th scope="col">Nom du Challenge</th>
-                                    <th scope="col">Lieu du challenge</th>
-                                    <th scope="col">Email de candidature</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Secteur</th>
-                                    <th scope="col">Actions</th>
+                                <th>Titre</th>
+                                    <th>Categorie</th>
+                                    <th>Date Debut</th>
+                                    <th>Date Fin</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
