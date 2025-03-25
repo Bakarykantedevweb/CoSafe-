@@ -146,7 +146,7 @@
                         <div class="dropdown-divider"></div>
                         <ul class="list-unstyled">
                             <li>
-                                <a class="dropdown-item" href="{{ url('business/logout') }}" 
+                                <a class="dropdown-item" href="{{ url('business/logout') }}"
                                 onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     <i class="fe fe-power me-2"></i>

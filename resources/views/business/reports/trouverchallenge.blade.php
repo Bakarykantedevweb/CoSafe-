@@ -1,30 +1,28 @@
 @extends('layouts.business')
 @section('content')
-<style>
-       
+    <style>
+
         header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px 0;
+
+            padding: 10px 0;
             text-align: center;
         }
 
+        section {
+            padding: 20px;
+        }
         .container {
             max-width: 1200px;
-            
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            padding: 0 20px;
         }
         .cta {
             text-align: center;
+            margin-top: 30px;
             padding: 15px;
-            background-color: #007bff;
+            background-color: #4CAF50;
             color: white;
             font-size: 18px;
-            margin-bottom: 20px;
-            border-radius: 5px;
         }
         .form-container {
             display: flex;
@@ -34,18 +32,12 @@
         .form-container div {
             flex: 1 1 48%;
         }
-        select, input, button {
+        select, input {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border: none;
         }
         .alert-list {
             margin-top: 30px;
@@ -62,7 +54,6 @@
             padding: 10px;
             background-color: #333;
             color: white;
-            margin-top: 20px;
         }
     </style>
 
@@ -88,7 +79,7 @@
         </ul>
 
         <h3>Consultez ci-dessous les Safe-Alertes selon vos critères</h3>
-        
+
         <div class="form-container">
             <div>
                 <label for="country">Pays</label>

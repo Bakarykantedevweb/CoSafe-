@@ -54,13 +54,13 @@
                                 @method('POST')
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
-                                    Géolocalisez le lieu de l’incident 
+                                    Géolocalisez le lieu de l’incident
                                         <span class="text-danger">*</span>
                                     </label>
                                     <input type="text" name="latitude"  id="latitude" class="form-control" required />
                                 </div>
                                 <!-- form group -->
-    
+
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
                                         Date et heure
@@ -87,7 +87,7 @@
                                 <div class="row">
             <div class="card mb-3 col-4">
             <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
-                <div class="card-body">
+                <div>
                 <input type="checkbox" id="harcelement" name="categories[]" value="Harcèlement de rue">
                 <label for="harcelement">Harcèlement de rue</label><br>
 
@@ -108,7 +108,7 @@
             <!-- Violences minorités & discriminations -->
             <div class=" card mb-3 col-4">
             <div class="card-header bg-primary text-white">2. Violences minorités & discriminations</div><br>
-                <div class="card-body">
+                <div >
                 <input type="checkbox" id="homophobie" name="categories[]" value="Homophobie et transphobie">
                 <label for="homophobie">Homophobie et transphobie</label><br>
 
@@ -125,7 +125,7 @@
 
             <div class="card mb-3 col-4">
             <div class="card-header bg-primary text-white">3. Violences physiques & agressions</div><br>
-                <div class="card-body">
+                <div>
                 <input type="checkbox" id="rixes" name="categories[]" value="Rixes et bagarres">
                 <label for="rixes">Rixes et bagarres</label><br>
 
@@ -154,7 +154,7 @@
             <div class="row">
             <div class="card mb-3 col-4">
             <div class="card-header bg-primary text-white">4. Sécurité des Biens et Vols</div><br>
-                <class="card-body">
+                <div >
                 <input type="checkbox" id="intrusions" name="categories[]" value="Intrusions illégales">
                 <label for="intrusions">Intrusions illégales</label><br>
 
@@ -170,11 +170,11 @@
                 <input type="checkbox" id="degats_volontaires" name="categories[]" value="Dégradations volontaires ciblées">
                 <label for="degats_volontaires">Dégradations volontaires ciblées</label><br>
             </div>
-
+</div>
             <!-- Criminalité et Menaces -->
             <div class="card mb-3 col-4">
             <div class="card-header bg-primary text-white">5. Criminalité et Menaces</div><br>
-                <div class="card-body">
+                <div >
                 <input type="checkbox" id="trafic_drogues" name="categories[]" value="Trafic de drogues & stupéfiants">
                 <label for="trafic_drogues">Trafic de drogues & stupéfiants</label><br>
 
@@ -193,7 +193,7 @@
             </div>
             <div class="card mb-3 col-4">
             <div class="card-header bg-primary text-white">6. Incivilités et Troubles</div><br>
-                <div class="card-body">
+                <div>
                 <input type="checkbox" id="degats_urbains" name="categories[]" value="Dégradations & insalubrité urbaine">
                 <label for="degats_urbains">Dégradations & insalubrité urbaine</label><br>
 
@@ -244,7 +244,7 @@
                 <div class=" col-md-3 form-check">
                     <input class="form-check-input" type="checkbox" name="partage_reseaux[]" value="X"> X
                 </div>
-                </div>             
+                </div>
                                 <div class="mb-3 col-6">
                                     <label class="form-label">
                                         Longitude
