@@ -79,13 +79,10 @@ class BusinessChallengeController extends Controller
                 'nomcommercial' => 'nullable|string|max:255',
                 'numeroentreprise' => 'nullable|string|max:50',
                 'numeroagreation' => 'nullable|string|max:50',
-<<<<<<< HEAD
                 'typesactivite' => 'nullable|array',
                 'datedebutactivite' => 'nullable|date',
-=======
                 'typesactivite' => 'nullable|json',
                 'datedebutinscription' => 'nullable|date',
->>>>>>> 0ff4bc2 (J'ai termine faut verifier)
     
                 // Informations sur le challenge
                 'nomchallenge' => 'required|string|max:255',
@@ -96,7 +93,6 @@ class BusinessChallengeController extends Controller
                 'fichier' => 'required|file|mimes:doc,docx,pdf|max:5120',
                 'critere' => 'nullable|string|max:255',
                 'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
-<<<<<<< HEAD
                 'dotation' => 'nullable|string',
     
                 // Identification de la problématique à solutionner
@@ -104,7 +100,6 @@ class BusinessChallengeController extends Controller
     
                 // Compétences attendues
                 'competences_attendues' => 'nullable|array',
-=======
                 'dotation' => 'required|string',
     
                 // Identification de la problématique à solutionner
@@ -112,7 +107,6 @@ class BusinessChallengeController extends Controller
     
                 // Compétences attendues
                 'competences_attendues' => 'nullable|json',
->>>>>>> 0ff4bc2 (J'ai termine faut verifier)
     
                 // Calendrier des sélections
                 'datedebutinscription' => 'required|date',
@@ -132,22 +126,16 @@ class BusinessChallengeController extends Controller
                 'campus' => 'required|string|max:100',
                 'datelancement' => 'required|date',
                 'datecloture' => 'required|date|after:datelancement',
-<<<<<<< HEAD
 
-=======
     
                 // Conditions générales
                 'accepte_conditions' => 'required|accepted',
->>>>>>> 0ff4bc2 (J'ai termine faut verifier)
             ], [
                 'datecloture.after' => 'La date de clôture doit être postérieure à la date de lancement.',
                 'datefininscription.after' => 'La date de fin des inscriptions doit être postérieure à la date de début.',
                 'datefinselection.after' => 'La date de fin des sélections doit être postérieure à la date de début.',
                 'nombreequipesmax.gt' => 'Le nombre maximum d\'équipes doit être supérieur au nombre minimum.',
-<<<<<<< HEAD
-=======
                 'accepte_conditions.accepted' => 'Vous devez accepter les conditions générales.',
->>>>>>> 0ff4bc2 (J'ai termine faut verifier)
             ]);
     
             // Création d'une nouvelle instance de Challenge
@@ -162,11 +150,8 @@ class BusinessChallengeController extends Controller
             $challenge->conditions = $this->uploadFile($request->file('conditions'), 'uploads/challenges/conditions', 'conditions');
     
             // Assignation de l'ID du business connecté
-<<<<<<< HEAD
             $challenge->business_id = Auth::guard('business')->user()->id;
-=======
             $challenge->campus_angel_id = Auth::guard('campus')->user()->id;
->>>>>>> 0ff4bc2 (J'ai termine faut verifier)
     
             // Sauvegarde du challenge
             $challenge->save();
@@ -175,12 +160,8 @@ class BusinessChallengeController extends Controller
             return redirect('campus/challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
-<<<<<<< HEAD
             dump($e->getMessage());
            // return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
-=======
-            return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
->>>>>>> 0ff4bc2 (J'ai termine faut verifier)
         }
     }
     
