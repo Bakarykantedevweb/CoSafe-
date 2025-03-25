@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PU Prime Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f4f4f4;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background: #ddd;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .table th {
+            background: #f8f8f8;
+        }
+        .positive { color: green; }
+        .negative { color: red; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>PU PRIME</h2>
+        <a href="#">Accueil</a>
+        <a href="#">Gestion des Comptes</a>
+        <a href="#">Fonds</a>
+        <a href="#">Promotions</a>
+        <a href="#">XTrader</a>
+        <a href="#">Téléchargements</a>
+        <a href="#">Outils</a>
+        <a href="#">Profil</a>
+        <a href="#">Support</a>
+    </div>
+    <div class="content">
+        <div class="card">
+            <h3>Actif total estimé</h3>
+            <p><strong id="balance">35.52</strong> USD</p>
+            <button onclick="updateBalance(5)">Dépot</button>
+            <button onclick="updateBalance(-5)">Retrait</button>
+            <button>Transfert</button>
+        </div>
+        <div class="card">
+            <h3>Compte de Trading</h3>
+            <p><strong>MT4 605815</strong> - <span id="account1">3,426.55</span> USC Standard Cent</p>
+            <p><strong>MT4 1235151</strong> - <span id="account2">1.25</span> USD Standard</p>
+        </div>
+        <div class="card">
+            <h3>Forex</h3>
+            <table class="table">
+                <tr>
+                    <th>Symbole</th>
+                    <th>Offre</th>
+                    <th>Modifier</th>
+                    <th>Pourcentage</th>
+                </tr>
+                <tr>
+                    <td>EURUSD</td>
+                    <td id="eurusd">1.082</td>
+                    <td class="positive">+0.002</td>
+                    <td class="positive">+0.180%</td>
+                </tr>
+                <tr>
+                    <td>EURAUD</td>
+                    <td id="euraud">1.712</td>
+                    <td class="negative">-0.006</td>
+                    <td class="negative">-0.34%</td>
+                </tr>
+                <tr>
+                    <td>EURJPY</td>
+                    <td id="eurjpy">162.108</td>
+                    <td class="negative">-0.585</td>
+                    <td class="negative">-0.35%</td>
+                </tr>
+                <tr>
+                    <td>AUDNZD</td>
+                    <td id="audnzd">1.100</td>
+                    <td class="positive">+0.003</td>
+                    <td class="positive">+0.27%</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function updateBalance(amount) {
+            let balanceElement = document.getElementById("balance");
+            let currentBalance = parseFloat(balanceElement.innerText);
+            balanceElement.innerText = (currentBalance + amount).toFixed(2);
+        }
+    </script>
+</body>
+</html>
