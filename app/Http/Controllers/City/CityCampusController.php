@@ -17,7 +17,55 @@ class CityCampusController extends Controller
 
     public function create()
     {
-        return view('city.reports.create');
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('city.reports.create', [
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+        ]);
+    }
+
+    public function posterbesoin()
+    {
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('city.reports.createbesoin', [
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+        ]);
+    }
+
+
+    public function helps()
+    {
+        return view('city.reports.help');
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Report::where('city_angel_id', Auth::guard('city')->user()->id)->get();
+        return view('city.reports.trouverchallenge', compact('challenges'));
+    }
+    public function postincident()
+    {
+        $challenges = Report::where('city_angel_id', Auth::guard('city')->user()->id)->get();
+        return view('city.reports.postincident', compact('challenges'));
     }
 
     public function store(Request $request)

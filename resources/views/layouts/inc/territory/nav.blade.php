@@ -60,17 +60,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('territory/reports') }}">
                     - Trouver un signalement
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('territory/reports/create') }}">
                     - Signaler un acte (vol, violence...)
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('territory/reports/posterbesoin') }}">
                     - Déposer un besoin d'aide
                 </a>
             </li>

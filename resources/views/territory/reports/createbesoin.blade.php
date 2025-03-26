@@ -1,4 +1,4 @@
-@extends('layouts.campus')
+@extends('layouts.territory')
 @section('content')
 
     <style>
@@ -256,7 +256,7 @@
                 </div>
                 <div class="row">
                 <div class="col-md-4 form-check">
-                    <input class="form-check-input" type="checkbox" name="destinataires[]" value="Campus Angel"> Campus Angel
+                    <input class="form-check-input" type="checkbox" name="destinataires[]" value="territory Angel"> territory Angel
                 </div>
                 <div class=" col-md-4 form-check">
                     <input class="form-check-input" type="checkbox" name="destinataires[]" value="Promoteur"> Promoteur de territoires

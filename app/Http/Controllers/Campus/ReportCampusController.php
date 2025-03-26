@@ -90,7 +90,6 @@ class ReportCampusController extends Controller
         $report->longitude = $request->input('longitude');
         $report->latitude = $request->input('latitude');
 
-        $report->campus_angel_id = Auth::guard('campus')->user()->id;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $ext = $file->getClientOriginalExtension();
@@ -98,6 +97,8 @@ class ReportCampusController extends Controller
             $file->move(public_path('uploads/reports/photos'), $filename);
             $report->photo = $filename;
         }
+        $report->campus_angel_id = Auth::guard('campus')->user()->id;
+    
 
         $report->save();
 

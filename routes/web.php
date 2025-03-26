@@ -128,6 +128,11 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
 
     Route::controller(CityCampusController::class)->group(function () {
         Route::get('reports', 'index');
+        Route::get('reports/helps', 'helps');
+        Route::get('reports/posterbesoin', 'posterbesoin');
+        Route::post('reports/posterbesoin', 'storebesoin');
+        Route::get('reports/trouverchallenge', 'trouverchallenge');
+        Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
 
@@ -161,6 +166,11 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
 
     Route::controller(TerritoryCampusController::class)->group(function () {
         Route::get('reports', 'index');
+        Route::get('reports/helps', 'helps');
+        Route::get('reports/posterbesoin', 'posterbesoin');
+        Route::post('reports/posterbesoin', 'storebesoin');
+        Route::get('reports/trouverchallenge', 'trouverchallenge');
+        Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });

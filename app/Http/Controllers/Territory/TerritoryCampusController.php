@@ -17,7 +17,55 @@ class TerritoryCampusController extends Controller
 
     public function create()
     {
-        return view('territory.reports.create');
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('territory.reports.create', [
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+        ]);
+    }
+
+    public function posterbesoin()
+    {
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('territory.reports.createbesoin', [
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+        ]);
+    }
+
+
+    public function helps()
+    {
+        return view('territory.reports.help');
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Report::where('territory_id', Auth::guard('territory')->user()->id)->get();
+        return view('territory.reports.trouverchallenge', compact('challenges'));
+    }
+    public function postincident()
+    {
+        $challenges = Report::where('territory_id', Auth::guard('territory')->user()->id)->get();
+        return view('territory.reports.postincident', compact('challenges'));
     }
 
     public function store(Request $request)
