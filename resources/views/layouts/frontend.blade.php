@@ -229,7 +229,7 @@
     }
 
     .footer-column h3 {
-        border-bottom: none;
+        /*border-bottom: none;*/
     }
 }
 /* Style du header */
