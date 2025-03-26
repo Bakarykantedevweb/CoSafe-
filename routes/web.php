@@ -92,8 +92,12 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
 
     Route::controller(ReportCampusController::class)->group(function () {
         Route::get('reports', 'index');
-        Route::get('reports/create', 'create');
         Route::get('reports/helps', 'helps');
+        Route::get('reports/posterbesoin', 'posterbesoin');
+        Route::post('reports/posterbesoin', 'storebesoin');
+        Route::get('reports/trouverchallenge', 'trouverchallenge');
+        Route::get('reports/postincident', 'postincident');
+        Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
     });
     Route::controller(CampusChallengeController::class)->group(function () {

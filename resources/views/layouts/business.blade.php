@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {{-- <style>
         /* Styles généraux */
         body {
             font-family: 'Poppins', sans-serif;
@@ -134,13 +134,25 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Responsive */
@@ -150,123 +162,122 @@
                 text-align: center;
             }
         }
+
         footer {
-    background-color: #222;
-    color: white;
-    padding: 40px 20px;
-    text-align: left;
-}
+            background-color: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: left;
+        }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
-}
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-.footer-column {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px 20px;
-}
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px 20px;
+        }
 
-.footer-column h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid  rgb(79 70 229);
-    padding-bottom: 5px;
-}
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgb(79 70 229);
+            padding-bottom: 5px;
+        }
 
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
 
-.footer-column ul li {
-    margin-bottom: 8px;
-}
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
 
-.footer-column ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
 
-.footer-column ul li a:hover {
-    color:  rgb(79 70 229);
-    text-decoration: underline;
-}
+        .footer-column ul li a:hover {
+            color: rgb(79 70 229);
+            text-decoration: underline;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .footer-column {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+            .footer-column {
+                text-align: center;
+                margin-bottom: 20px;
+            }
 
-    .footer-column h3 {
-        border-bottom: none;
-    }
-}
-/* Style du header */
+            .footer-column h3 {
+                border-bottom: none;
+            }
+        }
 
-
-/* Conteneur du texte */
-.header-container {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 15px 30px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Titres */
-h1 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0056b3;
-}
-
-h2 {
-    font-size: 18px;
-    font-weight: normal;
-    color: #0056b3;
-    margin-bottom: 15px;
-}
-
-/* Boîte d'alerte */
-.alert-box {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.alert-box h3 {
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-}
-
-.alert-box p {
-    font-size: 16px;
-    color: black;
-}
+        /* Style du header */
 
 
+        /* Conteneur du texte */
+        .header-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Titres */
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        /* Boîte d'alerte */
+        .alert-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert-box h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .alert-box p {
+            font-size: 16px;
+            color: black;
+        }
     </style>
     <style>
         #map {
             height: 400px;
             width: 100%;
         }
-
-    </style>
+    </style> --}}
     <title>Tabaleau de Bord Business</title>
     <style>
         .nav-section-title {
@@ -339,46 +350,46 @@ h2 {
             <!-- Container fluid -->
             @yield('content')
 
-            <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>MENTIONS LÉGALES</h3>
-                <ul>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Objectifs & valeurs sociales</a></li>
-                    <li><a href="#">Pourquoi nous rejoindre ?</a></li>
-                    <li><a href="#">Confidentialité & CGU</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>ESPACE BUSINESS</h3>
-                <ul>
-                    <li><a href="#">Devenir Safy Commerçant</a></li>
-                    <li><a href="#">Devenir Safy Entreprise</a></li>
-                    <li><a href="#">Alertez, Protégez, Solidarisez vos collaborateurs</a></li>
-                    <li><a href="#">Initiez des partenariats Écoles-Entreprises</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>ESPACE PROMOTEURS</h3>
-                <ul>
-                    <li><a href="#">Devenez Promoteur de territoire sécurisé</a></li>
-                    <li><a href="#">Boostez votre économie avec un territoire sécurisé</a></li>
-                    <li><a href="#">Lancez des Safe-Challenges pour mobiliser</a></li>
-                    <li><a href="#">Initiez des partenariats transfrontaliers</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>ESPACE CITOYENS</h3>
-                <ul>
-                    <li><a href="#">Devenez City Angel</a></li>
-                    <li><a href="#">Devenez Campus Angel</a></li>
-                    <li><a href="#">Relevez des Safe-Challenges</a></li>
-                    <li><a href="#">Lancez des Safe-Challenges</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+            {{-- <footer>
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>MENTIONS LÉGALES</h3>
+                        <ul>
+                            <li><a href="#">À propos</a></li>
+                            <li><a href="#">Objectifs & valeurs sociales</a></li>
+                            <li><a href="#">Pourquoi nous rejoindre ?</a></li>
+                            <li><a href="#">Confidentialité & CGU</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>ESPACE BUSINESS</h3>
+                        <ul>
+                            <li><a href="#">Devenir Safy Commerçant</a></li>
+                            <li><a href="#">Devenir Safy Entreprise</a></li>
+                            <li><a href="#">Alertez, Protégez, Solidarisez vos collaborateurs</a></li>
+                            <li><a href="#">Initiez des partenariats Écoles-Entreprises</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>ESPACE PROMOTEURS</h3>
+                        <ul>
+                            <li><a href="#">Devenez Promoteur de territoire sécurisé</a></li>
+                            <li><a href="#">Boostez votre économie avec un territoire sécurisé</a></li>
+                            <li><a href="#">Lancez des Safe-Challenges pour mobiliser</a></li>
+                            <li><a href="#">Initiez des partenariats transfrontaliers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>ESPACE CITOYENS</h3>
+                        <ul>
+                            <li><a href="#">Devenez City Angel</a></li>
+                            <li><a href="#">Devenez Campus Angel</a></li>
+                            <li><a href="#">Relevez des Safe-Challenges</a></li>
+                            <li><a href="#">Lancez des Safe-Challenges</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer> --}}
         </main>
     </div>
 

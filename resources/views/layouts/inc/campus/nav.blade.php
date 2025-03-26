@@ -43,7 +43,7 @@
             <!-- AlertSafe Section -->
             <li class="nav-section-title">AlertSafe</li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url('campus/reports/helps') }}">
                     <i class="nav-icon fe fe-help-circle me-2"></i>
                     1. Comment ça marche
                 </a>
@@ -60,17 +60,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('campus/reports') }}">
                     - Trouver un signalement
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('campus/reports/create') }}">
                     - Signaler un acte (vol, violence...)
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('campus/reports/posterbesoin') }}">
                     - Déposer un besoin d'aide
                 </a>
             </li>

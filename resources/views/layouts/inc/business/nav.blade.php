@@ -1,34 +1,40 @@
 <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .navbar-vertical {
-            width: 250px;
-            height: 100vh;
-            background: #3F51B5; /* Indigo */
-            color: white;
-            position: fixed;
-            padding-top: 20px;
-        }
-        .navbar-vertical a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            transition: 0.3s;
-        }
-        .navbar-vertical a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .nav-section-title {
-            padding: 15px 20px;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        .nav-item i {
-            margin-right: 10px;
-        }
-    </style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .navbar-vertical {
+        width: 250px;
+        height: 100vh;
+        background: #3F51B5;
+        /* Indigo */
+        color: white;
+        position: fixed;
+        padding-top: 20px;
+    }
+
+    .navbar-vertical a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .navbar-vertical a:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-section-title {
+        padding: 15px 20px;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .nav-item i {
+        margin-right: 10px;
+    }
+</style>
 <nav class="bg-indigo-600 navbar-vertical navbar">
     <div class="vh-100" data-simplebar>
         <!-- Brand logo -->

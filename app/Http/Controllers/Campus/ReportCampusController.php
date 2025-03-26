@@ -17,7 +17,56 @@ class ReportCampusController extends Controller
 
     public function create()
     {
-        return view('campus.reports.create');
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('campus.reports.create', [
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+        ]);
+    }
+
+    public function posterbesoin()
+    {
+
+        include 'villes.php';
+        $pays = [
+
+            "Belgique" => $villes_belgiques,
+            "Luxembourg" => $villes_luxembourg,
+            "France" => $villes_frances
+        ];
+
+        return view('campus.reports.createbesoin', [
+            "villes_belgiques" => $villes_belgiques,
+            "villes_luxembourg" => $villes_luxembourg,
+            "villes_frances" => $villes_frances,
+        ]);
+    }
+
+
+
+    public function helps()
+    {
+        return view('campus.reports.help');
+    }
+
+    public function trouverchallenge()
+    {
+        $challenges = Report::where('campus_id', Auth::guard('campus')->user()->id)->get();
+        return view('campus.reports.trouverchallenge', compact('challenges'));
+    }
+    public function postincident()
+    {
+        $challenges = Report::where('campus_id', Auth::guard('campus')->user()->id)->get();
+        return view('campus.reports.postincident', compact('challenges'));
     }
 
     public function store(Request $request)
@@ -49,14 +98,6 @@ class ReportCampusController extends Controller
             $file->move(public_path('uploads/reports/photos'), $filename);
             $report->photo = $filename;
         }
-
-        // if ($request->hasFile('video')) {
-        //     $file = $request->file('video');
-        //     $ext = $file->getClientOriginalExtension();
-        //     $filename = time() . '_video.' . $ext;
-        //     $file->move(public_path('uploads/reports/videos'), $filename);
-        //     $report->video = $filename;
-        // }
 
         $report->save();
 

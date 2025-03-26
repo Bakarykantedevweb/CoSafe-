@@ -27,12 +27,6 @@ class BusinessChallengeController extends Controller
         return view('business.challenges.trouverchallenge', compact('challenges'));
     }
 
-
-
-
-
-
-
     public function posterintrodchallenge()
     {
         include 'villes.php';

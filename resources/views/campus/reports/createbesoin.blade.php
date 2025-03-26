@@ -1,4 +1,4 @@
-@extends('layouts.campus')
+@extends('layouts.business')
 @section('content')
 
     <style>
