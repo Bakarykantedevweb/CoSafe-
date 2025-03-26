@@ -114,7 +114,7 @@
                                                 </a>
                                                 <span class="dropdown-menu" aria-labelledby="courseDropdown2">
                                                     <span class="dropdown-header">Settings</span>
-                                                    <a class="dropdown-item" href="#">
+                                                    <a class="dropdown-item" href="{{ url('business/challenges/descriptionchallenge/'.$challenge->id) }}">
                                                         <i class="fe fe-edit dropdown-item-icon"></i>
                                                         Edit
                                                     </a>

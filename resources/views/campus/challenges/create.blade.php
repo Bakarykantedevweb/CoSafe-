@@ -180,7 +180,7 @@ li {
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label" for="">Ville</label>
-                            <select id="ville" size="15" name="ville"
+                            <select id="ville" size="3" name="ville"
                                             class="form-control form-select col-sm-12"
                                             required>
                                         @foreach ($villes_frances as $v)
@@ -387,7 +387,7 @@ li {
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                        
+
                             <!-- Section 4: Identification de la problématique à solutionner -->
                             <div class="alert alert-secondary">
                                 <h4 class="text-secondary"><i class="bi bi-info-square"></i> Identification de la problématique à solutionner</h4>
@@ -425,7 +425,7 @@ li {
                                     </ul>
                                 </div>
                             </div>
-                        
+
                             <!-- Section 5: Compétences attendues -->
                             <div class="alert alert-secondary">
                                 <b>Compétences attendues</b> (pour évaluer les propositions ?) (Cochez tout ce qui s’applique)
@@ -442,7 +442,7 @@ li {
                                 <div class="column2"><input type="checkbox" value="Effet dissuasif et réactif face aux menaces">Effet dissuasif et réactif face aux menaces</div>
                                 <div class="column2"><input type="checkbox" value="Impact social et renforcement du lien communautaire">Impact social et renforcement du lien communautaire</div>
                             </div>
-                        
+
                             <!-- Section 6: Calendrier des sélections -->
                             <div class="alert alert-secondary">
                                 <h2 class="fs-title">Calendrier des sélections</h2>
@@ -460,7 +460,7 @@ li {
                                     @error('datefininscription') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
-                        
+
                             <h4 class="text-primary">Phase de sélection</h4>
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
@@ -474,7 +474,7 @@ li {
                                     @error('datefinselection') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
-                        
+
                             <!-- Section 7: Équipe -->
                             <h4 class="text-primary">Équipe</h4>
                             <div class="row">
@@ -514,7 +514,7 @@ li {
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                        
+
                             <!-- Section 8: Géolocalisation du challenge -->
                             <div class="alert alert-secondary">
                                 <h4 class="text-secondary"><i class="bi bi-geo-alt"></i> Géolocalisation du challenge</h4>
@@ -546,14 +546,14 @@ li {
                                     @error('datecloture') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
-                        
+
                             <!-- Section 9: Conditions générales -->
                             <div class="col-md-12 mb-3">
                                 <input type="checkbox" name="accepte_conditions" value="1">
                                 <label for="accepte_conditions">J'accepte les conditions générales et termes de la plateforme.</label>
                                 @error('accepte_conditions') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
-                        
+
                             <!-- Bouton de soumission -->
                             <div class="col-md-4 mb-3 text-center">
                                 <button class="btn btn-primary btn-block" type="submit">PUBLIER LE CHALLENGE</button>
@@ -564,5 +564,5 @@ li {
             </div>
         </div>
         </div>
-        </div 
+        </div
     @endsection
