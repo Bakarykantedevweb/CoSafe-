@@ -49,7 +49,7 @@
 
 
 header {
-    color: white;
+
     text-align: center;
     padding: 20px;
 }
@@ -69,7 +69,7 @@ header {
 }
 
 .why-report li {
-    font-size: 18px;
+    font-size: 14px;
     padding: 10px 0;
 }
 
@@ -100,7 +100,10 @@ h2 {
     <h1>🚨 Signaler un incident</h1>
     <p>Vous êtes témoin ou victime d’un incident ? Alertez la communauté et les autorités.</p>
 </header>
-
+<section class="why-report">
+CoSafe vous permet de le signaler en quelques étapes pour alerter la communauté et, si
+nécessaire, les autorités compétentes. Votre vigilance contribue à la sécurité de tous.
+</section>
 <section class="why-report">
     <h2>Pourquoi signaler un incident ?</h2>
     <ul>
