@@ -161,7 +161,7 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
                                         Catégorie de l’incident
                                     </label></div>
                                 <div class="row">
-                                    <div class="card mb-3 ">
+                                    <div class="card mb-3 col-md-4">
                                         <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
                                         <div>
                                             <input type="checkbox" id="harcelement" name="categories[]"
@@ -187,7 +187,7 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
                                     </div>
 
                                     <!-- Violences minorités & discriminations -->
-                                    <div class=" card mb-3 ">
+                                    <div class=" card mb-3 col-md-4">
                                         <div class="card-header bg-primary text-white">2. Violences minorités &
                                             discriminations</div><br>
                                         <div>
@@ -211,7 +211,7 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
                                         </div>
                                     </div>
 
-                                    <div class="card mb-3 ">
+                                    <div class="card mb-3 col-md-4">
                                         <div class="card-header bg-primary text-white">3. Violences physiques & agressions
                                         </div><br>
                                         <div>
