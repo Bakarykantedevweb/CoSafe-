@@ -128,7 +128,7 @@
                                     Catégorie de l’incident
                                 </label></div>
                             <div class="row">
-                                <div class="col-md-4">
+
                                 <div class="card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
                                     <div>
@@ -153,7 +153,7 @@
                                         <label for="mariage_forcé">Mariage forcé et mutilations sexuelles</label><br>
                                     </div>
                                 </div>
-                                </div>
+
                                 <!-- Violences minorités & discriminations -->
                                 <div class=" card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">2. Violences minorités &
