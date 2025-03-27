@@ -128,7 +128,8 @@
                                     Catégorie de l’incident
                                 </label></div>
                             <div class="row">
-                                <div class="card mb-3 col-4">
+                                <div class="col-md-4">
+                                <div class="card mb-3 ">
                                     <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
                                     <div>
                                         <input type="checkbox" id="harcelement" name="categories[]"
@@ -152,9 +153,9 @@
                                         <label for="mariage_forcé">Mariage forcé et mutilations sexuelles</label><br>
                                     </div>
                                 </div>
-
+                                </div>
                                 <!-- Violences minorités & discriminations -->
-                                <div class=" card mb-3 col-4">
+                                <div class=" card mb-3 ">
                                     <div class="card-header bg-primary text-white">2. Violences minorités &
                                         discriminations</div><br>
                                     <div>
@@ -178,7 +179,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card mb-3 col-4">
+                                <div class="card mb-3 ">
                                     <div class="card-header bg-primary text-white">3. Violences physiques & agressions
                                     </div><br>
                                     <div>
@@ -214,7 +215,7 @@
 
                             <!-- Sécurité des Biens et Vols -->
                             <div class="row">
-                                <div class="card mb-3 col-4">
+                                <div class="card mb-3 ">
                                     <div class="card-header bg-primary text-white">4. Sécurité des Biens et Vols</div>
                                     <br>
                                     <div>
@@ -240,7 +241,7 @@
                                     </div>
                                 </div>
                                 <!-- Criminalité et Menaces -->
-                                <div class="card mb-3 col-4">
+                                <div class="card mb-3 ">
                                     <div class="card-header bg-primary text-white">5. Criminalité et Menaces</div><br>
                                     <div>
                                         <input type="checkbox" id="trafic_drogues" name="categories[]"
@@ -265,7 +266,7 @@
                                         <label for="incivilites_scolaire">Incivilités en milieu scolaire</label><br>
                                     </div>
                                 </div>
-                                <div class="card mb-3 col-4">
+                                <div class="card mb-3 ">
                                     <div class="card-header bg-primary text-white">6. Incivilités et Troubles</div><br>
                                     <div>
                                         <input type="checkbox" id="degats_urbains" name="categories[]"

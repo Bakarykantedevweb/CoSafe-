@@ -255,54 +255,7 @@ h2 {
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Communauté Sécurisée & Solidaire</h1>
-            <h2>La Force des Anges gardiens</h2>
-            <div class="alert-box">
-                <h3>SOS - ALERTE</h3>
-                <p>Vous êtes en danger ? Vous êtes témoin d'une incivilité ou d'une violence ?</p>
-            </div>
-        </div>
-    </header>
-
-    <nav class="header">
-        <div>1️⃣ VEILLEZ, PRÉVENEZ, PROTÉGEZ</div>
-        <div>2️⃣ ALERTEZ – PROTÉGEZ – SOLIDARISEZ</div>
-        <div>3️⃣ ASSUREZ LA SÉCURITÉ DE TOUS</div>
-        <div>4️⃣ AGISSEZ POUR UN TERRITOIRE SÉCURISÉ</div>
-    </nav>
-
     <main>
-        <h1>Ambassadeurs & Partenaires</h1>
-
-        <section class="container grid">
-            <div class="box">
-                <h2>City Angel</h2>
-                <p>Engagez-vous pour une ville plus sûre et solidaire.</p>
-                <p>Veillez, protégez, assistez vos concitoyens.</p>
-                <p>Faisons de notre ville un espace sécurisé d'entraide.</p>
-            </div>
-            <div class="box">
-                <h2>Campus Angel</h2>
-                <p>Engagez-vous, rejoignez la communauté solidaire.</p>
-                <p>Veillez, protégez, aidez vos camarades.</p>
-                <p>Faisons de notre campus un espace de confiance.</p>
-            </div>
-            <div class="box">
-                <h2>Safy City</h2>
-                <p>Unissons-nous pour une localité plus sûre et solidaire.</p>
-                <p>Préservons, protégeons et accompagnons nos citoyens.</p>
-                <p>Faisons de notre territoire un espace de confiance.</p>
-            </div>
-            <div class="box">
-                <h2>Safy Business</h2>
-                <p>Commerçants, Artisans ou Entreprises, Unissons-nous !</p>
-                <p>Sécurisons-nous pour une économie locale plus sûre.</p>
-                <p>Protégeons et accompagnons nos clients et partenaires.</p>
-            </div>
-        </section>
-
         <section class="image-grid">
             <div class="image-box">
                 <img src="{{ asset('front/assets/images/blog/img-05.jpg') }}" alt="Impactez la vie locale" class="img-fluid">
