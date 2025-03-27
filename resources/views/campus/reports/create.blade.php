@@ -67,55 +67,6 @@
 </ul>
 
 <h3>Consultez ci-dessous les Appels à l’aide selon vos critères</h3>
-
-<div class="filter-container">
-    <form action="#" method="GET">
-        <label for="category">Catégorie :</label>
-        <select id="category" name="category">
-            <option value="santé">Santé</option>
-            <option value="sécurité">Sécurité</option>
-            <option value="logement">Logement</option>
-            <option value="autre">Autre</option>
-        </select>
-
-        <label for="location">Lieu :</label>
-        <input type="text" id="location" name="location" placeholder="Ville ou quartier">
-
-        <label for="date">Date :</label>
-        <input type="date" id="date" name="date">
-
-        <button type="submit">Filtrer les appels</button>
-    </form>
-</div>
-
-<div class="call-list">
-    <div class="call-item">
-        <h4>Appel à l’aide #1 - Sécurité</h4>
-        <p><strong>Lieu :</strong> Paris, 15e arrondissement</p>
-        <p><strong>Description :</strong> Une personne a été agressée, besoin de témoins et d’aide pour contacter les autorités.</p>
-        <button>Répondre à l'appel</button>
-    </div>
-
-    <div class="call-item">
-        <h4>Appel à l’aide #2 - Logement</h4>
-        <p><strong>Lieu :</strong> Lyon, Centre-ville</p>
-        <p><strong>Description :</strong> Recherche de bénévoles pour aider à déménager un senior.</p>
-        <button>Répondre à l'appel</button>
-    </div>
-
-    <div class="call-item">
-        <h4>Appel à l’aide #3 - Santé</h4>
-        <p><strong>Lieu :</strong> Marseille, 8e arrondissement</p>
-        <p><strong>Description :</strong> Besoin de dons de sang en urgence pour un hôpital local.</p>
-        <button>Répondre à l'appel</button>
-    </div>
-</div>
-<section class="cta">
-
-    <a id="create-challenge-btn" class="btn btn-primary btn-lg" href="/business/reports/create">
-                    Créer un incident  &#9997;
-                </a> <!-- Ajoutez ici le lien vers la page de création du challenge -->
-</section>
 </section>
 <section class="container-fluid p-4">
     <div class="row">
@@ -140,7 +91,7 @@
                     <!-- card body -->
                     <div class="card-body p-lg-6">
                         <!-- form -->
-                        <form method="POST" action="{{ url('business/reports/create') }}" enctype="multipart/form-data"
+                        <form method="POST" action="{{ url('campus/reports/create') }}" enctype="multipart/form-data"
                             class="row gx-3 needs-validation">
                             @csrf
                             @method('POST')
@@ -381,14 +332,6 @@
                                         value="X"> X
                                 </div>
                             </div>
-                            <div class="mb-3 col-6">
-                                <label class="form-label">
-                                    Longitude
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" name="longitude" id="longitude" class="form-control"
-                                    required />
-                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Souhaitez-vous que ce signalement soit partagé avec les autorités ?</label>
                                 <select class="form-select" name="partage_autorites">
@@ -415,46 +358,4 @@
         </div>
     </div>
 </section>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-    // Initialisation de la carte Leaflet
-    var map = L.map('map').setView([48.8566, 2.3522], 13); // Paris par défaut
-
-    // Ajouter un fond de carte OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-
-    // Ajouter un marqueur draggable
-    var marker = L.marker([48.8566, 2.3522], {
-        draggable: true
-    }).addTo(map);
-
-    var popup = L.popup();
-
-    function onMapClick(e) {
-
-        document.getElementById('latitude').value = e.latlng.lat;
-        document.getElementById('longitude').value = e.latlng.lng;
-        popup
-            .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.lat)
-            .openOn(map);
-    }
-
-    map.on('click', onMapClick);
-    // Mise à jour des coordonnées lors du déplacement du marqueur
-    marker.on('dragend', function(e) {
-        alert("hghhjhj");
-        var latlng = marker.getLatLng();
-
-        document.getElementById('latitude').value = latlng.lat;
-        document.getElementById('longitude').value = latlng.lng;
-    });
-
-    // Mettre à jour le marqueur quand une adresse est saisie (nécessite une API de géocodage)
-</script>
 @endsection

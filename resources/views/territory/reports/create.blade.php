@@ -23,6 +23,95 @@
 
     label {}
 </style>
+<style>
+
+    header {
+
+        padding: 20px;
+        text-align: center;
+    }
+    section {
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin: 10px 0;
+    }
+
+
+header {
+
+text-align: center;
+padding: 20px;
+}
+
+.why-report {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 80%;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.why-report ul {
+list-style: none;
+padding: 0;
+}
+
+.why-report li {
+font-size: 14px;
+padding: 10px 0;
+}
+
+.report-form {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 80%;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+.why-report, .report-form {
+    width: 95%;
+}
+}
+
+</style>
+
+<header>
+<h1>🚨 Signaler un incident</h1>
+<p>Vous êtes témoin ou victime d’un incident ? Alertez la communauté et les autorités.</p>
+</header>
+<section class="why-report">
+CoSafe vous permet de le signaler en quelques étapes pour alerter la communauté et, si
+nécessaire, les autorités compétentes. Votre vigilance contribue à la sécurité de tous.
+</section>
+<section class="why-report">
+<h2>Pourquoi signaler un incident ?</h2>
+<ul>
+    <li>🔔 <strong>Prévenir</strong> les habitants et les forces de l’ordre en temps réel.</li>
+    <li>🛡️ <strong>Renforcer</strong> la sécurité collective en partageant des informations utiles.</li>
+    <li>⚠️ <strong>Limiter</strong> les risques en identifiant les menaces et comportements suspects.</li>
+</ul>
+</section>
 <section class="container-fluid p-4">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-12">
@@ -46,7 +135,7 @@
                     <!-- card body -->
                     <div class="card-body p-lg-6">
                         <!-- form -->
-                        <form method="POST" action="{{ url('business/reports/create') }}" enctype="multipart/form-data"
+                        <form method="POST" action="{{ url('territory/reports/create') }}" enctype="multipart/form-data"
                             class="row gx-3 needs-validation">
                             @csrf
                             @method('POST')
@@ -287,14 +376,7 @@
                                         value="X"> X
                                 </div>
                             </div>
-                            <div class="mb-3 col-6">
-                                <label class="form-label">
-                                    Longitude
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" name="longitude" id="longitude" class="form-control"
-                                    required />
-                            </div>
+
                             <div class="mb-3">
                                 <label class="form-label">Souhaitez-vous que ce signalement soit partagé avec les autorités ?</label>
                                 <select class="form-select" name="partage_autorites">
@@ -322,45 +404,5 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-    // Initialisation de la carte Leaflet
-    var map = L.map('map').setView([48.8566, 2.3522], 13); // Paris par défaut
 
-    // Ajouter un fond de carte OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-
-    // Ajouter un marqueur draggable
-    var marker = L.marker([48.8566, 2.3522], {
-        draggable: true
-    }).addTo(map);
-
-    var popup = L.popup();
-
-    function onMapClick(e) {
-
-        document.getElementById('latitude').value = e.latlng.lat;
-        document.getElementById('longitude').value = e.latlng.lng;
-        popup
-            .setLatLng(e.latlng)
-            .setContent("You clicked the map at " + e.latlng.lat)
-            .openOn(map);
-    }
-
-    map.on('click', onMapClick);
-    // Mise à jour des coordonnées lors du déplacement du marqueur
-    marker.on('dragend', function(e) {
-        alert("hghhjhj");
-        var latlng = marker.getLatLng();
-
-        document.getElementById('latitude').value = latlng.lat;
-        document.getElementById('longitude').value = latlng.lng;
-    });
-
-    // Mettre à jour le marqueur quand une adresse est saisie (nécessite une API de géocodage)
-</script>
 @endsection

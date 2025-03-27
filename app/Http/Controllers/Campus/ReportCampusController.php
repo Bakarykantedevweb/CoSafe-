@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Campus;
 
 use App\Models\Report;
+use App\Models\Besoin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,38 @@ class ReportCampusController extends Controller
             "villes_frances" => $villes_frances,
         ]);
     }
+    public function  storebesoin(Request $request)
+    {
+        try {
+            $request->validate([
+                'nom_besoin' => 'required|string|max:255',
+                'description' => 'required|string',
+                'fichiers.*' => 'file|mimes:jpg,png,mp4|max:10240',
+                'categories' => 'required|array',
+                'geolocalisation' => 'nullable|string',
+                'date_heure' => 'nullable|date',
+                'budget' => 'required|string',
+                'destinataires' => 'required|array',
+                'partage_reseaux' => 'nullable|array',
+                'partage_autorites' => 'required|boolean',
+            ]);
 
+            $besoin = Besoin::create($request->except('fichiers'));
+
+            if ($request->hasFile('fichiers')) {
+                foreach ($request->file('fichiers') as $file) {
+                    $path = $file->store('public/besoins');
+                    $besoin->fichiers()->create(['path' => $path]);
+                }
+            }
+
+            return back()->with('success', 'Votre demande d’aide a été soumise avec succès !');
+        } catch (\Exception $e) {
+            // En cas d'erreur, redirection avec message d'erreur
+            print($e->getMessage());
+            return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+        }
+    }
 
 
     public function helps()
@@ -73,22 +105,18 @@ class ReportCampusController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|string|max:255', // Correction ici
-            'categorie' => 'required|string|max:255',
             'description' => 'required|string',
-            'longitude' => 'required',
             'latitude' => 'required',
+            'date_heure' => 'required',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
+            'destinataires' => 'required|array',
+            'partage_reseaux' => 'nullable|array',
+            'categories' => 'required|array',
             // 'video' => 'nullable|mimes:mp4,mov,avi' // 20MB max
         ]);
 
 
-        $report = new Report();
-        $report->title = $request->input('title'); // Doit correspondre au champ HTML
-        $report->categorie = $request->input('categorie');
-        $report->description = $request->input('description');
-        $report->longitude = $request->input('longitude');
-        $report->latitude = $request->input('latitude');
+        $report =  Report::create($request->except('photo', 'categorie'));
 
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
@@ -98,7 +126,7 @@ class ReportCampusController extends Controller
             $report->photo = $filename;
         }
         $report->campus_angel_id = Auth::guard('campus')->user()->id;
-    
+
 
         $report->save();
 

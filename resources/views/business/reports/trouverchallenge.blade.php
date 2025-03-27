@@ -117,15 +117,37 @@
                 <button>Chercher</button>
             </div>
         </div>
+        <div class="table-responsive border-0 overflow-y-hidden">
+            <table class="table mb-0 text-nowrap table-hover table-centered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Titre</th>
+                        <th>Categorie</th>
+                        <th>Date Debut</th>
+                        <th>Date Fin</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
 
-        <div class="alert-list">
-            <h3>Alertes trouvées :</h3>
-            <div class="alert-item">
-                <h4>Incendie - Paris</h4>
-                <p><strong>Date :</strong> 20 mars 2025</p>
-                <p><strong>Source :</strong> Collectivité</p>
-                <p><strong>Description :</strong> Un incendie a été signalé dans le 12ème arrondissement. Veuillez éviter la zone.</p>
-                <button>Partager</button>
+            </table>
+            <div class="row mb-4">
+                <div class="bg-white pt-4">
+                    <div class="table-responsive">
+                        <table class="display text-center table" id="example1">
+                            <thead>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Categorie</th>
+                                    <th>Date Debut</th>
+                                    <th>Date Fin</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
