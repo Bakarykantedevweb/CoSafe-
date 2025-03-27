@@ -23,6 +23,95 @@
 
     label {}
 </style>
+<style>
+
+    header {
+
+        padding: 20px;
+        text-align: center;
+    }
+    section {
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin: 10px 0;
+    }
+
+
+header {
+
+text-align: center;
+padding: 20px;
+}
+
+.why-report {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 80%;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.why-report ul {
+list-style: none;
+padding: 0;
+}
+
+.why-report li {
+font-size: 14px;
+padding: 10px 0;
+}
+
+.report-form {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 80%;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+.why-report, .report-form {
+    width: 95%;
+}
+}
+
+</style>
+
+<header>
+<h1>🚨 Signaler un incident</h1>
+<p>Vous êtes témoin ou victime d’un incident ? Alertez la communauté et les autorités.</p>
+</header>
+<section class="why-report">
+CoSafe vous permet de le signaler en quelques étapes pour alerter la communauté et, si
+nécessaire, les autorités compétentes. Votre vigilance contribue à la sécurité de tous.
+</section>
+<section class="why-report">
+<h2>Pourquoi signaler un incident ?</h2>
+<ul>
+    <li>🔔 <strong>Prévenir</strong> les habitants et les forces de l’ordre en temps réel.</li>
+    <li>🛡️ <strong>Renforcer</strong> la sécurité collective en partageant des informations utiles.</li>
+    <li>⚠️ <strong>Limiter</strong> les risques en identifiant les menaces et comportements suspects.</li>
+</ul>
+</section>
 <section class="container-fluid p-4">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-12">
@@ -83,8 +172,8 @@
                                     Catégorie de l’incident
                                 </label></div>
                             <div class="row">
-                                <div class="col-md-4">
-                                <div class="card mb-3 ">
+
+                                <div class="card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">1. Violences faites aux femmes</div>
                                     <div>
                                         <input type="checkbox" id="harcelement" name="categories[]"
@@ -108,11 +197,11 @@
                                         <label for="mariage_forcé">Mariage forcé et mutilations sexuelles</label><br>
                                     </div>
                                 </div>
-                                </div>
+
 
                                 <!-- Violences minorités & discriminations -->
-                                <div class="col-md-4">
-                                <div class=" card mb-3 ">
+
+                                <div class=" card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">2. Violences minorités &
                                         discriminations</div><br>
                                     <div>
@@ -134,10 +223,10 @@
                                         <label for="discriminations_handicapes">Discriminations contre les personnes
                                             handicapées</label><br>
                                     </div>
+
                                 </div>
-                                </div>
-                                <div class="col-md-4">
-                                <div class="card mb-3 ">
+
+                                <div class="card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">3. Violences physiques & agressions
                                     </div><br>
                                     <div>
@@ -169,7 +258,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
                             </div>
                             <!-- Violences physiques & agressions -->
 
@@ -179,8 +268,8 @@
 
                             <!-- Sécurité des Biens et Vols -->
                             <div class="row">
-                                <div class="col-md-4">
-                                <div class="card mb-3 ">
+
+                                <div class="card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">4. Sécurité des Biens et Vols</div>
                                     <br>
                                     <div>
@@ -205,10 +294,10 @@
                                         <label for="degats_volontaires">Dégradations volontaires ciblées</label><br>
                                     </div>
                                 </div>
-                                </div>
+
                                 <!-- Criminalité et Menaces -->
-                                <div class="col-md-4">
-                                <div class="card mb-3 ">
+
+                                <div class="card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">5. Criminalité et Menaces</div><br>
                                     <div>
                                         <input type="checkbox" id="trafic_drogues" name="categories[]"
@@ -233,9 +322,8 @@
                                         <label for="incivilites_scolaire">Incivilités en milieu scolaire</label><br>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="col-md-4">
-                                <div class="card mb-3 ">
+
+                                <div class="card mb-3 col-md-4">
                                     <div class="card-header bg-primary text-white">6. Incivilités et Troubles</div><br>
                                     <div>
                                         <input type="checkbox" id="degats_urbains" name="categories[]"
@@ -260,7 +348,6 @@
                                             transports</label><br>
                                     </div>
                                 </div>
-                            </div>
                             </div>
 
                             <div class="mb-3">

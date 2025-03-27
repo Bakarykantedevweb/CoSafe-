@@ -48,25 +48,69 @@
     }
 
 
+header {
+
+text-align: center;
+padding: 20px;
+}
+
+.why-report {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 80%;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.why-report ul {
+list-style: none;
+padding: 0;
+}
+
+.why-report li {
+font-size: 14px;
+padding: 10px 0;
+}
+
+.report-form {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 80%;
+border-radius: 10px;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+.why-report, .report-form {
+    width: 95%;
+}
+}
+
 </style>
+
 <header>
-<h1>CoSafe - Répondre à un Appel à l'Aide</h1>
+<h1>🚨 Signaler un incident</h1>
+<p>Vous êtes témoin ou victime d’un incident ? Alertez la communauté et les autorités.</p>
 </header>
-<section>
-<h2>Vous souhaitez apporter votre aide à un membre de la communauté ?</h2>
-<p>Cette rubrique permet de consulter et répondre de manière citoyenne aux Appels à l’aide des citoyens, des collectivités, des commerces et d’autres acteurs locaux. Faites la différence avec un engagement impactant !</p>
-
-<h3>Restez informé et vigilant !</h3>
-<p>Bienvenue dans la communauté CoSafe, un espace dédié aux citoyens engagés souhaitant suivre les incidents signalés en temps réel et contribuer à la sécurité collective.</p>
-
-<h3>Comment ça marche ?</h3>
+<section class="why-report">
+CoSafe vous permet de le signaler en quelques étapes pour alerter la communauté et, si
+nécessaire, les autorités compétentes. Votre vigilance contribue à la sécurité de tous.
+</section>
+<section class="why-report">
+<h2>Pourquoi signaler un incident ?</h2>
 <ul>
-    <li>✅ Consultez les appels à l’aide en filtrant par catégorie, lieu et date.</li>
-    <li>✅ Répondez en proposant votre aide.</li>
-    <li>✅ Réagissez, partagez l’Appel à l’aide le plus largement possible.</li>
+    <li>🔔 <strong>Prévenir</strong> les habitants et les forces de l’ordre en temps réel.</li>
+    <li>🛡️ <strong>Renforcer</strong> la sécurité collective en partageant des informations utiles.</li>
+    <li>⚠️ <strong>Limiter</strong> les risques en identifiant les menaces et comportements suspects.</li>
 </ul>
-
-<h3>Consultez ci-dessous les Appels à l’aide selon vos critères</h3>
 </section>
 <section class="container-fluid p-4">
     <div class="row">
