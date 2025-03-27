@@ -295,6 +295,13 @@
                                 <input type="text" name="longitude" id="longitude" class="form-control"
                                     required />
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Souhaitez-vous que ce signalement soit partagé avec les autorités ?</label>
+                                <select class="form-select" name="partage_autorites">
+                                    <option value="1">Oui</option>
+                                    <option value="0">Non</option>
+                                </select>
+                            </div>
                             <div id="map"></div>
 
                             <!-- button -->

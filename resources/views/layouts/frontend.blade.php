@@ -165,7 +165,8 @@
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
-                text-align: center;
+                text-align: left;
+                font-size: 0.7rem;
             }
         }
         footer {

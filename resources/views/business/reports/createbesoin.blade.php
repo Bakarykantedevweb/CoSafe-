@@ -1,8 +1,8 @@
-@extends('layouts.campus')
+@extends('layouts.business')
 @section('content')
 
     <style>
-    
+
         h2 { color: #2c3e50; }
         form { display: flex; flex-direction: column; gap: 10px; }
         section {
@@ -24,7 +24,7 @@
         label {
 
         }
-    
+
     </style>
     <section class="container-fluid p-4">
 <div class="container card mt-4">

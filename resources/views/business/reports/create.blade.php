@@ -23,20 +23,95 @@
 
         label {}
     </style>
+    <style>
+
+        header {
+
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+
+
+header {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.why-report {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.why-report ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why-report li {
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.report-form {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .why-report, .report-form {
+        width: 95%;
+    }
+}
+
+    </style>
+
+ <header>
+    <h1>🚨 Signaler un incident</h1>
+    <p>Vous êtes témoin ou victime d’un incident ? Alertez la communauté et les autorités.</p>
+</header>
+
+<section class="why-report">
+    <h2>Pourquoi signaler un incident ?</h2>
+    <ul>
+        <li>🔔 <strong>Prévenir</strong> les habitants et les forces de l’ordre en temps réel.</li>
+        <li>🛡️ <strong>Renforcer</strong> la sécurité collective en partageant des informations utiles.</li>
+        <li>⚠️ <strong>Limiter</strong> les risques en identifiant les menaces et comportements suspects.</li>
+    </ul>
+</section>
+
     <section class="container-fluid p-4">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <div
-                    class="border-bottom pb-3 mb-3 d-flex flex-column flex-lg-row gap-3 justify-content-between align-items-lg-center">
-                    <div>
-                        <h1 class="mb-0 h2 fw-bold">Ajouter un Signalement</h1>
-                    </div>
-                    <div class="d-flex gap-3">
-                        <a href="{{ url('business/reports') }}" class="btn btn-primary">Retour</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="py-6">
             <!-- row -->
             <div class="row">
@@ -287,14 +362,14 @@
                                             value="X"> X
                                     </div>
                                 </div>
-                                <div class="mb-3 col-6">
-                                    <label class="form-label">
-                                        Longitude
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" name="longitude" id="longitude" class="form-control"
-                                        required />
-                                </div>
+
+            <div class="mb-3">
+                <label class="form-label">Souhaitez-vous que ce signalement soit partagé avec les autorités ?</label>
+                <select class="form-select" name="partage_autorites">
+                    <option value="1">Oui</option>
+                    <option value="0">Non</option>
+                </select>
+            </div>
                                 <div id="map"></div>
 
                                 <!-- button -->
