@@ -247,7 +247,7 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
 
                                 <!-- Sécurité des Biens et Vols -->
                                 <div class="row">
-                                    <div class="card mb-3 ">
+                                    <div class="card mb-3 col-md-4">
                                         <div class="card-header bg-primary text-white">4. Sécurité des Biens et Vols</div>
                                         <br>
                                         <div>
@@ -273,7 +273,7 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
                                         </div>
                                     </div>
                                     <!-- Criminalité et Menaces -->
-                                    <div class="card mb-3 ">
+                                    <div class="card mb-3 col-md-4">
                                         <div class="card-header bg-primary text-white">5. Criminalité et Menaces</div><br>
                                         <div>
                                             <input type="checkbox" id="trafic_drogues" name="categories[]"
@@ -298,7 +298,7 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
                                             <label for="incivilites_scolaire">Incivilités en milieu scolaire</label><br>
                                         </div>
                                     </div>
-                                    <div class="card mb-3 ">
+                                    <div class="card mb-3 col-md-4">
                                         <div class="card-header bg-primary text-white">6. Incivilités et Troubles</div><br>
                                         <div>
                                             <input type="checkbox" id="degats_urbains" name="categories[]"
