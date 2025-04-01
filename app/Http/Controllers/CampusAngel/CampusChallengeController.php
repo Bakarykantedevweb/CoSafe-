@@ -172,12 +172,7 @@ class CampusChallengeController extends Controller
     
     /**
      * Méthode pour gérer l'upload des fichiers
-     *
-     * @param \Illuminate\Http\UploadedFile|null $file
-     * @param string $destinationPath
-     * @param string $prefix
-     * @return string|null
-     */
+     **/
     private function uploadFile($file, $destinationPath, $prefix)
     {
         if ($file && $file->isValid()) {
