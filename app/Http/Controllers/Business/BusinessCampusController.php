@@ -76,7 +76,6 @@ class BusinessCampusController extends Controller
         try {
             $request->validate([
                 'description' => 'required|string',
-                'longitude' => 'required',
                 'latitude' => 'required',
                 'date_heure' => 'required',
                 'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
@@ -88,12 +87,7 @@ class BusinessCampusController extends Controller
 
 
             $report =  Report::create($request->except('photo', 'categorie'));
-            /*$report->title = $request->input('title'); // Doit correspondre au champ HTML
-        $report->categorie = $request->input('categorie');
-        $report->description = $request->input('description');
-        $report->longitude = $request->input('longitude');
-        $report->latitude = $request->input('latitude');
-        */
+
             $report->business_id = Auth::guard('business')->user()->id;
             if ($request->hasFile('photo')) {
                 $file = $request->file('photo');

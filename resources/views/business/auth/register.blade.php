@@ -155,7 +155,8 @@
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
-                text-align: center;
+                text-align: left;
+                font-size: 0.7rem;
             }
         }
         footer {
@@ -310,7 +311,7 @@ h2 {
                 <!-- START SIGN-UP -->
                 <section >
                 <div class="max-w-md mx-auto">
-                <div class="p-8 rounded-xl shadow-md">
+                <div class="col-lg-12">
 
 
 

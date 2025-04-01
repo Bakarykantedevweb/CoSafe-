@@ -50,7 +50,7 @@ class TerritoryChallengeController extends Controller
 
     public function descriptionchallenge(Challenge $challenge) {
         $user = Auth::guard('territory')->user()->id;
-        
+
         $challenge = Challenge::where('id', $challenge->id)->first();
         return view('territory.challenges.description', ['challenge' => $challenge]);
     }
@@ -79,51 +79,20 @@ class TerritoryChallengeController extends Controller
                 'nom' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
                 'numero' => 'required|string|max:20',
-    
-                // Localisation
                 'pays' => 'required|string|max:100',
                 'region' => 'required|string|max:100',
                 'ville' => 'required|string|max:100',
                 'codepostal' => 'required|string|max:20',
                 'adresse' => 'required|string|max:255',
-    
-                // Informations complémentaires (si entreprise)
-                'nomcommercial' => 'nullable|string|max:255',
-                'numeroentreprise' => 'nullable|string|max:50',
-                'numeroagreation' => 'nullable|string|max:50',
-                'typesactivite' => 'nullable|array',
-                'datedebutactivite' => 'nullable|date',
-    
-                // Informations sur le challenge
                 'nomchallenge' => 'required|string|max:255',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'type' => 'required|string',
                 'secteurs' => 'required|string',
                 'description' => 'nullable|string',
                 'fichier' => 'required|file|mimes:doc,docx,pdf|max:5120',
-                'critere' => 'nullable|string|max:255',
-               // 'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
-                'dotation' => 'nullable|string',
-    
-                // Identification de la problématique à solutionner
-                'risques' => 'nullable|array',
-    
-                // Compétences attendues
-                'competences_attendues' => 'nullable|array',
-    
-                // Calendrier des sélections
-                'datedebutinscription' => 'required|date',
-                'datefininscription' => 'required|date|after:datedebutinscription',
-                'datedebutselection' => 'required|date',
-                'datefinselection' => 'required|date|after:datedebutselection',
-    
-                // Équipe
-                'compositionequipes' => 'required|string',
-                'nombreequipesmin' => 'required|integer|min:1',
-                'nombreequipesmax' => 'required|integer|min:1|gt:nombreequipesmin',
-                'criteresparticipation' => 'required|string',
-    
-                // Géolocalisation du challenge
+                'critere' => 'required|string|max:255',
+                'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
+                'dotation' => 'required|string',
                 'payschallenge' => 'required|string|max:100',
                 'villechallenge' => 'required|string|max:100',
                 'campus' => 'required|string|max:100',
@@ -136,7 +105,6 @@ class TerritoryChallengeController extends Controller
                 'datefinselection.after' => 'La date de fin des sélections doit être postérieure à la date de début.',
                 'nombreequipesmax.gt' => 'Le nombre maximum d\'équipes doit être supérieur au nombre minimum.',
             ]);
-    
             // Création d'une nouvelle instance de Challenge
             $challenge = new Challenge();
     
@@ -158,8 +126,8 @@ class TerritoryChallengeController extends Controller
             return redirect('terriroty/challenges')->with('success', 'Le challenge a été créé avec succès.');
         } catch (\Exception $e) {
             // En cas d'erreur, redirection avec message d'erreur
-            dump($e->getMessage());
-          //  return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+
+            return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
     }
     

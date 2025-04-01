@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Territory;
 
 use App\Models\Report;
+use App\Models\Besoin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -72,22 +73,18 @@ class TerritoryCampusController extends Controller
     {
 
         $request->validate([
-            'title' => 'required|string|max:255', // Correction ici
-            'categorie' => 'required|string|max:255',
             'description' => 'required|string',
-            'longitude' => 'required',
             'latitude' => 'required',
+            'date_heure' => 'required',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
+            'destinataires' => 'required|array',
+            'partage_reseaux' => 'nullable|array',
+            'categories' => 'required|array',
             // 'video' => 'nullable|mimes:mp4,mov,avi' // 20MB max
         ]);
 
+        $report =  Report::create($request->except('photo', 'categorie'));
 
-        $report = new Report();
-        $report->title = $request->input('title'); // Doit correspondre au champ HTML
-        $report->categorie = $request->input('categorie');
-        $report->description = $request->input('description');
-        $report->longitude = $request->input('longitude');
-        $report->latitude = $request->input('latitude');
         $report->territory_id = Auth::guard('territory')->user()->id;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
@@ -108,5 +105,38 @@ class TerritoryCampusController extends Controller
         $report->save();
 
         return redirect('/territory/reports')->with('success', 'Le rapport a été créé avec succès.');
+    }
+
+    public function  storebesoin(Request $request)
+    {
+        try {
+            $request->validate([
+                'nom_besoin' => 'required|string|max:255',
+                'description' => 'required|string',
+                'fichiers.*' => 'file|mimes:jpg,png,mp4|max:10240',
+                'categories' => 'required|array',
+                'geolocalisation' => 'nullable|string',
+                'date_heure' => 'nullable|date',
+                'budget' => 'required|string',
+                'destinataires' => 'required|array',
+                'partage_reseaux' => 'nullable|array',
+                'partage_autorites' => 'required|boolean',
+            ]);
+
+            $besoin = Besoin::create($request->except('fichiers'));
+
+            if ($request->hasFile('fichiers')) {
+                foreach ($request->file('fichiers') as $file) {
+                    $path = $file->store('public/besoins');
+                    $besoin->fichiers()->create(['path' => $path]);
+                }
+            }
+
+            return back()->with('success', 'Votre demande d’aide a été soumise avec succès !');
+        } catch (\Exception $e) {
+            // En cas d'erreur, redirection avec message d'erreur
+            print($e->getMessage());
+            return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+        }
     }
 }

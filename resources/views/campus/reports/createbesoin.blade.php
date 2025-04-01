@@ -2,7 +2,7 @@
 @section('content')
 
     <style>
-    
+
         h2 { color: #2c3e50; }
         form { display: flex; flex-direction: column; gap: 10px; }
         section {
@@ -24,12 +24,12 @@
         label {
 
         }
-    
+
     </style>
     <section class="container-fluid p-4">
 <div class="container card mt-4">
         <h2 class="mb-3">Déclarer un Besoin</h2>
-        <form action="{{ url('business/reports/posterbesoin') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('campus/reports/posterbesoin') }}" method="POST" enctype="multipart/form-data">
         @csrf
                                 @method('POST')
             <div class="mb-3">
