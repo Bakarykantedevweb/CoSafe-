@@ -23,98 +23,67 @@
 
         label {}
     </style>
-    <style>
-
-        header {
-
-            padding: 20px;
-            text-align: center;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-
-
-header {
-
-    text-align: center;
-    padding: 20px;
-}
-
-.why-report {
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.why-report ul {
-    list-style: none;
-    padding: 0;
-}
-
-.why-report li {
-    font-size: 14px;
-    padding: 10px 0;
-}
-
-.report-form {
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-    text-align: center;
-}
-
-
-
-@media (max-width: 768px) {
-    .why-report, .report-form {
-        width: 95%;
-    }
-}
-
-    </style>
-
- <header>
-    <h1>🚨 Signaler un incident</h1>
-    <p>Vous êtes témoin ou victime d’un incident ? Alertez la communauté et les autorités.</p>
-</header>
-<section class="why-report">
-CoSafe vous permet de le signaler en quelques étapes pour alerter la communauté et, si
-nécessaire, les autorités compétentes. Votre vigilance contribue à la sécurité de tous.
-</section>
-<section class="why-report">
-    <h2>Pourquoi signaler un incident ?</h2>
-    <ul>
-        <li>🔔 <strong>Prévenir</strong> les habitants et les forces de l’ordre en temps réel.</li>
-        <li>🛡️ <strong>Renforcer</strong> la sécurité collective en partageant des informations utiles.</li>
-        <li>⚠️ <strong>Limiter</strong> les risques en identifiant les menaces et comportements suspects.</li>
-    </ul>
-</section>
-
     <section class="container-fluid p-4">
+        <div class="row justify-content-center"> <!-- Centrage de la row -->
+            <div class="col-lg-8 col-md-10 col-12 text-center"> <!-- Colonne plus étroite et centrée -->
+                <!-- Titre principal centré -->
+                <div class="border-bottom pb-3 mb-3">
+                    <h1 class="mb-0 h2 fw-bold">Signaler un incident </h1>
+                    <p class="mt-2 text-center">Vous êtes témoin ou victime d’un incident ?</p>
+                    <p class="mt-2">CoSafe vous permet de le signaler en quelques étapes pour alerter la communauté et, si
+                        nécessaire, les autorités compétentes. Votre vigilance contribue à la sécurité de tous.</p>
+                </div>
 
+                <!-- Section "Comment ça marche" centrée -->
+                <div class="mb-4 text-start"> <!-- text-start pour aligner le texte à gauche à l'intérieur -->
+                    <h2 class="h4 fw-bold text-center">Pourquoi signaler un incident ?</h2> <!-- Titre centré -->
+                    <ul class="list-unstyled ps-0 ms-0">
+                        <li class="mb-2"><span class="text-success me-2">✅ </span> Prévenir les habitants et les forces de
+                            l’ordre en temps réel.</li>
+                        <li class="mb-2"><span class="text-success me-2">✅ </span> Renforcer la sécurité collective avec
+                            des informations utiles.</li>
+                        <li><span class="text-success me-2">✅ </span> Limiter les risques en aidant à identifier les
+                            menaces.</li>
+                    </ul>
+                    <br>
+                    <p class="text-center">Comment signaler un incident ?</p>
+                    <p class="mt-2 text-center">Remplissez le formulaire ci-dessous avec les informations suivantes :
+                        Seul votre pseudo apparaitra publiquement
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Le reste du code (tableau) reste inchangé -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Tableau de recherche -->
+                <div class="card mb-4">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <!-- ... contenu du tableau ... -->
+                                <table class="table mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Prenom</th>
+                                            <th>Email</th>
+                                            <th>Pseudo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Les lignes seront ajoutées dynamiquement ici -->
+                                    </tbody>
+                                </table>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid p-4">
         <div class="py-6">
             <!-- row -->
             <div class="row">
@@ -202,7 +171,8 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
 
                                             <input type="checkbox" id="discriminations_religieuses" name="categories[]"
                                                 value="Discriminations religieuses">
-                                            <label for="discriminations_religieuses">Discriminations religieuses</label><br>
+                                            <label for="discriminations_religieuses">Discriminations
+                                                religieuses</label><br>
 
                                             <input type="checkbox" id="discriminations_handicapes" name="categories[]"
                                                 value="Discriminations contre les personnes handicapées">
@@ -366,13 +336,14 @@ nécessaire, les autorités compétentes. Votre vigilance contribue à la sécur
                                     </div>
                                 </div>
 
-            <div class="mb-3">
-                <label class="form-label">Souhaitez-vous que ce signalement soit partagé avec les autorités ?</label>
-                <select class="form-select" name="partage_autorites">
-                    <option value="1">Oui</option>
-                    <option value="0">Non</option>
-                </select>
-            </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Souhaitez-vous que ce signalement soit partagé avec les
+                                        autorités ?</label>
+                                    <select class="form-select" name="partage_autorites">
+                                        <option value="1">Oui</option>
+                                        <option value="0">Non</option>
+                                    </select>
+                                </div>
                                 <div id="map"></div>
 
                                 <!-- button -->

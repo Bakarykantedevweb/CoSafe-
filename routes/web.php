@@ -208,6 +208,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
         Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
+        Route::get('reports/appelaides', 'appelaides');
     });
 
     Route::controller(BusinessChallengeController::class)->group(function () {

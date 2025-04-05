@@ -24,7 +24,7 @@ return new class extends Migration
         DB::table('businesses')->insert([
             [
                 'name' => 'Business Angel',
-                'email' => 'businessangels@gmail.com',
+                'email' => 'business@gmail.com',
                 'password' => Hash::make('password'),
             ],
         ]);

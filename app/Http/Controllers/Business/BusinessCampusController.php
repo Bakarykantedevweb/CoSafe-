@@ -56,7 +56,6 @@ class BusinessCampusController extends Controller
 
     public function helps()
     {
-
         return view('business.reports.help');
     }
 
@@ -147,5 +146,10 @@ class BusinessCampusController extends Controller
             print($e->getMessage());
             return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
+    }
+
+    public function appelaides()
+    {
+        return view('business.reports.appelaide');
     }
 }
