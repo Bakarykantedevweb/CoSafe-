@@ -28,6 +28,7 @@ use App\Http\Controllers\Business\DashboardBusinessController;
 use App\Http\Controllers\Social\Auth\RegisterSocialController;
 use App\Http\Controllers\Business\Auth\LoginBusinessController;
 use App\Http\Controllers\CampusAngel\CampusChallengeController;
+use App\Http\Controllers\Business\BusinessIntervationController;
 use App\Http\Controllers\Territory\DashboardTerritoryController;
 use App\Http\Controllers\Territory\TerritoryChallengeController;
 use App\Http\Controllers\Territory\Auth\LoginTerritoryController;
@@ -220,6 +221,11 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'store');
     });
+
+    Route::controller(BusinessIntervationController::class)->group(function () {
+        Route::get('intervations/avis_commentaires', 'index');
+        Route::get('intervations/statistiques', 'statistiques');
+     });
 });
 
 // Les Routes de l'authentification pour Social Sponsors

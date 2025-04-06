@@ -138,12 +138,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('business/intervations/avis_commentaires') }}">
                     - Avis & commentaires
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
+                <a class="nav-link nav-indent-small" href="{{ url('business/intervations/statistiques') }}">
                     - Mes statistiques
                 </a>
             </li>
