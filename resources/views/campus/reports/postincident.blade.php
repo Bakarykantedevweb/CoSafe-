@@ -89,7 +89,7 @@
     </div>
     <section class="cta">
 
-        <a id="create-challenge-btn" class="btn btn-primary btn-lg" href="/business/reports/create">
+        <a id="create-challenge-btn" class="btn btn-primary btn-lg" href="/campus/reports/create">
                         Créer un incident  &#9997;
                     </a> <!-- Ajoutez ici le lien vers la page de création du challenge -->
     </section>

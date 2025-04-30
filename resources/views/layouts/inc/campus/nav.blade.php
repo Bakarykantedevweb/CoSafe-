@@ -75,8 +75,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-indent-small" href="#">
-                    - Mes signalements (Vos Mises à jour)
+                <a class="nav-link nav-indent-small" href="{{ url('campus/reports/appelaides') }}">
+                    - Répondre à un appel à l’aide
                 </a>
             </li>
             <li class="nav-item">

@@ -100,6 +100,7 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
+        Route::get('reports/appelaides', 'appelaides');
     });
     Route::controller(CampusChallengeController::class)->group(function () {
         Route::get('challenges', 'index');
@@ -136,6 +137,7 @@ Route::prefix('city')->middleware(['city.auth'])->group(function () {
         Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
+        Route::get('reports/appelaides', 'appelaides');
 
     });
 
@@ -174,6 +176,7 @@ Route::prefix('territory')->middleware(['territory.auth'])->group(function () {
         Route::get('reports/postincident', 'postincident');
         Route::get('reports/create', 'create');
         Route::post('reports/create', 'store');
+        Route::get('reports/appelaides', 'appelaides');
     });
 
     Route::controller(TerritoryChallengeController::class)->group(function () {

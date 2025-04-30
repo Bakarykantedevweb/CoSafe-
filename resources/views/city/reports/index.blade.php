@@ -1,110 +1,62 @@
 @extends('layouts.city')
 @section('content')
-<section class="container-fluid p-4">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-12">
-            <div
-                class="border-bottom pb-3 mb-3 d-flex flex-column flex-lg-row gap-3 justify-content-between align-items-lg-center">
-                <div>
-                    <h1 class="mb-0 h2 fw-bold">Listes des Signalements</h1>
+    <section class="container-fluid p-4">
+        <div class="row justify-content-center"> <!-- Centrage de la row -->
+            <div class="col-lg-8 col-md-10 col-12 text-center"> <!-- Colonne plus étroite et centrée -->
+                <!-- Titre principal centré -->
+                <div class="border-bottom pb-3 mb-3">
+                    <h1 class="mb-0 h2 fw-bold">Trouver une Safe-Alerte</h1>
+                    <p class="mt-2">Cette rubrique vous permet de consulter des Alertes de sécurité signalées par des citoyens engagés, des collectivités, des commerces, des campus, des entreprises et d'autres acteurs locaux.</p>
                 </div>
-                <div class="d-flex gap-3">
-                    <a href="{{ url('city/reports/create') }}" class="btn btn-primary">Ajouter</a>
+
+                <!-- Section "Comment ça marche" centrée -->
+                <div class="mb-4 text-start"> <!-- text-start pour aligner le texte à gauche à l'intérieur -->
+                    <h2 class="h4 fw-bold text-center">Comment ça marche ?</h2> <!-- Titre centré -->
+                    <ul class="list-unstyled ps-0 ms-0">
+                        <li class="mb-2"><span class="text-success me-2">✅ </span> Recherchez une alerte en filtrant par catégorie d'incident, lieu et date.</li>
+                        <li class="mb-2"><span class="text-success me-2">✅ </span> Consultez les détails des signalements pour évaluer la situation.</li>
+                        <li><span class="text-success me-2">✅ </span> Réagissez, partagez l'Alerte le plus largement possible.</li>
+                    </ul>
+                    <p class="text-center">Consultez ci-dessous les Safe-Alertes selon vos critères</p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        @foreach ($reports as $report)
-            <div class="card my-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $report->title }}</h5>
-                    <p class="card-text">{{ $report->description }}</p>
-                    @if ($report->photo)
-                        <img src="{{ asset('uploads/reports/photos/' . $report->photo) }}" width="100"
-                            class="img-fluid" alt="Image du signalement">
-                    @endif
-                </div>
-            </div>
-        @endforeach
-    </div>
-</section>
-<section class="container-fluid p-4">
 
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-12">
-            <!-- Card -->
-            <div class="card mb-4">
-                <!-- Card header -->
-                <div
-                    class="card-header d-flex justify-content-between align-items-center border-bottom-0 card-header-height">
-                    <h4 class="mb-0">Mes Signalements</h4>
-
-                </div>
-                <!-- Table -->
-                <div class="mb-5">
-
-
-
-                    <div class="d-flex align-items-center justify-content-around">
-
-
-                        <a class="btn btn-primary btn-lg" href="{{ url('city/reports/create') }}">
-                            Créer un nouveau Signalement &#128108;
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="mb-4">
-                    <div class="mb-4">
-                        <h3 class="h3 mb-2 text-primary">Listes des Signalements</h3>
-                        <p class="h6">Il s'agit ici de tous les Signalements que vous avez créés.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="table-responsive border-0 overflow-y-hidden">
-                <table class="table mb-0 text-nowrap table-hover table-centered">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Titre</th>
-                            <th>Categorie</th>
-                            <th>Date Debut</th>
-                            <th>Date Fin</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-
-                </table>
-                <div class="row mb-4">
-                    <div class="mb-4">
-                        <h3 class="h3 mb-2 text-primary">Mes Signalements relevés</h3>
-                        <p class="h6">Il s'agit ici de tous les challenges que vous avez relevés.</p>
-                    </div>
-
-                    <div class="bg-white pt-4">
+        <!-- Le reste du code (tableau) reste inchangé -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <!-- Tableau de recherche -->
+                <div class="card mb-4">
+                    <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="display text-center table" id="example1">
-                                <thead>
-                                    <tr>
-                                        <th>Titre</th>
-                                        <th>Categorie</th>
-                                        <th>Date Debut</th>
-                                        <th>Date Fin</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
+                            <table class="table mb-0">
+                                <!-- ... contenu du tableau ... -->
+                                <table class="table mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Pays</th>
+                                            <th>Ville</th>
+                                            <th>Catégories lieux</th>
+                                            <th>Date</th>
+                                            <th>Catégories incident</th>
+                                            <th>Source de l'Alerte</th>
+                                            <th>Chercher</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Les lignes seront ajoutées dynamiquement ici -->
+                                    </tbody>
+                                </table>
                             </table>
                         </div>
                     </div>
                 </div>
+
+                <!-- Message d'affichage -->
+                <div class="fst-italic text-muted text-center"> <!-- Centrage du texte -->
+                    Affichage ici des Safe-Alertes lancées par les auteurs des incidents
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-</section>
+    </section>
 @endsection

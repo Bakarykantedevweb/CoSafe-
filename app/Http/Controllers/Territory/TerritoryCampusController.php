@@ -53,6 +53,7 @@ class TerritoryCampusController extends Controller
     }
 
 
+
     public function helps()
     {
         return view('territory.reports.help');
@@ -71,40 +72,47 @@ class TerritoryCampusController extends Controller
 
     public function store(Request $request)
     {
+        try {
+            $request->validate([
+                'description' => 'required|string',
+                'latitude' => 'required',
+                'date_heure' => 'required',
+                'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
+                'destinataires' => 'required|array',
+                'partage_reseaux' => 'nullable|array',
+                'categories' => 'required|array',
+                // 'video' => 'nullable|mimes:mp4,mov,avi' // 20MB max
+            ]);
 
-        $request->validate([
-            'description' => 'required|string',
-            'latitude' => 'required',
-            'date_heure' => 'required',
-            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
-            'destinataires' => 'required|array',
-            'partage_reseaux' => 'nullable|array',
-            'categories' => 'required|array',
-            // 'video' => 'nullable|mimes:mp4,mov,avi' // 20MB max
-        ]);
 
-        $report =  Report::create($request->except('photo', 'categorie'));
+            $report =  Report::create($request->except('photo', 'categorie'));
 
-        $report->territory_id = Auth::guard('territory')->user()->id;
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '_photo.' . $ext;
-            $file->move(public_path('uploads/reports/photos'), $filename);
-            $report->photo = $filename;
+            $report->territory_id = Auth::guard('territory')->user()->id;
+            if ($request->hasFile('photo')) {
+                $file = $request->file('photo');
+                $ext = $file->getClientOriginalExtension();
+                $filename = time() . '_photo.' . $ext;
+                $file->move(public_path('uploads/reports/photos'), $filename);
+                $report->photo = $filename;
+            }
+
+            // if ($request->hasFile('video')) {
+            //     $file = $request->file('video');
+            //     $ext = $file->getClientOriginalExtension();
+            //     $filename = time() . '_video.' . $ext;
+            //     $file->move(public_path('uploads/reports/videos'), $filename);
+            //     $report->video = $filename;
+            // }
+
+            $report->save();
+
+            return redirect('/territory/reports')->with('success', 'Le rapport a été créé avec succès.');
+        } catch (\Exception $e) {
+            // En cas d'erreur, redirection avec message d'erreur
+            var_dump($e->getMessage());
+
+            //return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
-
-        // if ($request->hasFile('video')) {
-        //     $file = $request->file('video');
-        //     $ext = $file->getClientOriginalExtension();
-        //     $filename = time() . '_video.' . $ext;
-        //     $file->move(public_path('uploads/reports/videos'), $filename);
-        //     $report->video = $filename;
-        // }
-
-        $report->save();
-
-        return redirect('/territory/reports')->with('success', 'Le rapport a été créé avec succès.');
     }
 
     public function  storebesoin(Request $request)
@@ -138,5 +146,10 @@ class TerritoryCampusController extends Controller
             print($e->getMessage());
             return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
         }
+    }
+
+    public function appelaides()
+    {
+        return view('territory.reports.appelaide');
     }
 }
