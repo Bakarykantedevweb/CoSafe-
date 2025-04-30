@@ -45,6 +45,19 @@
                                     </thead>
                                     <tbody>
                                         <!-- Les lignes seront ajoutées dynamiquement ici -->
+
+        @foreach ($reports as $report)
+        <tr>
+        <td>{{ $report->title }}</td>
+        <td>{{ $report->title }}</td>
+        <td>{{ $report->title }}</td>
+        <td>{{ $report->title }}</td>
+        <td>{{ $report->title }}</td>
+        <td><img src="{{ asset('uploads/reports/photos/' . $report->photo) }}" width="100" class="img-fluid" alt="Image du signalement"></td>
+        </tr>
+
+        @endforeach
+    </div>
                                     </tbody>
                                 </table>
                             </table>
