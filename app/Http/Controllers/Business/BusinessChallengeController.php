@@ -58,112 +58,121 @@ class BusinessChallengeController extends Controller
         ]);
     }
 
+
+
     public function store(Request $request)
     {
-        // Validation des champs avec messages d'erreur personnalisés
-        try {
-            $validatedData = $request->validate([
-                // Informations personnelles du contact
-                'nom' => 'required|string|max:255',
-                'email' => 'required|email|max:255',
-                'numero' => 'required|string|max:20',
-    
-                // Localisation
-                'pays' => 'required|string|max:100',
-                'region' => 'required|string|max:100',
-                'ville' => 'required|string|max:100',
-                'codepostal' => 'required|string|max:20',
-                'adresse' => 'required|string|max:255',
-    
-                // Informations complémentaires (si entreprise)
-                'nomcommercial' => 'nullable|string|max:255',
-                'numeroentreprise' => 'nullable|string|max:50',
-                'numeroagreation' => 'nullable|string|max:50',
-                'typesactivite' => 'nullable|array',
-                'datedebutactivite' => 'nullable|date',
-    
-                // Informations sur le challenge
-                'nomchallenge' => 'required|string|max:255',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'type' => 'required|string',
-                'secteurs' => 'required|string',
-                'description' => 'nullable|string',
-                'fichier' => 'required|file|mimes:doc,docx,pdf|max:5120',
-                'critere' => 'nullable|string|max:255',
-               // 'conditions' => 'required|file|mimes:doc,docx,pdf|max:5120',
-                'dotation' => 'nullable|string',
-    
-                // Identification de la problématique à solutionner
-                'risques' => 'nullable|array',
-    
-                // Compétences attendues
-                'competences_attendues' => 'nullable|array',
-    
-                // Calendrier des sélections
-                'datedebutinscription' => 'required|date',
-                'datefininscription' => 'required|date|after:datedebutinscription',
-                'datedebutselection' => 'required|date',
-                'datefinselection' => 'required|date|after:datedebutselection',
-    
-                // Équipe
-                'compositionequipes' => 'required|string',
-                'nombreequipesmin' => 'required|integer|min:1',
-                'nombreequipesmax' => 'required|integer|min:1|gt:nombreequipesmin',
-                'criteresparticipation' => 'required|string',
-    
-                // Géolocalisation du challenge
-                'payschallenge' => 'required|string|max:100',
-                'villechallenge' => 'required|string|max:100',
-                'campus' => 'required|string|max:100',
-                'datelancement' => 'required|date',
-                'datecloture' => 'required|date|after:datelancement',
+        // Validation des données du formulaire
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|email',
+            'numero' => 'required|string|max:20',
+            'pays' => 'required|string',
+            'region' => 'required|string|max:255',
+            'ville' => 'required|string|max:255',
+            'codepostal' => 'required|string|max:10',
+            'adresse' => 'required|string|max:255',
+            'nomcommercial' => 'nullable|string|max:255',
+            'numeroentreprise' => 'nullable|string|max:255',
+            'numeroagreation' => 'nullable|string|max:255',
+            'typesactivite' => 'nullable|array',
+            'datedebutinscription' => 'required|date',
+            'datefininscription' => 'required|date',
+            'description' => 'nullable|string|max:1000',
+            'nomchallenge' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'secteur' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fichier' => 'nullable|file|mimes:pdf,doc,docx|max:5120',
+            'reward_value' => 'required|string|max:255',
+            'reward_type' => 'nullable|array',
+            'reward_description' => 'nullable|string|max:1000',
+            'association_name' => 'nullable|string|max:255',
+            'association_cause' => 'nullable|string|max:255',
+            'association_phone' => 'nullable|string|max:20',
+            'association_email' => 'nullable|email',
+            'association_website' => 'nullable|url',
+            'association_file' => 'nullable|file|mimes:jpg,jpeg,png,pdf,docx|max:2048',
+            'association_country' => 'nullable|string',
+            'association_city' => 'nullable|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
 
-            ], [
-                'datecloture.after' => 'La date de clôture doit être postérieure à la date de lancement.',
-                'datefininscription.after' => 'La date de fin des inscriptions doit être postérieure à la date de début.',
-                'datefinselection.after' => 'La date de fin des sélections doit être postérieure à la date de début.',
-                'nombreequipesmax.gt' => 'Le nombre maximum d\'équipes doit être supérieur au nombre minimum.',
-            ]);
-    
-            // Création d'une nouvelle instance de Challenge
-            $challenge = new Challenge();
-    
-            // Assignation des données validées au modèle
-            $challenge->fill($validatedData);
-    
-            // Gestion des fichiers
-            $challenge->image = $this->uploadFile($request->file('image'), 'uploads/challenges/image', 'image');
-            $challenge->fichier = $this->uploadFile($request->file('fichier'), 'uploads/challenges/fichier', 'fichier');
-            $challenge->conditions = $this->uploadFile($request->file('conditions'), 'uploads/challenges/conditions', 'conditions');
-    
-            // Assignation de l'ID du business connecté
-            $challenge->business_id = Auth::guard('business')->user()->id;
-    
-            // Sauvegarde du challenge
-            $challenge->save();
-    
-            // Redirection avec message de succès
-            return redirect('business/challenges')->with('success', 'Le challenge a été créé avec succès.');
-        } catch (\Exception $e) {
-            // En cas d'erreur, redirection avec message d'erreur
-            dump($e->getMessage());
-          //  return redirect()->back()->withInput()->with('error', 'Une erreur est survenue lors de la création du challenge : ' . $e->getMessage());
+        // Enregistrer les données dans la base de données
+        $challenge = new Challenge();
+        $challenge->nom = $request->nom;
+        $challenge->email = $request->email;
+        $challenge->numero = $request->numero;
+        $challenge->pays = $request->pays;
+        $challenge->region = $request->region;
+        $challenge->ville = $request->ville;
+        $challenge->codepostal = $request->codepostal;
+        $challenge->adresse = $request->adresse;
+        $challenge->nomcommercial = $request->nomcommercial;
+        $challenge->numeroentreprise = $request->numeroentreprise;
+        $challenge->numeroagreation = $request->numeroagreation;
+        $challenge->typesactivite = json_encode($request->typesactivite);  // Enregistrer les activités sélectionnées sous forme de tableau JSON
+        $challenge->datedebutinscription = $request->datedebutinscription;
+        $challenge->datefininscription = $request->datefininscription;
+        $challenge->description = $request->description;
+        $challenge->nomchallenge = $request->nomchallenge;
+        $challenge->type = $request->type;
+        $challenge->secteurs = $request->secteur;
+        $challenge->reward_value = $request->reward_value;
+        $challenge->reward_type = json_encode($request->reward_type);  // Enregistrer les types de récompense sous forme de tableau JSON
+        $challenge->reward_description = $request->reward_description;
+        $challenge->association_name = $request->association_name;
+        $challenge->association_cause = $request->association_cause;
+        $challenge->association_phone = $request->association_phone;
+        $challenge->association_email = $request->association_email;
+        $challenge->association_website = $request->association_website;
+        $challenge->association_country = $request->association_country;
+        $challenge->association_city = $request->association_city;
+        $challenge->start_date = $request->start_date;
+        $challenge->end_date = $request->end_date;
+        $challenge->business_id = Auth::guard('business')->user()->id;
+
+         // Gestion de l'image du challenge
+         if ($request->hasFile('image')) {
+            // Générer un nom unique pour l'image
+            $imageName = time() . '_' . $request->file('image')->getClientOriginalName();
+            // Déplacer l'image dans le dossier public/uploads/challenges/images
+            $request->file('image')->move(public_path('uploads/challenges/images'), $imageName);
+            // Enregistrer le chemin relatif de l'image dans la base de données
+            $challenge->image = 'uploads/challenges/images/' . $imageName;
         }
-    }
-    
-    /**
-     * Méthode pour gérer l'upload des fichiers
-     **/
-    private function uploadFile($file, $destinationPath, $prefix)
-    {
-        if ($file && $file->isValid()) {
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '_' . $prefix . '.' . $ext;
-            $file->move(public_path($destinationPath), $filename);
-            return $filename;
+
+        // Gestion du fichier d'association (logo, présentation)
+        if ($request->hasFile('association_file')) {
+            // Générer un nom unique pour le fichier
+            $associationFileName = time() . '_' . $request->file('association_file')->getClientOriginalName();
+            // Déplacer le fichier dans le dossier public/uploads/challenges/association_files
+            $request->file('association_file')->move(public_path('uploads/challenges/association_files'), $associationFileName);
+            // Enregistrer le chemin relatif du fichier dans la base de données
+            $challenge->association_file = 'uploads/challenges/association_files/' . $associationFileName;
         }
-        return null;
+
+         // Gestion du fichier d'association (logo, présentation)
+         if ($request->hasFile('fichier')) {
+            // Générer un nom unique pour le fichier
+            $fichierName = time() . '_' . $request->file('fichier')->getClientOriginalName();
+            // Déplacer le fichier dans le dossier public/uploads/challenges/fichier
+            $request->file('fichier')->move(public_path('uploads/challenges/fichiers'), $fichierName);
+            // Enregistrer le chemin relatif du fichier dans la base de données
+            $challenge->file = 'uploads/challenges/fichiers/' . $fichierName;
+        }
+
+        // Sauvegarder le challenge
+        $challenge->save();
+
+        // Retourner une réponse ou redirection
+        toastr()->success('Challenge enregistré avec succès.');
+        return redirect("business/challenges");
     }
+
+
+
 
     public function descriptionchallenge(Challenge $challenge)
     {

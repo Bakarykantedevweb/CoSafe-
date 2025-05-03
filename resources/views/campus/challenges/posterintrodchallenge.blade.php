@@ -13,12 +13,12 @@
     </header>
 
     <section>
-        <h2>Bienvenue dans l’espace des CitySafe Angels</h2>
+        <h2>Bienvenue dans l’espace des campusSafe Angels</h2>
         <p>Un réseau d’ambassadeurs de la sécurité déterminés à sensibiliser, mobiliser et inspirer autour des enjeux de protection et de prévention d’un territoire, d’une entreprise ou d’une communauté.</p>
     </section>
 
     <section>
-        <h2>Pourquoi devenir un CitySafe Angel ?</h2>
+        <h2>Pourquoi devenir un campusSafe Angel ?</h2>
         <ul>
             <li>✅ Sensibilisez et mobilisez les citoyens, entreprises et institutions pour un environnement plus sûr.</li>
             <li>✅ Valorisez votre engagement en devenant une référence en matière de prévention et de vigilance citoyenne.</li>
@@ -30,7 +30,7 @@
     <section>
         <h2>Comment ça marche ?</h2>
         <ul>
-            <li>✅ Rejoignez la communauté des CitySafe Angels et accédez aux Safe-Challenges.</li>
+            <li>✅ Rejoignez la communauté des campusSafe Angels et accédez aux Safe-Challenges.</li>
             <li>✅ Partagez du contenu inspirant et relayez les alertes et solutions de sécurité.</li>
             <li>✅ Animez votre réseau et engagez citoyens, commerces et entreprises dans des actions concrètes.</li>
         </ul>

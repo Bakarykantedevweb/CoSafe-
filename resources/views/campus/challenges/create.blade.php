@@ -96,7 +96,7 @@
                         <h1 class="mb-0 h2 fw-bold">Ajouter un Challenge</h1>
                     </div>
                     <div class="d-flex gap-3">
-                        <a href="{{ url('campus/challenges') }}" class="btn btn-primary">Retour</a>
+                        <a href="{{ url('challenges/reports') }}" class="btn btn-primary">Retour</a>
                     </div>
                 </div>
             </div>
@@ -186,8 +186,7 @@
 
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="">Ville</label>
-                                            <select id="ville" name="ville"
-                                                class="form-control col-sm-12" required>
+                                            <select id="ville" name="ville" class="form-control col-sm-12" required>
                                                 @foreach ($villes_frances as $v)
                                                     <option data-option="France" value="{{ $v }}">
                                                         {{ $v }}</option>
@@ -226,7 +225,8 @@
 
                                 <!-- Section Entreprise (conservée de votre formulaire original) -->
                                 <div class="alert alert-secondary">
-                                    <h4 class="text-secondary"><i class="bi bi-geo"></i> Informations complémentaires (si vous êtes une entreprise)</h4>
+                                    <h4 class="text-secondary"><i class="bi bi-geo"></i> Informations complémentaires (si
+                                        vous êtes une entreprise)</h4>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6 mb-3">
@@ -283,7 +283,7 @@
                                     </h4>
                                 </div>
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Nom du challenge</label>
                                     <input class="form-control" type="text" name="nomchallenge">
                                     @error('nomchallenge')
@@ -291,12 +291,39 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" for="">Type du challenge</label>
+                                    <input class="form-control" type="text" name="type">
+                                    @error('type')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label" for="">Secteurs</label>
+                                    <input class="form-control" type="text" name="secteur">
+                                    @error('secteur')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 mb-3">
                                     <div>
                                         <label for="">Image représentant le challenge</label>
                                         <input class="form-control" type="file" name="image"
                                             aria-label="file example">
                                         @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <div>
+                                        <label for="">Fichier</label>
+                                        <input class="form-control" type="file" name="fichier"
+                                            aria-label="file example">
+                                        @error('fichier')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -399,7 +426,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label class="form-label">Ville</label>
-                                        <input class="form-control" type="text" name="association_city">
+                                        <input class="form-control" type="text" name="association_campus">
                                     </div>
                                 </div>
 
@@ -454,5 +481,29 @@
                 </div>
             </div>
         </div>
-        </div>
-    </div @endsection
+
+        </div </section>
+        <script>
+            // Sélectionnez les champs du formulaire
+            var champs = document.querySelectorAll('#monFormulaire input');
+            var conditions = document.getElementById('accepte_conditions');
+            var bouton = document.getElementById('monBouton');
+
+            // Fonction pour vérifier l'état de remplissage des champs
+            function verifierRemplissage() {
+                var tousRemplis = true;
+
+                champs.forEach(function(champ) {
+                    if (champ.value.trim() === '') {
+                        tousRemplis = false;
+                    }
+                });
+
+                if (tousRemplis && conditions.checked) {
+                    bouton.removeAttribute('disabled');
+                } else {
+                    bouton.setAttribute('disabled', 'disabled');
+                }
+            }
+        </script>
+    @endsection

@@ -30,10 +30,10 @@
     </style>
 <div class="container">
         <h1>Un Safe-Challenge, c'est quoi ?</h1>
-        <p>Un Safe-Challenge est un défi collaboratif lancé par une entreprise, une collectivité ou un acteur territorial (Business Guardian, City Guardian, Social Promoter) pour renforcer la sécurité des biens, des personnes et des territoires.</p>
+        <p>Un Safe-Challenge est un défi collaboratif lancé par une entreprise, une collectivité ou un acteur territorial (campus Guardian, campus Guardian, Social Promoter) pour renforcer la sécurité des biens, des personnes et des territoires.</p>
 
         <h2>Pour quel Objectif ?</h2>
-        <p>Mobiliser les Safe Talents (City Angels, Campus Angels, experts en sécurité, citoyens engagés) pour proposer des solutions innovantes et opérationnelles aux enjeux sécuritaires.</p>
+        <p>Mobiliser les Safe Talents (campus Angels, Campus Angels, experts en sécurité, citoyens engagés) pour proposer des solutions innovantes et opérationnelles aux enjeux sécuritaires.</p>
 
         <h2>Exemples de Safe-Challenges :</h2>
         <ul>

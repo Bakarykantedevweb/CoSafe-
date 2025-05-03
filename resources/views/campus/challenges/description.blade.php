@@ -1152,7 +1152,7 @@
                                                                             <label for="email">Email</label>
                                                                             <input type="email" name="email"
                                                                                    class="form-control"
-                                                                                   value="{{ Auth::guard('business')->user()->email }}">
+                                                                                   value="{{ Auth::guard('campus')->user()->email }}">
                                                                             <input type="hidden" name="id_job"
                                                                                    class="form-control"
                                                                                    value="{{ $challenge->id }}">
