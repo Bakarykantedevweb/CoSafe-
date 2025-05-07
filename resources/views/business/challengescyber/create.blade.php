@@ -481,21 +481,7 @@
                                       </fieldset>
                                     </div>
                                  <!-- Section 5: Compétences attendues -->
-                            <div class="alert alert-secondary">
-                                <b>Compétences attendues</b> (pour évaluer les propositions ?) (Cochez tout ce qui s’applique)
-                            </div>
-                            <div class="container2">
-                                <div class="column2"><input type="checkbox" value="Viabilité financière et accessibilité">Viabilité financière et accessibilité</div>
-                                <div class="column2"><input type="checkbox" value="Créativité et innovation de la solution">Créativité et innovation de la solution</div>
-                                <div class="column2"><input type="checkbox" value="Impact sur la prévention et la réduction des risques">Impact sur la prévention et la réduction des risques</div>
-                                <div class="column2"><input type="checkbox" value="Faisabilité technique et opérationnelle">Faisabilité technique et opérationnelle</div>
-                                <div class="column2"><input type="checkbox" value="Durabilité et adaptabilité de la solution">Durabilité et adaptabilité de la solution</div>
-                                <div class="column2"><input type="checkbox" value="Engagement & mobilisation citoyenne">Engagement & mobilisation citoyenne</div>
-                                <div class="column2"><input type="checkbox" value="Synergie avec les forces de l’ordre">Synergie avec les forces de l’ordre</div>
-                                <div class="column2"><input type="checkbox" value="Facilité d’adoption et d’implémentation">Facilité d’adoption et d’implémentation</div>
-                                <div class="column2"><input type="checkbox" value="Effet dissuasif et réactif face aux menaces">Effet dissuasif et réactif face aux menaces</div>
-                                <div class="column2"><input type="checkbox" value="Impact social et renforcement du lien communautaire">Impact social et renforcement du lien communautaire</div>
-                            </div>
+
                             <div class="alert alert-secondary">
                                 <h2 class="fs-title">Calendrier des sélections</h2>
                                 <h4 class="text-primary">Phase de candidature</h4>

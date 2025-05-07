@@ -477,6 +477,21 @@
                                     <label><input type="checkbox" name="incivilites[]" value="transports"> Comportements antisociaux dans les transports</label>
                                   </fieldset>
                                 </div>
+                                <div class="alert alert-secondary">
+                                <b>Compétences attendues</b> (pour évaluer les propositions ?) (Cochez tout ce qui s’applique)
+                            </div>
+                            <div class="container2">
+                                <div class="column2"><input type="checkbox" value="Viabilité financière et accessibilité">Viabilité financière et accessibilité</div>
+                                <div class="column2"><input type="checkbox" value="Créativité et innovation de la solution">Créativité et innovation de la solution</div>
+                                <div class="column2"><input type="checkbox" value="Impact sur la prévention et la réduction des risques">Impact sur la prévention et la réduction des risques</div>
+                                <div class="column2"><input type="checkbox" value="Faisabilité technique et opérationnelle">Faisabilité technique et opérationnelle</div>
+                                <div class="column2"><input type="checkbox" value="Durabilité et adaptabilité de la solution">Durabilité et adaptabilité de la solution</div>
+                                <div class="column2"><input type="checkbox" value="Engagement & mobilisation citoyenne">Engagement & mobilisation citoyenne</div>
+                                <div class="column2"><input type="checkbox" value="Synergie avec les forces de l’ordre">Synergie avec les forces de l’ordre</div>
+                                <div class="column2"><input type="checkbox" value="Facilité d’adoption et d’implémentation">Facilité d’adoption et d’implémentation</div>
+                                <div class="column2"><input type="checkbox" value="Effet dissuasif et réactif face aux menaces">Effet dissuasif et réactif face aux menaces</div>
+                                <div class="column2"><input type="checkbox" value="Impact social et renforcement du lien communautaire">Impact social et renforcement du lien communautaire</div>
+                            </div>
                                 <!-- Section Récompense (adaptée du formulaire HelloCampus) -->
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-gift"></i> Récompense du Challenge</h4>
