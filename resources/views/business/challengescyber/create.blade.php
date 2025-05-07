@@ -308,12 +308,12 @@
 
                                 <!-- Section Challenge (intégration des éléments du formulaire HelloCampus) -->
                                 <div class="alert alert-secondary">
-                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations du Safe-SafeSafeChallenge
+                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations du Cyber Challengé
                                     </h4>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <label class="form-label" for="">Nom du SafeSafeChallenge </label>
+                                    <label class="form-label" for="">Nom du Challenge </label>
                                     <input class="form-control" type="text" name="nomchallenge">
                                     @error('nomchallenge')
                                         <span class="text-danger">{{ $message }}</span>
@@ -322,7 +322,7 @@
 
                         <div class="col-md-12 mb-3">
                             <div>
-                                <label for="">Image du  SafeSafeChallenge </label>
+                                <label for="">Image du  Challenge </label>
                                 <input class="form-control" type="file" name="image"
                                     aria-label="file example">
                                 @error('image')
@@ -331,7 +331,7 @@
                             </div>
                         </div>
                                 <div class="col-md-12 mb-3">
-                                    <label class="form-label" for="">Objectif stratégique du Safe-Challenge pour un Territoire Sécurisé</label>
+                                    <label class="form-label" for="">Objectif du Challenge --</label>
                                     <select id="actionsPrioritaires" name="action_prioritaire" class="form-control">
                                         <option value="Créer un réseau d’alerte locale"> Créer un réseau d’alerte locale</option>
                                         <option value="Renforcer la protection des zones sensibles">Renforcer la protection des zones sensibles</option>
@@ -348,6 +348,14 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="col-12 col-md-12 mb-3">
+                                        <label>Description du Cyber- Security challenge
+                                            <br>Formulez un énoncé clair pour le Cyber- challenge : </label>
+                                        <textarea class="form-control" rows="5" name="description" placeholder="ex: Comment protéger nos bases de données clients contre les attaques par injection SQL ? ou Quelles solutions simples et efficaces pour renforcer la cybersécurité de notre chaîne logistique ?"></textarea>
+                                        @error('description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 <div class="col-12 col-md-6 mb-3">
                                     <label class="form-label" for="">Secteurs d’activités concernés </label>
                                     <select class="form-select" name="secteurs">
@@ -381,8 +389,11 @@
 
                                 </div>
                                 <div class="alert alert-secondary">
-                                    <p>Quel type de risque souhaitez-vous proposer à solution dans le cadre du Safe-Challenge ?<br>
-                                        <em>(Sélectionnez tout ce qui s'applique)</em></p> </div>
+                                    <b><b></b>Identification de la problématique à solutionner</b>
+                                    <br>
+Dans quel contexte se situe votre besoin en cybersécurité ?
+
+                                        </p> </div>
 
                                     <div class="col-md-6 mb-3">
                                     <fieldset>
@@ -481,7 +492,23 @@
                                       </fieldset>
                                     </div>
                                  <!-- Section 5: Compétences attendues -->
-
+                                 <div class="col-12 col-md-12 mb-3">
+                                        <label>Veuillez décrire votre problématique :</label>
+                                        <textarea class="form-control" rows="5" name="description"></textarea>
+                                        @error('description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                            <div>
+                                <label for="">Décrivez en détail la problématique joignant un fichier descriptif éventuel : </label>
+                                <input class="form-control" type="file" name="image"
+                                    aria-label="file example">
+                                @error('image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                             <div class="alert alert-secondary">
                                 <h2 class="fs-title">Calendrier des sélections</h2>
                                 <h4 class="text-primary">Phase de candidature</h4>
@@ -547,7 +574,7 @@
                             <div class="col-12 col-md-12 mb-3">
                                     <label>Dotation & Objet du challenge (A gagner):</label>
                                     <textarea class="form-control" rows="5" name="dotation"
-                                        placeholder="Description de la contrepartie proposée :  Badge à gagner – Bons d’achat – Services ou marchandises …"></textarea>
+                                        placeholder="Veuillez décrire dans ce cadre, la contrepartie que vous proposez ou vous demandez en tant que Eco-Talent :  Badge à gagner – Bons d’achat – Services ou marchandises souhaités, Jobs …"></textarea>
                                     @error('dotation')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
