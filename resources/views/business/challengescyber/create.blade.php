@@ -88,11 +88,7 @@
         }
     </style>
     <style>
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #f5f7fa;
-          margin: 40px;
-        }
+
         h2 {
           color: #2c3e50;
           border-bottom: 2px solid #3498db;
@@ -105,10 +101,7 @@
           background: #fff;
           border-radius: 8px;
         }
-        label {
-          display: block;
-          margin: 8px 0;
-        }
+
         input[type="submit"] {
           background-color: #3498db;
           color: white;
@@ -122,6 +115,7 @@
           background-color: #2980b9;
         }
       </style>
+
     <section class="container-fluid p-4">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -168,7 +162,7 @@
                                             personnelles contact</h4>
                                     </div>
 
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label" for="">Nom & prénom</label>
                                         <input class="form-control" type="text" name="nom">
                                         @error('nom')
@@ -176,7 +170,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label" for="">Adresse email</label>
                                         <input class="form-control" type="email" name="email">
                                         @error('email')
@@ -184,7 +178,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label" for="">Numéro de téléphone</label>
                                         <input class="form-control" type="text" name="numero">
                                         @error('numero')
@@ -314,80 +308,288 @@
 
                                 <!-- Section Challenge (intégration des éléments du formulaire HelloCampus) -->
                                 <div class="alert alert-secondary">
-                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations du Challenge
+                                    <h4 class="text-secondary"><i class="bi bi-info-square"></i> Informations du Safe-SafeSafeChallenge
                                     </h4>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label" for="">Nom du challenge</label>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label" for="">Nom du SafeSafeChallenge </label>
                                     <input class="form-control" type="text" name="nomchallenge">
                                     @error('nomchallenge')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div>
+                                <label for="">Image du  SafeSafeChallenge </label>
+                                <input class="form-control" type="file" name="image"
+                                    aria-label="file example">
+                                @error('image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                                 <div class="col-md-12 mb-3">
-                                    <div>
-                                        <label for="">Image du  SafeSafeChallenge </label>
-                                        <input class="form-control" type="file" name="image"
-                                            aria-label="file example">
-                                        @error('image')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label class="form-label" for="">Objectif stratégique du Safe-Challenge pour un Territoire Sécurisé</label>
-                                            <select id="actionsPrioritaires" name="action_prioritaire" class="form-control">
-                                                <option value="Créer un réseau d’alerte locale"> Créer un réseau d’alerte locale</option>
-                                                <option value="Renforcer la protection des zones sensibles">Renforcer la protection des zones sensibles</option>
-                                                <option value="Former citoyens et travailleurs">Former citoyens et travailleurs</option>
-                                                <option value="Optimiser la coopération avec les forces de l’ordre"> Optimiser la coopération avec les forces de l’ordre</option>
-                                                <option value="Développer des Safe solutions innovantes">Développer des Safe solutions innovantes</option>
-                                                <option value="Encourager l’engagement citoyen">Encourager l’engagement citoyen</option>
-                                                <option value="Sensibiliser et prévenir les risques">Sensibiliser et prévenir les risques</option>
-                                                <option value="Faciliter l’aménagement sécurisé des espaces"> Faciliter l’aménagement sécurisé des espaces</option>
-                                                <option value="Promouvoir la vigilance numérique"> Promouvoir la vigilance numérique</option>
-                                                <option value="Accompagner les commerçants & entreprises dans l’évaluation des risques">Accompagner les commerçants & entreprises dans l’évaluation des risques</option>
-                                            </select>
-                                            @error('type')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12 col-md-6 mb-3">
-                                            <label class="form-label" for="">Secteurs d’activités concernés </label>
-                                            <select class="form-select" name="secteurs">
-                                                <option value="agriculture">Agriculture, sylviculture et pêche</option>
-                                                <option value="industrie-extractive">Industrie extractive</option>
-                                                <option value="industrie-manufacturiere">Industrie manufacturière</option>
-                                                <option value="energie-eau-dechets">Production et distribution d’électricité, gaz,
-                                                    vapeur, air conditionné, eau, assainissement & gestion des déchets</option>
-                                                <option value="commerce-reparation">Commerce et réparation de véhicules automobiles
-                                                    et motocycles</option>
-                                                <option value="transport">Transport et entreposage</option>
-                                                <option value="hebergement-restauration">Hébergement et restauration</option>
-                                                <option value="information-communication">Information et communication</option>
-                                                <option value="finance-assurance">Activités financières et d’assurance</option>
-                                                <option value="immobilier">Activités immobilières</option>
-                                                <option value="services-techniques">Activités spécialisées, techniques et
-                                                    scientifiques</option>
-                                                <option value="services-administratifs">Activités de services administratives et de
-                                                    soutien</option>
-                                                <option value="administration-publique">Administration publique</option>
-                                                <option value="enseignement">Enseignement</option>
-                                                <option value="sante-action-sociale">Santé humaine et action sociale</option>
-                                                <option value="arts-spectacles">Arts, spectacles et activités récréatives</option>
-                                            </select>
-                                            @error('secteurs')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label" for="">Type du challenge</label>
-                                    <input class="form-control" type="text" name="type">
+                                    <label class="form-label" for="">Objectif stratégique du Safe-Challenge pour un Territoire Sécurisé</label>
+                                    <select id="actionsPrioritaires" name="action_prioritaire" class="form-control">
+                                        <option value="Créer un réseau d’alerte locale"> Créer un réseau d’alerte locale</option>
+                                        <option value="Renforcer la protection des zones sensibles">Renforcer la protection des zones sensibles</option>
+                                        <option value="Former citoyens et travailleurs">Former citoyens et travailleurs</option>
+                                        <option value="Optimiser la coopération avec les forces de l’ordre"> Optimiser la coopération avec les forces de l’ordre</option>
+                                        <option value="Développer des Safe solutions innovantes">Développer des Safe solutions innovantes</option>
+                                        <option value="Encourager l’engagement citoyen">Encourager l’engagement citoyen</option>
+                                        <option value="Sensibiliser et prévenir les risques">Sensibiliser et prévenir les risques</option>
+                                        <option value="Faciliter l’aménagement sécurisé des espaces"> Faciliter l’aménagement sécurisé des espaces</option>
+                                        <option value="Promouvoir la vigilance numérique"> Promouvoir la vigilance numérique</option>
+                                        <option value="Accompagner les commerçants & entreprises dans l’évaluation des risques">Accompagner les commerçants & entreprises dans l’évaluation des risques</option>
+                                    </select>
                                     @error('type')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <label class="form-label" for="">Secteurs d’activités concernés </label>
+                                    <select class="form-select" name="secteurs">
+                                        <option value="agriculture">Agriculture, sylviculture et pêche</option>
+                                        <option value="industrie-extractive">Industrie extractive</option>
+                                        <option value="industrie-manufacturiere">Industrie manufacturière</option>
+                                        <option value="energie-eau-dechets">Production et distribution d’électricité, gaz,
+                                            vapeur, air conditionné, eau, assainissement & gestion des déchets</option>
+                                        <option value="commerce-reparation">Commerce et réparation de véhicules automobiles
+                                            et motocycles</option>
+                                        <option value="transport">Transport et entreposage</option>
+                                        <option value="hebergement-restauration">Hébergement et restauration</option>
+                                        <option value="information-communication">Information et communication</option>
+                                        <option value="finance-assurance">Activités financières et d’assurance</option>
+                                        <option value="immobilier">Activités immobilières</option>
+                                        <option value="services-techniques">Activités spécialisées, techniques et
+                                            scientifiques</option>
+                                        <option value="services-administratifs">Activités de services administratives et de
+                                            soutien</option>
+                                        <option value="administration-publique">Administration publique</option>
+                                        <option value="enseignement">Enseignement</option>
+                                        <option value="sante-action-sociale">Santé humaine et action sociale</option>
+                                        <option value="arts-spectacles">Arts, spectacles et activités récréatives</option>
+                                    </select>
+                                    @error('secteurs')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="alert alert-secondary">
+                                    <label for="typeRisque"><strong>Identification de la problématique à solutionner</strong></label><br>
+
+                                </div>
+                                <div class="alert alert-secondary">
+                                    <p>Quel type de risque souhaitez-vous proposer à solution dans le cadre du Safe-Challenge ?<br>
+                                        <em>(Sélectionnez tout ce qui s'applique)</em></p> </div>
+
+                                    <div class="col-md-6 mb-3">
+                                    <fieldset>
+                                        <h2>Protection des données</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="data[]" value="personnelles"> Données personnelles</label><br>
+                                          <label><input type="checkbox" name="data[]" value="RH_médicales"> Données RH ou médicales</label><br>
+                                          <label><input type="checkbox" name="data[]" value="financières"> Données financières, bancaires</label><br>
+                                          <label><input type="checkbox" name="data[]" value="propriété_intellectuelle"> Propriété intellectuelle, brevets</label><br>
+                                          <label><input type="checkbox" name="data[]" value="bases_données"> Bases de données internes ou partenaires</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Sécurisation des infrastructures IT</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="infra[]" value="réseaux"> Réseaux internes, VPN, pare-feu</label><br>
+                                          <label><input type="checkbox" name="infra[]" value="serveurs"> Serveurs, data centers, cloud</label><br>
+                                          <label><input type="checkbox" name="infra[]" value="systèmes"> Systèmes d’exploitation, routeurs</label><br>
+                                          <label><input type="checkbox" name="infra[]" value="postes"> Postes utilisateurs (fixes/mobiles), BYOD</label><br>
+                                          <label><input type="checkbox" name="infra[]" value="matériel"> Matériel (contrôle d’accès, biométrie)</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Applications et numériques</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="appli[]" value="sites_web"> Sites web, e-commerce</label><br>
+                                          <label><input type="checkbox" name="appli[]" value="applications"> Applications métiers</label><br>
+                                          <label><input type="checkbox" name="appli[]" value="collaboratifs"> Environnements collaboratifs</label><br>
+                                          <label><input type="checkbox" name="appli[]" value="erp_crm"> Logiciels ERP, CRM, etc.</label><br>
+                                          <label><input type="checkbox" name="appli[]" value="api"> API, services web, backends exposés</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Gouvernance & Conformité</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="gouv[]" value="rgpd"> RGPD, NIS2, ISO 27001...</label><br>
+                                          <label><input type="checkbox" name="gouv[]" value="politiques"> Politiques de sécurité, chartes</label><br>
+                                          <label><input type="checkbox" name="gouv[]" value="audits"> Audits, cartographie des risques, PCA/PRA</label><br>
+                                          <label><input type="checkbox" name="gouv[]" value="iam"> Gestion des droits et des accès (IAM)</label><br>
+                                          <label><input type="checkbox" name="gouv[]" value="tracabilite"> Traçabilité, journalisation des activités</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Sécurité du contenu & des communications</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="content[]" value="courriels"> Courriels professionnels, messageries instantanées</label><br>
+                                          <label><input type="checkbox" name="content[]" value="rs"> Réseaux sociaux, canaux publics</label><br>
+                                          <label><input type="checkbox" name="content[]" value="plateformes"> Plateformes de diffusion de contenu</label><br>
+                                          <label><input type="checkbox" name="content[]" value="image_marque"> Protection de l’image & e-réputation</label><br>
+                                          <label><input type="checkbox" name="content[]" value="contenu_critique"> Contenus numériques critiques</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Vulnérabilités et cyberattaques</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="cyber[]" value="phishing"> Phishing, spear phishing, ingénierie sociale</label><br>
+                                          <label><input type="checkbox" name="cyber[]" value="ransomware"> Rançongiciels, malwares</label><br>
+                                          <label><input type="checkbox" name="cyber[]" value="intrusions"> Intrusions, exfiltration de données</label><br>
+                                          <label><input type="checkbox" name="cyber[]" value="ddos"> Attaques DDoS, scans</label><br>
+                                          <label><input type="checkbox" name="cyber[]" value="failles"> Exploitation de failles connues</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Objets connectés & systèmes IoT/OT</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="iot[]" value="capteurs"> Capteurs, caméras, badges</label><br>
+                                          <label><input type="checkbox" name="iot[]" value="automates"> Automates, robots, SCADA</label><br>
+                                          <label><input type="checkbox" name="iot[]" value="env"> Capteurs environnementaux ou énergétiques</label><br>
+                                          <label><input type="checkbox" name="iot[]" value="vehicules"> Véhicules ou infrastructures connectées</label><br>
+                                          <label><input type="checkbox" name="iot[]" value="domotique"> Domotique, smart buildings</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                      <fieldset>
+                                        <h2>Cyber résilience et gestion de crise</h2>
+                                        <div class="category">
+                                          <label><input type="checkbox" name="resilience[]" value="siem"> SIEM, SOC, honeypots</label><br>
+                                          <label><input type="checkbox" name="resilience[]" value="reaction"> Réaction rapide aux incidents</label><br>
+                                          <label><input type="checkbox" name="resilience[]" value="pca"> Plan de reprise d’activité (PRA/PCA)</label><br>
+                                          <label><input type="checkbox" name="resilience[]" value="formation"> Formation des équipes</label><br>
+                                          <label><input type="checkbox" name="resilience[]" value="communication_crise"> Communication de crise</label>
+                                        </div>
+                                      </fieldset>
+                                    </div>
+                                 <!-- Section 5: Compétences attendues -->
+                            <div class="alert alert-secondary">
+                                <b>Compétences attendues</b> (pour évaluer les propositions ?) (Cochez tout ce qui s’applique)
+                            </div>
+                            <div class="container2">
+                                <div class="column2"><input type="checkbox" value="Viabilité financière et accessibilité">Viabilité financière et accessibilité</div>
+                                <div class="column2"><input type="checkbox" value="Créativité et innovation de la solution">Créativité et innovation de la solution</div>
+                                <div class="column2"><input type="checkbox" value="Impact sur la prévention et la réduction des risques">Impact sur la prévention et la réduction des risques</div>
+                                <div class="column2"><input type="checkbox" value="Faisabilité technique et opérationnelle">Faisabilité technique et opérationnelle</div>
+                                <div class="column2"><input type="checkbox" value="Durabilité et adaptabilité de la solution">Durabilité et adaptabilité de la solution</div>
+                                <div class="column2"><input type="checkbox" value="Engagement & mobilisation citoyenne">Engagement & mobilisation citoyenne</div>
+                                <div class="column2"><input type="checkbox" value="Synergie avec les forces de l’ordre">Synergie avec les forces de l’ordre</div>
+                                <div class="column2"><input type="checkbox" value="Facilité d’adoption et d’implémentation">Facilité d’adoption et d’implémentation</div>
+                                <div class="column2"><input type="checkbox" value="Effet dissuasif et réactif face aux menaces">Effet dissuasif et réactif face aux menaces</div>
+                                <div class="column2"><input type="checkbox" value="Impact social et renforcement du lien communautaire">Impact social et renforcement du lien communautaire</div>
+                            </div>
+                            <div class="alert alert-secondary">
+                                <h2 class="fs-title">Calendrier des sélections</h2>
+                                <h4 class="text-primary">Phase de candidature</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label>Date de début des inscriptions</label>
+                                    <input type="date" min="2025-03-18" class="form-control" id="datedebutinscription" name="datedebutinscription" >
+                                    @error('datedebutinscription') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label>Date de fin des inscriptions</label>
+                                    <input type="date" min="2025-03-18" class="form-control" id="datefininscription" name="datefininscription" >
+                                    @error('datefininscription') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+
+                            <h4 class="text-primary">Phase de sélection</h4>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label>Date de début des sélections</label>
+                                    <input type="date" min="2025-03-18" class="form-control" id="datedebutselection" name="datedebutselection" >
+                                    @error('datedebutselection') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label>Date de fin des sélections</label>
+                                    <input type="date" min="2025-03-18" class="form-control" id="datefinselection" name="datefinselection" >
+                                    @error('datefinselection') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+
+                            <!-- Section 7: Équipe -->
+                            <h4 class="text-primary">Équipe</h4>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="typesactivite" class="text-primary">Formes des équipes</label>
+                                    <select class="form-control form-select" id="compositionequipes" name="compositionequipes" >
+                                        <option value="" selected>Composition des équipes</option>
+                                        <option value="En solo">En solo</option>
+                                        <option value="En equipe de 2-5 participants">En equipe de 2-5 participants</option>
+                                    </select>
+                                    @error('compositionequipes') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <input type="number" min="1" placeholder="Nombre d'équipes minimum" class="form-control" id="nombreequipesmin" name="nombreequipesmin" >
+                                    @error('nombreequipesmin') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <input type="number" min="1" placeholder="Nombre d'équipes maximum" class="form-control" id="nombreequipesmax" name="nombreequipesmax" >
+                                    @error('nombreequipesmax') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <label for="typesactivite" class="text-primary">Critère de participation</label>
+                                    <select class="form-control form-select" id="criteresparticipation" name="criteresparticipation" >
+                                        <option value="" selected>Sélectionnez un critère</option>
+                                        <option value="Être un recruteur ou entreprise">Être un recruteur ou entreprise</option>
+                                        <option value="Être une Association ou une localité">Être une Association ou une localité</option>
+                                        <option value="Accepter le règlement et les conditions de participation">Accepter le règlement et les conditions de participation</option>
+                                    </select>
+                                    @error('criteresparticipation') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                    <label>Dotation & Objet du challenge (A gagner):</label>
+                                    <textarea class="form-control" rows="5" name="dotation"
+                                        placeholder="Description de la contrepartie proposée :  Badge à gagner – Bons d’achat – Services ou marchandises …"></textarea>
+                                    @error('dotation')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                            <!-- Section 8: Géolocalisation du challenge -->
+                            <div class="alert alert-secondary">
+                                <h4 class="text-secondary"><i class="bi bi-geo-alt"></i> Géolocalisation du challenge</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label" for="">Pays</label>
+                                    <input class="form-control" type="text" name="payschallenge">
+                                    @error('payschallenge') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label" for="">Ville</label>
+                                    <input class="form-control" type="text" name="villechallenge">
+                                    @error('villechallenge') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label" for="">Campus</label>
+                                    <input class="form-control" type="text" name="campus">
+                                    @error('campus') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+
+
+
 
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Secteurs</label>
@@ -418,65 +620,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                <fieldset>
-                                    <h2>1. Violences Sexistes et Sexuelles</h2>
-                                    <label><input type="checkbox" name="violence[]" value="harcelement_rue"> Harcèlement de rue</label>
-                                    <label><input type="checkbox" name="violence[]" value="agression_physique"> Agressions physiques et sexuelles</label>
-                                    <label><input type="checkbox" name="violence[]" value="violences_conjugales"> Violences conjugales</label>
-                                    <label><input type="checkbox" name="violence[]" value="discrimination_ethnique"> Racisme et discriminations ethniques</label>
-                                    <label><input type="checkbox" name="violence[]" value="mariage_force"> Mariage forcé et mutilations sexuelles</label>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                  <fieldset>
-                                    <h2>2. Discriminations</h2>
-                                    <label><input type="checkbox" name="discrimination[]" value="homophobie_transphobie"> Homophobie et transphobie</label>
-                                    <label><input type="checkbox" name="discrimination[]" value="ethnique"> Racisme et discriminations ethniques</label>
-                                    <label><input type="checkbox" name="discrimination[]" value="religieuse"> Discriminations religieuses</label>
-                                    <label><input type="checkbox" name="discrimination[]" value="handicap"> Discriminations contre les personnes handicapées</label>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                  <fieldset>
-                                    <h2>3. Agressions et Menaces Directes</h2>
-                                    <label><input type="checkbox" name="agressions[]" value="rixes"> Rixes et bagarres</label>
-                                    <label><input type="checkbox" name="agressions[]" value="agressions_gratuites"> Agressions gratuites ou ciblées</label>
-                                    <label><input type="checkbox" name="agressions[]" value="armes"> Usage d’armes blanches ou à feu</label>
-                                    <label><input type="checkbox" name="agressions[]" value="kidnapping"> Tentatives de kidnapping et enlèvements</label>
-                                    <label><input type="checkbox" name="agressions[]" value="vehicules_suspects"> Signalement de véhicules suspects près des écoles</label>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                  <fieldset>
-                                    <h2>4. Sécurité des Biens et Vols</h2>
-                                    <label><input type="checkbox" name="biens[]" value="intrusions"> Intrusions illégales</label>
-                                    <label><input type="checkbox" name="biens[]" value="cambriolages"> Cambriolages avec ou sans effraction</label>
-                                    <label><input type="checkbox" name="biens[]" value="vols_commerces"> Vols dans les commerces</label>
-                                    <label><input type="checkbox" name="biens[]" value="vols_arraché"> Vols à l’arraché et pickpockets</label>
-                                    <label><input type="checkbox" name="biens[]" value="degradations_ciblees"> Dégradations volontaires ciblées</label>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                  <fieldset>
-                                    <h2>5. Criminalité et Menaces</h2>
-                                    <label><input type="checkbox" name="criminalite[]" value="trafic_drogue"> Trafic de drogues & stupéfiants</label>
-                                    <label><input type="checkbox" name="criminalite[]" value="terrorisme"> Actes de terrorisme</label>
-                                    <label><input type="checkbox" name="criminalite[]" value="radicalisation"> Recrutement & radicalisation</label>
-                                    <label><input type="checkbox" name="criminalite[]" value="abus_policiers"> Violences & abus policiers</label>
-                                    <label><input type="checkbox" name="criminalite[]" value="ecole_incivilites"> Incivilités en milieu scolaire</label>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                  <fieldset>
-                                    <h2>6. Incivilités et Troubles</h2>
-                                    <label><input type="checkbox" name="incivilites[]" value="degradations_insalubrite"> Dégradations & insalubrité urbaine</label>
-                                    <label><input type="checkbox" name="incivilites[]" value="troubles_voisinage"> Nuisances et troubles du voisinage</label>
-                                    <label><input type="checkbox" name="incivilites[]" value="stationnement"> Stationnement dangereux ou infractions</label>
-                                    <label><input type="checkbox" name="incivilites[]" value="commerces"> Incivilités dans les commerces</label>
-                                    <label><input type="checkbox" name="incivilites[]" value="transports"> Comportements antisociaux dans les transports</label>
-                                  </fieldset>
-                                </div>
+
+
                                 <!-- Section Récompense (adaptée du formulaire HelloCampus) -->
                                 <div class="alert alert-secondary">
                                     <h4 class="text-secondary"><i class="bi bi-gift"></i> Récompense du Challenge</h4>

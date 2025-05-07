@@ -1,7 +1,16 @@
-@extends('layouts.business')
-@section('content')
-<style>
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Talent Cyber Security Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
     h1 {
       color: #0a3d62;
       font-size: 32px;
@@ -14,11 +23,11 @@
     p {
       margin: 15px 0;
     }
-    section   ul {
+    ul {
       list-style: none;
       padding: 0;
     }
-  .section  ul li::before {
+    ul li::before {
       content: "✅ ";
       color: green;
     }
@@ -49,7 +58,10 @@
       background-color: #b71540;
     }
   </style>
-<div class="section">
+</head>
+<body>
+
+  <div class="section">
     <h1>Lancez votre Talent Cyber Security Challenge</h1>
     <p><strong>Anticipez les menaces, protégez vos données, renforcez vos infrastructures et vos usagers.</strong></p>
     <p>Lancez un appel à solutions structuré, ouvert à une communauté de talents qualifiés, issus de formations spécialisées et d’écosystèmes technologiques, en Europe comme à l’international.</p>
@@ -98,7 +110,9 @@
 
   <div class="section button-container">
     <h2>Prêt à innover en cybersécurité ?</h2>
-    <a href="/business/challenges/create" class="btn">Lancer mon Cyber-Challenge</a>
+    <a href="#" class="btn">Lancer mon Cyber-Challenge</a>
     <a href="#" class="btn secondary">Non, j’ai fini</a>
   </div>
-  @endsection
+
+</body>
+</html>

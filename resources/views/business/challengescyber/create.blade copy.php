@@ -162,7 +162,7 @@
                                         promoteur du challenge.</p>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <div class="alert alert-secondary">
                                         <h4 class="text-secondary"><i class="bi bi-person-badge"></i> Informations
                                             personnelles contact</h4>
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <div class="row g-3">
                                         <div class="alert alert-secondary">
                                             <h4 class="text-secondary"><i class="bi bi-geo"></i> Localisation</h4>
@@ -325,62 +325,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="col-md-12 mb-3">
-                                    <div>
-                                        <label for="">Image du  SafeSafeChallenge </label>
-                                        <input class="form-control" type="file" name="image"
-                                            aria-label="file example">
-                                        @error('image')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label class="form-label" for="">Objectif stratégique du Safe-Challenge pour un Territoire Sécurisé</label>
-                                            <select id="actionsPrioritaires" name="action_prioritaire" class="form-control">
-                                                <option value="Créer un réseau d’alerte locale"> Créer un réseau d’alerte locale</option>
-                                                <option value="Renforcer la protection des zones sensibles">Renforcer la protection des zones sensibles</option>
-                                                <option value="Former citoyens et travailleurs">Former citoyens et travailleurs</option>
-                                                <option value="Optimiser la coopération avec les forces de l’ordre"> Optimiser la coopération avec les forces de l’ordre</option>
-                                                <option value="Développer des Safe solutions innovantes">Développer des Safe solutions innovantes</option>
-                                                <option value="Encourager l’engagement citoyen">Encourager l’engagement citoyen</option>
-                                                <option value="Sensibiliser et prévenir les risques">Sensibiliser et prévenir les risques</option>
-                                                <option value="Faciliter l’aménagement sécurisé des espaces"> Faciliter l’aménagement sécurisé des espaces</option>
-                                                <option value="Promouvoir la vigilance numérique"> Promouvoir la vigilance numérique</option>
-                                                <option value="Accompagner les commerçants & entreprises dans l’évaluation des risques">Accompagner les commerçants & entreprises dans l’évaluation des risques</option>
-                                            </select>
-                                            @error('type')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12 col-md-6 mb-3">
-                                            <label class="form-label" for="">Secteurs d’activités concernés </label>
-                                            <select class="form-select" name="secteurs">
-                                                <option value="agriculture">Agriculture, sylviculture et pêche</option>
-                                                <option value="industrie-extractive">Industrie extractive</option>
-                                                <option value="industrie-manufacturiere">Industrie manufacturière</option>
-                                                <option value="energie-eau-dechets">Production et distribution d’électricité, gaz,
-                                                    vapeur, air conditionné, eau, assainissement & gestion des déchets</option>
-                                                <option value="commerce-reparation">Commerce et réparation de véhicules automobiles
-                                                    et motocycles</option>
-                                                <option value="transport">Transport et entreposage</option>
-                                                <option value="hebergement-restauration">Hébergement et restauration</option>
-                                                <option value="information-communication">Information et communication</option>
-                                                <option value="finance-assurance">Activités financières et d’assurance</option>
-                                                <option value="immobilier">Activités immobilières</option>
-                                                <option value="services-techniques">Activités spécialisées, techniques et
-                                                    scientifiques</option>
-                                                <option value="services-administratifs">Activités de services administratives et de
-                                                    soutien</option>
-                                                <option value="administration-publique">Administration publique</option>
-                                                <option value="enseignement">Enseignement</option>
-                                                <option value="sante-action-sociale">Santé humaine et action sociale</option>
-                                                <option value="arts-spectacles">Arts, spectacles et activités récréatives</option>
-                                            </select>
-                                            @error('secteurs')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label" for="">Type du challenge</label>
                                     <input class="form-control" type="text" name="type">

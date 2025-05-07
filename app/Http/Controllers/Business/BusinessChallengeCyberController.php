@@ -6,52 +6,25 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Challenge;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
-class BusinessChallengeController extends Controller
+class BusinessChallengeCyberController extends Controller
 {
     public function index()
     {
         $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('business.challenges.index', compact('challenges'));
-    }
-
-    public function appel()
-    {
-        $token = '1|7t1OyCWq6VCk5mwZjx7qYrig516SzJme1XJooapC9ba062d1'; // idéalement stocké dans .env
-        $data =[];
-        for ($i = 1; $i < 26; $i++) {
-            $response = Http::withToken($token)
-            ->get('https://dev-tr.web-pyrenees.fr/api/admin/users/'.$i);
-
-        if ($response->successful()) {
-            $data[]=$response->json();
-        }
-        else
-        return response()->json([
-            'error' => 'Erreur API',
-            'status' => $response->status(),
-        ], $response->status());
-        }
-
-       return response()->json($data);
-
-
-
-
-
+        return view('business.challengescyber.index', compact('challenges'));
     }
 
     public function helps()
     {
         $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('business.challenges.help', compact('challenges'));
+        return view('business.challengescyber.help', compact('challenges'));
     }
 
     public function trouverchallenge()
     {
         $challenges = Challenge::where('business_id', Auth::guard('business')->user()->id)->get();
-        return view('business.challenges.trouverchallenge', compact('challenges'));
+        return view('business.challengescyber.trouverchallenge', compact('challenges'));
     }
 
     public function posterintrodchallenge()
@@ -63,7 +36,7 @@ class BusinessChallengeController extends Controller
             "Luxembourg" => $villes_luxembourg,
             "France" => $villes_frances
         ];
-        return view('business.challenges.posterintrodchallenge', [
+        return view('business.challengescyber.posterintrodchallenge', [
             "villes_belgique" => $villes_belgiques,
             "villes_luxembourg" => $villes_luxembourg,
             "villes_frances" => $villes_frances,
@@ -78,7 +51,7 @@ class BusinessChallengeController extends Controller
             "Luxembourg" => $villes_luxembourg,
             "France" => $villes_frances
         ];
-        return view('business.challenges.create', [
+        return view('business.challengescyber.create', [
             "villes_belgique" => $villes_belgiques,
             "villes_luxembourg" => $villes_luxembourg,
             "villes_frances" => $villes_frances,
@@ -195,7 +168,7 @@ class BusinessChallengeController extends Controller
 
         // Retourner une réponse ou redirection
         toastr()->success('Challenge enregistré avec succès.');
-        return redirect("business/challenges");
+        return redirect("business/challengescyber");
     }
 
 
@@ -206,19 +179,19 @@ class BusinessChallengeController extends Controller
         $user = Auth::guard('business')->user()->id;
 
         $challenge = Challenge::where('id', $challenge->id)->first();
-        return view('business.challenges.description', ['challenge' => $challenge]);
+        return view('business.challengescyber.description', ['challenge' => $challenge]);
     }
 
 
 
     public function show(Challenge $challenge)
     {
-        return view('challenges.show', compact('challenge'));
+        return view('challengescyber.show', compact('challenge'));
     }
 
     public function edit(Challenge $challenge)
     {
-        return view('challenges.edit', compact('challenge'));
+        return view('challengescyber.edit', compact('challenge'));
     }
 
 

@@ -24,6 +24,8 @@ use App\Http\Controllers\Business\BusinessCampusController;
 use App\Http\Controllers\Social\Auth\LoginSocialController;
 use App\Http\Controllers\Territory\TerritoryCampusController;
 use App\Http\Controllers\Business\BusinessChallengeController;
+use App\Http\Controllers\Business\BusinessChallengeCyberController;
+
 use App\Http\Controllers\Business\DashboardBusinessController;
 use App\Http\Controllers\Social\Auth\RegisterSocialController;
 use App\Http\Controllers\Business\Auth\LoginBusinessController;
@@ -111,6 +113,8 @@ Route::prefix('campus')->middleware(['campus.auth'])->group(function () {
         Route::get('challenges/create', 'create');
         Route::post('challenges/create', 'store');
      });
+
+
 });
 
 // Les Routes de l'authentification pour City Angels
@@ -215,6 +219,7 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
 
     Route::controller(BusinessChallengeController::class)->group(function () {
        Route::get('challenges', 'index');
+       Route::get('challenges/appelle-api', 'appel');
        Route::get('challenges/posterintrodchallenge', 'posterintrodchallenge');
        Route::get('challenges/helps', 'helps');
        Route::get('challenges/trouverchallenge', 'trouverchallenge');
@@ -222,6 +227,16 @@ Route::prefix('business')->middleware(['business.auth'])->group(function () {
        Route::get('challenges/create', 'create');
        Route::post('challenges/create', 'store');
     });
+
+    Route::controller(BusinessChallengeCyberController::class)->group(function () {
+        Route::get('challengescyber', 'index');
+        Route::get('challengescyber/posterintrodchallenge', 'posterintrodchallenge');
+        Route::get('challengescyber/helps', 'helps');
+        Route::get('challengescyber/trouverchallenge', 'trouverchallenge');
+        Route::get('challengescyber/descriptionchallenge/{challenge}', 'descriptionchallenge');
+        Route::get('challengescyber/create', 'create');
+        Route::post('challengescyber/create', 'store');
+     });
 
     Route::controller(BusinessIntervationController::class)->group(function () {
         Route::get('intervations/avis_commentaires', 'index');

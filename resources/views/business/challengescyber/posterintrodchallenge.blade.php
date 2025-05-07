@@ -98,7 +98,7 @@
 
   <div class="section button-container">
     <h2>Prêt à innover en cybersécurité ?</h2>
-    <a href="/business/challenges/create" class="btn">Lancer mon Cyber-Challenge</a>
+    <a href="/business/challengescyber/create" class="btn">Lancer mon Cyber-Challenge</a>
     <a href="#" class="btn secondary">Non, j’ai fini</a>
   </div>
   @endsection
