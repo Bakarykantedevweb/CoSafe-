@@ -356,34 +356,7 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                <div class="col-12 col-md-6 mb-3">
-                                    <label class="form-label" for="">Secteurs d’activités concernés </label>
-                                    <select class="form-select" name="secteurs">
-                                        <option value="agriculture">Agriculture, sylviculture et pêche</option>
-                                        <option value="industrie-extractive">Industrie extractive</option>
-                                        <option value="industrie-manufacturiere">Industrie manufacturière</option>
-                                        <option value="energie-eau-dechets">Production et distribution d’électricité, gaz,
-                                            vapeur, air conditionné, eau, assainissement & gestion des déchets</option>
-                                        <option value="commerce-reparation">Commerce et réparation de véhicules automobiles
-                                            et motocycles</option>
-                                        <option value="transport">Transport et entreposage</option>
-                                        <option value="hebergement-restauration">Hébergement et restauration</option>
-                                        <option value="information-communication">Information et communication</option>
-                                        <option value="finance-assurance">Activités financières et d’assurance</option>
-                                        <option value="immobilier">Activités immobilières</option>
-                                        <option value="services-techniques">Activités spécialisées, techniques et
-                                            scientifiques</option>
-                                        <option value="services-administratifs">Activités de services administratives et de
-                                            soutien</option>
-                                        <option value="administration-publique">Administration publique</option>
-                                        <option value="enseignement">Enseignement</option>
-                                        <option value="sante-action-sociale">Santé humaine et action sociale</option>
-                                        <option value="arts-spectacles">Arts, spectacles et activités récréatives</option>
-                                    </select>
-                                    @error('secteurs')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+
                                 <div class="alert alert-secondary">
                                     <label for="typeRisque"><strong>Identification de la problématique à solutionner</strong></label><br>
 
@@ -499,16 +472,151 @@ Dans quel contexte se situe votre besoin en cybersécurité ?
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-12 mb-3">
-                            <div>
-                                <label for="">Décrivez en détail la problématique joignant un fichier descriptif éventuel : </label>
+                            <div class="col-12 col-md-12 mb-3">
+                                <label>Décrivez en détail la problématique joignant un fichier descriptif éventuel : </label>
                                 <input class="form-control" type="file" name="image"
                                     aria-label="file example">
                                 @error('image')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                        </div>
+
+                            <div class="col-12 col-md-12 mb-3">
+                                    <label><b>Quelles sont les contraintes actuelles liées à la problématique ?</b>
+                                    <br>
+Veuillez décrire ces contraintes
+</label>
+                                    <textarea class="form-control" rows="5" name="dotation"
+                                        placeholder="Veuillez décrire dans ce cadre, la contrepartie que vous proposez ou vous demandez en tant que Eco-Talent :  Badge à gagner – Bons d’achat – Services ou marchandises souhaités, Jobs …"></textarea>
+                                    @error('dotation')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-12 col-md-12 mb-3">
+                                    <label><b>Quelles exigences minimales doivent être respectées par les solutions proposées ?
+(ex. budget limité….)
+</b>
+                                    <br>
+Veuillez décrire ces contraintes
+</label>
+                                    <textarea class="form-control" rows="5" name="dotation"
+                                        placeholder="Veuillez décrire dans ce cadre, la contrepartie que vous proposez ou vous demandez en tant que Eco-Talent :  Badge à gagner – Bons d’achat – Services ou marchandises souhaités, Jobs …"></textarea>
+                                    @error('dotation')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-12 col-md-12 mb-3">
+                                <label for="">Règlement du Challenge        : </label>
+                                <input class="form-control" type="file" name="image"
+                                    aria-label="file example">
+                                @error('image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                <label class="form-label">Thématiques sociales du Cyber Challenges proposés: </label>
+                                <select name="theme" id="theme"  class="form-select">
+      <option value="bien-etre">Bien-être & responsabilité fournisseur</option>
+      <option value="climat">Climat, biodiversité & perf environnement</option>
+      <option value="inclusion-discrimination">Inclusion & lutte contre les discriminations</option>
+      <option value="eco-locale">Développement de l’économie locale</option>
+      <option value="eco-sociale">Éco sociale & partenariats solidaires</option>
+      <option value="egalite-femmes">Égalité professionnelle & leadership féminin</option>
+      <option value="handicap">Inclusion pers. en situation de handicap</option>
+      <option value="risques-psycho">Prév risques psycho-sociaux & harcèlement</option>
+      <option value="jeunesse">Éduca, insertion & engagement des jeunes</option>
+      <option value="cohesion-paix">Cohésion soc, paix & tolérance en entreprise</option>
+      <option value="precarite-etudiante">Lutte contre la précarité étudiante & jeune</option>
+      <option value="precarite-sociale">Inclusion & lutte contre la précarité sociale</option>
+      <option value="solidarite-internationale">Solidarité internationale & dév durable glob</option>
+      <option value="intergenerationnelle">Accompagnement & transition intergénérationnelle</option>
+      <option value="sport-sante">Sport, santé & qualité de vie au travail</option>
+      <option value="violences-femmes">Lutte contre les violences faites aux femmes</option>
+    </select>
+                            </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                    <label class="form-label" for="">Type du challenge</label>
+                                    <select name="profil" id="profil" class="form-select">
+      <option value="talent-confirme">Talent confirmé</option>
+      <option value="talent-starter">Talent starter</option>
+      <option value="demandeur-emploi">Demandeur d’emploi</option>
+      <option value="freelance">Freelance</option>
+      <option value="etudiant">Étudiant</option>
+      <option value="autre">Autre</option>
+    </select>
+                                    @error('type')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12 col-md-12 mb-3">
+
+                                    <label class="form-label" for="">Secteurs d’activités concernés </label>
+                                    <select class="form-select" name="secteurs">
+                                        <option value="agriculture">Agriculture, sylviculture et pêche</option>
+                                        <option value="industrie-extractive">Industrie extractive</option>
+                                        <option value="industrie-manufacturiere">Industrie manufacturière</option>
+                                        <option value="energie-eau-dechets">Production et distribution d’électricité, gaz,
+                                            vapeur, air conditionné, eau, assainissement & gestion des déchets</option>
+                                        <option value="commerce-reparation">Commerce et réparation de véhicules automobiles
+                                            et motocycles</option>
+                                        <option value="transport">Transport et entreposage</option>
+                                        <option value="hebergement-restauration">Hébergement et restauration</option>
+                                        <option value="information-communication">Information et communication</option>
+                                        <option value="finance-assurance">Activités financières et d’assurance</option>
+                                        <option value="immobilier">Activités immobilières</option>
+                                        <option value="services-techniques">Activités spécialisées, techniques et
+                                            scientifiques</option>
+                                        <option value="services-administratifs">Activités de services administratives et de
+                                            soutien</option>
+                                        <option value="administration-publique">Administration publique</option>
+                                        <option value="enseignement">Enseignement</option>
+                                        <option value="sante-action-sociale">Santé humaine et action sociale</option>
+                                        <option value="arts-spectacles">Arts, spectacles et activités récréatives</option>
+                                    </select>
+                                    @error('secteurs')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-12 col-md-12 mb-3">
+
+<label class="form-label" for=""><b>Critères d’évaluation lors de la sélection </b>(pour évaluer les propositions ?)
+<br>
+<label class="form-label" >
+      <input type="checkbox" name="criteres[]" value="creativite">
+      <strong>1. Créativité & originalité de la solution proposée</strong><br>
+      → Capacité de la solution à proposer une approche innovante, différenciante ou disruptive en cybersécurité (technologie, usage, modèle, etc.).
+    </label><br><br>
+
+    <label class="form-label" >
+      <input type="checkbox" name="criteres[]" value="impact">
+      <strong>2. Impact sur la réduction des vulnérabilités numériques</strong><br>
+      → Potentiel mesurable de la solution à réduire les risques cyber (fuites de données, ransomwares, phishing, shadow IT…) et à renforcer la résilience globale.
+    </label><br><br>
+
+    <label class="form-label" >
+      <input type="checkbox" name="criteres[]" value="faisabilite">
+      <strong>3. Faisabilité technique & compatibilité avec l’écosystème IT</strong><br>
+      → Niveau de maturité technologique, interopérabilité avec les systèmes existants, facilité d’intégration dans un environnement d’entreprise.
+    </label><br><br>
+
+    <label class="form-label" >
+      <input type="checkbox" name="criteres[]" value="viabilite">
+      <strong>4. Viabilité économique & modèle de déploiement</strong><br>
+      → Coût de mise en œuvre, ROI prévisible, modèle économique viable pour une intégration durable dans une stratégie cybersécurité.
+    </label><br><br>
+
+    <label class="form-label" >
+      <input type="checkbox" name="criteres[]" value="durabilite">
+      <strong>5. Durabilité & évolutivité de la solution</strong><br>
+      → Capacité de la solution à évoluer dans le temps, à s’adapter aux nouvelles menaces, à soutenir une montée en charge ou un déploiement à plus large échelle.
+    </label>
+
+@error('secteurs')
+    <span class="text-danger">{{ $message }}</span>
+@enderror
+</div>
+
                             <div class="alert alert-secondary">
                                 <h2 class="fs-title">Calendrier des sélections</h2>
                                 <h4 class="text-primary">Phase de candidature</h4>
@@ -579,6 +687,7 @@ Dans quel contexte se situe votre besoin en cybersécurité ?
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+
 
                             <!-- Section 8: Géolocalisation du challenge -->
                             <div class="alert alert-secondary">
